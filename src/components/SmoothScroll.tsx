@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
+import { registerLenis, scrollToTop } from "@/lib/scroll";
 
 /**
  * Lenis drives the whole page. It is skipped entirely under reduced motion, and
@@ -9,9 +11,29 @@ import Lenis from "lenis";
  * fights interpolation and ends up feeling worse, not better.
  */
 export default function SmoothScroll() {
+  const pathname = usePathname();
+
+  /**
+   * Start every page at the top.
+   *
+   * Browsers restore the previous scroll position on reload, which lands you
+   * mid-page with the scroll-linked hero already half open and the walk
+   * partway through. Turning restoration off makes a refresh behave like a
+   * fresh arrival, and the same reset runs on every route change so navigating
+   * never drops you into the middle of a page.
+   */
+  useEffect(() => {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  }, []);
+
+  useEffect(() => {
+    scrollToTop({ immediate: true });
+  }, [pathname]);
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (window.matchMedia("(pointer: coarse)").matches) return;
+
 
     const lenis = new Lenis({
       duration: 1.15,
@@ -19,6 +41,8 @@ export default function SmoothScroll() {
       smoothWheel: true,
       touchMultiplier: 1.6,
     });
+
+    registerLenis(lenis);
 
     let id = 0;
     const raf = (time: number) => {
@@ -43,6 +67,7 @@ export default function SmoothScroll() {
     return () => {
       document.removeEventListener("click", onClick);
       cancelAnimationFrame(id);
+      registerLenis(null);
       lenis.destroy();
     };
   }, []);

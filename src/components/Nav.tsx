@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { NAV } from "@/lib/site";
 import { Wordmark } from "./Marks";
+import { scrollToTop } from "@/lib/scroll";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -108,7 +109,15 @@ export default function Nav() {
           href="/"
           className="shrink-0 py-2"
           aria-label="Rai Arts, home"
-          onClick={() => setOpen(false)}
+          onClick={(e) => {
+            setOpen(false);
+            // Already home? Next won't re-navigate, so scroll up ourselves.
+            // Coming from another page, the route change resets scroll anyway.
+            if (pathname === "/") {
+              e.preventDefault();
+              scrollToTop();
+            }
+          }}
         >
           <Wordmark className="h-auto w-[104px] sm:w-[128px]" />
         </Link>
