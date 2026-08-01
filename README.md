@@ -89,10 +89,13 @@ state is gated behind a `.js` class set by an inline script in `<head>`. Without
 JavaScript the server HTML renders as plain, complete text. Don't add
 `opacity: 0` to a component without that gate.
 
-**`public/__forms.html` is load-bearing.** Netlify only discovers forms by parsing
-static HTML at build time, and this site is server-rendered, so the form shapes are
-declared there and the live React forms POST back to it. Deleting it silently
-breaks both forms.
+**The forms do not work on Vercel.** They were built for Netlify, which discovers
+forms by parsing static HTML at build time — so the shapes are declared in
+`public/__forms.html` and the live React forms POST back to that path. On Vercel
+that path will not accept a POST, so the contact form and the online waitlist
+both fail and show their error state. Known and deliberately deferred; fixing it
+means either a Next.js route handler or pointing the forms at a service such as
+Formspree. Keep `public/__forms.html` if you ever move back to Netlify.
 
 **Lenis owns smooth scrolling**, so `scroll-behavior: smooth` is deliberately absent
 from CSS. Next 16 no longer neutralises it during navigation and the two would
