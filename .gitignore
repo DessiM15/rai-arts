@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# node_modules is parked here so iCloud Drive skips it (see README)
+/node_modules.nosync
+
+# iCloud conflict copies
+*\ 2
+*\ 2.*

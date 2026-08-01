@@ -3,6 +3,11 @@ import { PILLARS } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { SectionHead, Steps } from "@/components/editorial";
+import PinnedPillars from "@/components/PinnedPillars";
+import Marquee from "@/components/Marquee";
+import Statement from "@/components/Statement";
+import ArtPanel from "@/components/ArtPanel";
 
 export const metadata: Metadata = {
   title: "The Career Readiness Framework",
@@ -17,16 +22,9 @@ const COURSE_JSONLD = {
   name: "The Rai Arts Career Readiness Framework™",
   description:
     "A five-pillar curriculum preparing dancers for the business of a dance career: career foundations, business readiness, financial readiness, professional readiness, and longevity readiness.",
-  provider: {
-    "@type": "Organization",
-    name: SITE.name,
-    url: SITE.url,
-  },
+  provider: { "@type": "Organization", name: SITE.name, url: SITE.url },
   educationalLevel: "Undergraduate",
-  audience: {
-    "@type": "EducationalAudience",
-    educationalRole: "student",
-  },
+  audience: { "@type": "EducationalAudience", educationalRole: "student" },
   teaches: PILLARS.map((p) => p.title),
   hasCourseInstance: {
     "@type": "CourseInstance",
@@ -34,6 +32,21 @@ const COURSE_JSONLD = {
     courseWorkload: "PT90M",
   },
 };
+
+const FORMATS = [
+  {
+    title: "A single workshop",
+    body: "One pillar, 60 to 90 minutes, delivered as a guest lecture or class visit. The most common way a program starts.",
+  },
+  {
+    title: "A pillar series",
+    body: "Three to five linked sessions built around the pillars your students need most, usually spread across a semester.",
+  },
+  {
+    title: "The full capstone",
+    body: "All five pillars as a semester-long capstone for a graduating cohort, with worksheets and take-home frameworks.",
+  },
+];
 
 export default function Framework() {
   return (
@@ -43,100 +56,77 @@ export default function Framework() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(COURSE_JSONLD) }}
       />
 
-      <Container className="pt-32 pb-16 sm:pt-40 sm:pb-20">
-        <Label>The framework</Label>
-        <Lines
-          as="h1"
-          className="font-display mt-5 max-w-4xl text-[length:var(--text-step-3)]"
-          lines={["The Rai Arts Career", "Readiness Framework™"]}
-        />
-        <Words
-          className="mt-7 max-w-[58ch] text-ink-soft"
-          text="Our signature curriculum covers everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness. Take one pillar as a standalone workshop, a themed series, or the whole framework as a semester-long capstone."
-        />
-        <Rise delay={0.4} className="mt-9 flex flex-wrap gap-3">
-          <Button href="/contact">Bring it to your program</Button>
-          <Button href="/workshops" variant="ghost">
-            See workshop formats
-          </Button>
+      {/* ── hero ── */}
+      <Container className="grid items-end gap-10 pt-32 pb-16 sm:pt-40 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:pb-24">
+        <div>
+          <Label>The framework</Label>
+          <Lines
+            as="h1"
+            className="font-statement mt-6 text-[length:var(--text-step-5)]"
+            lines={["The Rai Arts", "Career Readiness", "Framework™"]}
+          />
+          <Words
+            className="mt-8 max-w-[52ch] text-[length:var(--text-step-0)] text-ink-soft"
+            text="Our signature curriculum covers everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness."
+          />
+          <Rise delay={0.4} className="mt-9 flex flex-wrap gap-3">
+            <Button href="/contact">Bring it to your program</Button>
+            <Button href="/workshops" variant="ghost">
+              See workshop formats
+            </Button>
+          </Rise>
+        </div>
+        <Rise delay={0.2}>
+          <ArtPanel variant="grid" ratio="4/5" caption="Five pillars of readiness" />
         </Rise>
       </Container>
 
-      {/* Each pillar gets the full width of the screen in turn */}
-      {PILLARS.map((p, i) => {
-        const dark = i % 2 === 1;
-        return (
-          <Section
-            key={p.n}
-            dark={dark}
-            className={dark ? "py-16 sm:py-24" : "bg-sand/45 py-16 sm:py-24"}
-          >
-            <Container className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-              <div>
-                <span
-                  className={`font-display text-[length:var(--text-step-3)] ${dark ? "text-gold" : "text-gold-deep"}`}
-                >
-                  {p.n}
-                </span>
-                <Lines
-                  as="h2"
-                  className="font-display mt-2 text-[length:var(--text-step-2)]"
-                  lines={[p.title]}
-                />
-                <p
-                  className={`mt-4 max-w-[38ch] text-[1.02rem] italic ${dark ? "text-cream/70" : "text-ink-soft"}`}
-                >
-                  {p.question}
-                </p>
-              </div>
+      <Marquee items={PILLARS.map((p) => p.title)} speed={42} />
 
-              <div>
-                <p
-                  className={`text-[0.98rem] leading-relaxed ${dark ? "text-cream/80" : "text-ink-soft"}`}
-                >
-                  {p.body}
-                </p>
-                <ul className="mt-7 flex flex-col gap-3">
-                  {p.covers.map((c, j) => (
-                    <Rise key={j} delay={j * 0.05}>
-                      <li className="flex gap-3.5 text-[0.92rem] leading-relaxed">
-                        <span
-                          aria-hidden="true"
-                          className={`mt-[0.62em] h-[0.38em] w-[0.38em] flex-none rounded-full ${dark ? "bg-gold" : "bg-gold-deep"}`}
-                        />
-                        <span className={dark ? "text-cream/80" : "text-ink"}>
-                          {c}
-                        </span>
-                      </li>
-                    </Rise>
-                  ))}
-                </ul>
-              </div>
-            </Container>
-          </Section>
-        );
-      })}
+      {/* ── the pillars, pinned ── */}
+      <Section dark className="py-20 sm:py-28 lg:py-36">
+        <Container>
+          <PinnedPillars pillars={PILLARS} />
+        </Container>
+      </Section>
 
-      <Section dark className="bg-forest-deep py-24 text-center sm:py-32">
-        <Container className="flex flex-col items-center">
-          <Label>Next step</Label>
-          <Lines
-            as="h2"
-            className="font-display mt-6 text-[length:var(--text-step-2)]"
+      <Statement
+        dark={false}
+        kicker="Why it's built this way"
+        lines={["Technique is taught.", "The profession", "is not."]}
+        footnote="Every pillar exists because it is something dancers are expected to already know, and are almost never actually taught."
+      />
+
+      {/* ── formats ── */}
+      <Container className="py-20 sm:py-28">
+        <SectionHead
+          index="02"
+          label="Formats"
+          lines={["Three ways", "to run it."]}
+          body="Take one pillar on its own, a themed series, or the whole framework as a capstone. Every version is built around your students, not a fixed script."
+        />
+        <div className="mt-12">
+          <Steps items={FORMATS} />
+        </div>
+      </Container>
+
+      {/* ── cta ── */}
+      <Section dark className="bg-forest-deep py-24 sm:py-32">
+        <Container className="flex flex-col items-center text-center">
+          <SectionHead
+            label="Next step"
+            align="center"
+            dark
             lines={["One workshop, a series,", "or the full capstone."]}
-          />
-          <p className="mt-6 max-w-[48ch] text-cream/70">
-            Tell us your department, class year, and timeframe, and we&apos;ll
-            put together the shape that fits your program.
-          </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
+            body="Tell us your department, class year, and timeframe, and we'll put together the shape that fits your program."
+          >
             <Button href="/contact" variant="gold">
               Request a workshop
             </Button>
             <Button href="/shop" variant="ghost-light">
               Get the career guide
             </Button>
-          </div>
+          </SectionHead>
         </Container>
       </Section>
     </>

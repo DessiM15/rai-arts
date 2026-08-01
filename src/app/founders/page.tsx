@@ -3,6 +3,9 @@ import Image from "next/image";
 import { SITE } from "@/lib/site";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { Quote, SectionHead } from "@/components/editorial";
+import Marquee from "@/components/Marquee";
+import Statement from "@/components/Statement";
 
 export const metadata: Metadata = {
   title: "Founders",
@@ -33,17 +36,16 @@ export default function Founders() {
         <Label>Founders</Label>
         <Lines
           as="h1"
-          className="font-display mt-5 max-w-4xl text-[length:var(--text-step-3)]"
+          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-5)]"
           lines={["The dancer who", "went looking for", "the roadmap."]}
         />
       </Container>
 
+      {/* portrait + story */}
       <Container className="grid gap-12 pb-20 sm:pb-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <Rise>
-          <figure className="relative isolate">
-            {/* The same gold thread as everywhere else, passing behind her —
-                it emerges top-left, disappears behind the portrait, and comes
-                back out along the bottom to underline her name. */}
+          <figure className="relative isolate lg:sticky lg:top-32">
+            {/* the gold thread, passing behind her */}
             <svg
               className="pointer-events-none absolute -top-6 -left-5 -z-10 h-[calc(100%+5rem)] w-[calc(100%+2.5rem)] text-gold sm:-top-10 sm:-left-12 sm:h-[calc(100%+7rem)] sm:w-[calc(100%+7rem)]"
               viewBox="0 0 100 120"
@@ -60,23 +62,23 @@ export default function Founders() {
               />
             </svg>
 
-            <div className="relative overflow-hidden rounded-sm bg-forest">
+            <div className="grain relative isolate overflow-hidden rounded-sm bg-forest">
               <Image
                 src="/images/kira.jpg"
                 alt={`${SITE.founder}, founder of Rai Arts`}
                 width={1600}
                 height={2400}
-                sizes="(min-width: 1024px) 30vw, (min-width: 640px) 60vw, 90vw"
+                sizes="(min-width: 1024px) 32vw, 92vw"
                 priority
                 className="h-auto w-full object-cover"
               />
             </div>
 
             <figcaption className="mt-5">
-              <p className="font-display-sm text-[length:var(--text-step-1)]">
+              <p className="font-statement text-[length:var(--text-step-1)]">
                 {SITE.founder}
               </p>
-              <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-gold-deep">
+              <p className="mt-1.5 font-mono text-[0.62rem] tracking-[0.16em] text-gold-deep uppercase">
                 Founder · Rai Arts
               </p>
             </figcaption>
@@ -85,42 +87,35 @@ export default function Founders() {
 
         <div className="flex flex-col gap-6">
           <Words
-            className="text-[1.02rem] leading-relaxed text-ink-soft"
+            className="text-[length:var(--text-step-1)] leading-snug"
             text="Kira Rai Daniel is a dancer, educator, and advocate. She founded Rai Arts to equip aspiring dancers with the essential business knowledge and skills needed to navigate a successful and sustainable career in dance."
           />
 
           {/* DRAFT — written in the brand voice, awaiting Kira's own words. */}
-          <p className="max-w-[62ch] leading-relaxed text-ink-soft">
+          <p className="max-w-[60ch] leading-relaxed text-ink-soft">
             Like most dancers, she trained for years in technique, artistry, and
             performance, then graduated into a profession nobody had explained
             the business of. What a contract actually says. What the work pays.
-            How to build income across a season. Which of her skills transferred,
-            and where.
+            How to build income across a season. Which of her skills
+            transferred, and where.
           </p>
-          <p className="max-w-[62ch] leading-relaxed text-ink-soft">
+          <p className="max-w-[60ch] leading-relaxed text-ink-soft">
             She built the roadmap she went looking for, then turned it into a
             curriculum. The Rai Arts Career Readiness Framework™ is the result:
             five pillars covering the whole profession, delivered to dance
-            programs as workshops so students graduate with the language, tools,
-            and confidence to understand their options, create income, and make
-            informed decisions.
-          </p>
-          <p className="max-w-[62ch] leading-relaxed text-ink-soft">
-            The point was never to talk anyone out of dancing. It was to make
-            staying possible.
+            programs as workshops so students graduate with the language,
+            tools, and confidence to understand their options, create income,
+            and make informed decisions.
           </p>
 
-          <blockquote className="mt-4 border-l-2 border-gold pl-6">
-            <p className="font-display-sm text-[length:var(--text-step-1)] text-forest">
-              &ldquo;Dancers shouldn&apos;t have to choose between the art and a
-              living. The whole point is to build a career that holds both.&rdquo;
-            </p>
-            <footer className="mt-3 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-ink-soft">
-              {SITE.founder}
-            </footer>
-          </blockquote>
+          <Rise className="mt-6 border-t border-forest/12 pt-10">
+            <Quote attribution={SITE.founder} role="Founder">
+              Dancers shouldn&apos;t have to choose between the art and a
+              living. The whole point is to build a career that holds both.
+            </Quote>
+          </Rise>
 
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Button href="/framework">Explore the framework</Button>
             <Button href="/contact" variant="ghost">
               Book a workshop
@@ -129,11 +124,27 @@ export default function Founders() {
         </div>
       </Container>
 
-      <Section dark className="bg-forest-deep py-16 text-center sm:py-20">
-        <Container>
-          <p className="font-display-sm mx-auto max-w-[40ch] text-[length:var(--text-step-1)] text-gold">
-            {SITE.tagline}
-          </p>
+      <Marquee items={["Dancer", "Educator", "Advocate", "Founder"]} speed={34} />
+
+      <Statement
+        kicker="Why it exists"
+        lines={["The point was never", "to talk anyone", "out of dancing."]}
+        footnote="It was to make staying possible."
+      />
+
+      <Section dark className="bg-forest-deep py-24 sm:py-32">
+        <Container className="flex flex-col items-center text-center">
+          <SectionHead
+            label="Work together"
+            align="center"
+            dark
+            lines={["Bring Rai Arts", "to your program."]}
+            body="Workshops for college and university dance programs, delivered on your campus."
+          >
+            <Button href="/contact" variant="gold">
+              Get in touch
+            </Button>
+          </SectionHead>
         </Container>
       </Section>
     </>

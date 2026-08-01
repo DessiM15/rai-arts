@@ -1,7 +1,17 @@
 "use client";
 
 import { Fragment, useEffect, useRef } from "react";
-import type { CSSProperties, ElementType, ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
+
+/**
+ * A small literal union, deliberately NOT React's `ElementType`.
+ *
+ * Using `ElementType` as a JSX tag forces TypeScript to resolve the props of
+ * every intrinsic element at each call site. With this many nested reveals per
+ * page that compounds until `tsc` stops responding altogether, so the tag stays
+ * narrow and only `Lines` is polymorphic at all.
+ */
+type HeadingTag = "h1" | "h2" | "h3" | "p" | "div";
 
 /**
  * Elements opt in with [data-rv], [data-rv-words] or [data-rv-label]; when they
@@ -75,25 +85,22 @@ export function Rise({
   className = "",
   delay = 0,
   y = 26,
-  as: Tag = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   y?: number;
-  as?: ElementType;
 }) {
   const ref = useReveal<HTMLDivElement>();
-  const T = Tag as ElementType;
   return (
-    <T
+    <div
       ref={ref}
       data-rv=""
       className={className}
       style={{ "--rv-d": `${delay}s`, "--rv-y": `${y}px` } as Style}
     >
       {children}
-    </T>
+    </div>
   );
 }
 
@@ -109,15 +116,14 @@ export function Lines({
   stagger = 0.11,
 }: {
   lines: string[];
-  as?: ElementType;
+  as?: HeadingTag;
   className?: string;
   delay?: number;
   stagger?: number;
 }) {
   const ref = useReveal<HTMLHeadingElement>();
-  const T = Tag as ElementType;
   return (
-    <T ref={ref} data-rv-lines="" className={className}>
+    <Tag ref={ref} data-rv-lines="" className={className}>
       {lines.map((line, i) => (
         <span key={i} className="rv-line">
           <span style={{ "--rv-d": `${delay + i * stagger}s` } as Style}>
@@ -125,7 +131,7 @@ export function Lines({
           </span>
         </span>
       ))}
-    </T>
+    </Tag>
   );
 }
 
@@ -134,18 +140,15 @@ export function Words({
   text,
   className = "",
   delay = 0.1,
-  as: Tag = "p",
 }: {
   text: string;
   className?: string;
   delay?: number;
-  as?: ElementType;
 }) {
   const ref = useReveal<HTMLParagraphElement>();
-  const T = Tag as ElementType;
   const words = text.split(/\s+/);
   return (
-    <T ref={ref} data-rv-words="" className={className}>
+    <p ref={ref} data-rv-words="" className={className}>
       {words.map((w, i) => (
         // The space must be a text node *between* the spans. Put it inside an
         // inline-block and the browser trims it, running every word together.
@@ -156,7 +159,7 @@ export function Words({
           {i < words.length - 1 ? " " : null}
         </Fragment>
       ))}
-    </T>
+    </p>
   );
 }
 

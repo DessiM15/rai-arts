@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { GUIDE, LEARN } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { SectionHead } from "@/components/editorial";
+import Marquee from "@/components/Marquee";
+import Statement from "@/components/Statement";
+import ArtPanel from "@/components/ArtPanel";
 
 export const metadata: Metadata = {
   title: "Learn",
@@ -13,108 +17,112 @@ export const metadata: Metadata = {
 export default function Learn() {
   return (
     <>
-      <Container className="pt-32 pb-16 sm:pt-40 sm:pb-20">
+      <Container className="pt-32 pb-14 sm:pt-40 sm:pb-20">
         <Label>Learn</Label>
         <Lines
           as="h1"
-          className="font-display mt-5 max-w-4xl text-[length:var(--text-step-3)]"
+          className="font-statement mt-6 max-w-[13ch] text-[length:var(--text-step-5)]"
           lines={["Free to follow,", "wherever you are", "in the career."]}
         />
         <Words
-          className="mt-7 max-w-[56ch] text-ink-soft"
+          className="mt-8 max-w-[54ch] text-[length:var(--text-step-0)] text-ink-soft"
           text="You don't need a program to bring Rai Arts in to start learning. The podcast and newsletter cover the same ground the workshops do: what the work pays, how to find it, and how to make it last."
         />
       </Container>
 
-      <Container className="pb-20 sm:pb-28">
-        <div className="grid gap-5 lg:grid-cols-2">
-          <Rise>
-            <article className="flex h-full flex-col justify-between gap-10 rounded-sm bg-forest p-8 text-cream sm:p-10">
-              <div>
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-gold">
-                  Podcast
-                </span>
-                <h2 className="font-display mt-4 text-[length:var(--text-step-2)]">
-                  {LEARN.podcast.title}
-                </h2>
-                <p className="mt-4 max-w-[40ch] leading-relaxed text-cream/75">
-                  {LEARN.podcast.body}
-                </p>
-              </div>
-              <div className="flex items-end justify-between gap-6">
-                <Button href={LEARN.podcast.href} variant="gold" external>
-                  {LEARN.podcast.cta}
-                </Button>
-                <svg
-                  width="64"
-                  height="64"
-                  viewBox="0 0 100 100"
-                  fill="none"
-                  aria-hidden="true"
-                  className="hidden text-gold/70 sm:block"
-                >
-                  <path d="M28 18 L82 50 L28 82 Z" fill="currentColor" />
-                </svg>
-              </div>
-            </article>
-          </Rise>
+      <Marquee items={["The podcast", "The newsletter", "The career guide"]} />
 
-          <Rise delay={0.08}>
-            <article className="flex h-full flex-col justify-between gap-10 rounded-sm border border-forest/15 bg-white/55 p-8 sm:p-10">
-              <div>
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-gold-deep">
-                  Newsletter
-                </span>
-                <h2 className="font-display mt-4 text-[length:var(--text-step-2)]">
-                  {LEARN.newsletter.title}
-                </h2>
-                <p className="mt-4 max-w-[40ch] leading-relaxed text-ink-soft">
-                  {LEARN.newsletter.body}
-                </p>
-              </div>
+      {/* ── podcast ── */}
+      <Section dark className="py-20 sm:py-28 lg:py-32">
+        <Container className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
+            <SectionHead
+              index="01"
+              label="Podcast"
+              dark
+              lines={["The Rai Arts", "podcast."]}
+              body={LEARN.podcast.body}
+            >
+              <Button href={LEARN.podcast.href} variant="gold" external>
+                {LEARN.podcast.cta}
+              </Button>
+            </SectionHead>
+          </div>
+          <Rise delay={0.1}>
+            <div className="grain relative isolate grid aspect-[4/3] place-items-center overflow-hidden rounded-sm bg-forest-mid">
+              <svg
+                width="120"
+                height="120"
+                viewBox="0 0 100 100"
+                fill="none"
+                aria-hidden="true"
+                className="relative z-[2] text-gold"
+              >
+                <path d="M28 18 L82 50 L28 82 Z" fill="currentColor" />
+              </svg>
+            </div>
+          </Rise>
+        </Container>
+      </Section>
+
+      {/* ── newsletter ── */}
+      <Container className="py-20 sm:py-28">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Rise>
+            <ArtPanel variant="rule" ratio="1/1" caption="Free on Substack" />
+          </Rise>
+          <div>
+            <SectionHead
+              index="02"
+              label="Newsletter"
+              lines={["The newsletter."]}
+              body={LEARN.newsletter.body}
+            >
               <Button href={LEARN.newsletter.href} external>
                 {LEARN.newsletter.cta}
               </Button>
-            </article>
-          </Rise>
+            </SectionHead>
+          </div>
         </div>
       </Container>
 
-      <Section dark className="py-20 sm:py-28">
-        <Container className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+      <Statement
+        kicker="Why it's free"
+        lines={["Not every dancer", "has a department", "behind them."]}
+        footnote="The workshops reach the students whose programs book them. The podcast and newsletter reach everyone else."
+      />
+
+      {/* ── the guide ── */}
+      <Container className="py-20 sm:py-28">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div>
-            <Label>Go deeper</Label>
-            <Lines
-              as="h2"
-              className="font-display mt-5 text-[length:var(--text-step-2)]"
+            <SectionHead
+              index="03"
+              label="Go deeper"
               lines={[GUIDE.title]}
-            />
-            <p className="mt-5 max-w-[48ch] text-cream/70">{GUIDE.body}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-5">
+              body={GUIDE.body}
+            >
               <Button href="/shop" variant="gold">
                 Get the guide for {GUIDE.price}
               </Button>
-              <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-cream/50">
-                {GUIDE.format}
-              </span>
-            </div>
+            </SectionHead>
           </div>
 
-          <ul className="flex flex-col gap-3 border-t border-cream/15 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+          <ul className="flex flex-col">
             {GUIDE.includes.map((inc, i) => (
-              <Rise key={i} delay={i * 0.05}>
-                <li className="flex gap-3.5 text-[0.9rem] leading-relaxed text-cream/80">
-                  <span
-                    aria-hidden="true"
-                    className="mt-[0.62em] h-[0.38em] w-[0.38em] flex-none rounded-full bg-gold"
-                  />
-                  <span>{inc}</span>
-                </li>
-              </Rise>
+              <li
+                key={i}
+                className="flex gap-5 border-t border-forest/12 py-4 text-[0.95rem] leading-relaxed text-ink-soft"
+              >
+                <span className="font-mono text-[0.6rem] text-gold-deep/70 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span>{inc}</span>
+              </li>
             ))}
           </ul>
-        </Container>
-      </Section>
+        </div>
+      </Container>
     </>
   );
 }

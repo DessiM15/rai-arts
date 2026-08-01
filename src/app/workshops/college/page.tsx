@@ -3,8 +3,10 @@ import { FLAGSHIP } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { SectionHead, Steps } from "@/components/editorial";
 import Playbill from "@/components/Playbill";
 import Marquee from "@/components/Marquee";
+import Statement from "@/components/Statement";
 
 export const metadata: Metadata = {
   title: "College workshops",
@@ -30,6 +32,21 @@ const COURSE_JSONLD = {
   },
 };
 
+const HOW = [
+  {
+    title: "Tell us the room",
+    body: "Department, class year, group size, and roughly when. A sentence is enough to start.",
+  },
+  {
+    title: "We shape the session",
+    body: "The flagship as it stands, a pillar chosen for your cohort, or a series across the semester.",
+  },
+  {
+    title: "Rai Arts comes to campus",
+    body: "Delivered as a guest lecture or class visit, with worksheets students keep afterwards.",
+  },
+];
+
 export default function College() {
   return (
     <>
@@ -42,11 +59,11 @@ export default function College() {
         <Label>Workshops · College</Label>
         <Lines
           as="h1"
-          className="font-display mt-5 max-w-4xl text-[length:var(--text-step-3)]"
+          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-5)]"
           lines={["For college and", "university programs."]}
         />
         <Words
-          className="mt-7 max-w-[58ch] text-ink-soft"
+          className="mt-8 max-w-[54ch] text-[length:var(--text-step-0)] text-ink-soft"
           text="Sessions built for degree programs and delivered on your campus, as a guest lecture, a class visit, or a semester-long capstone for graduating cohorts."
         />
       </Container>
@@ -63,26 +80,40 @@ export default function College() {
         </Rise>
       </Container>
 
-      <Section dark className="bg-forest-deep py-20 sm:py-24">
-        <Container>
-          <Lines
-            as="h2"
-            className="font-display text-[length:var(--text-step-2)]"
+      <Statement
+        kicker="Why this session first"
+        lines={["Most students picture", "the same three jobs."]}
+        footnote="More Than a Dancer exists to widen that picture before graduation, not after it."
+      />
+
+      {/* how booking works */}
+      <Container className="py-20 sm:py-28">
+        <SectionHead
+          index="01"
+          label="How it works"
+          lines={["Three steps", "to a booking."]}
+        />
+        <div className="mt-12">
+          <Steps items={HOW} />
+        </div>
+      </Container>
+
+      <Section dark className="bg-forest-deep py-24 sm:py-32">
+        <Container className="flex flex-col items-center text-center">
+          <SectionHead
+            label="Bring it in"
+            align="center"
+            dark
             lines={["Bringing Rai Arts", "to your program?"]}
-          />
-          <p className="mt-5 max-w-[54ch] text-cream/70">
-            Tell us your department, class year, and timeframe.{" "}
-            {FLAGSHIP.title} runs as a single session, and more workshops are on
-            the way.
-          </p>
-          <Rise delay={0.2} className="mt-8 flex flex-wrap gap-3">
+            body={`Tell us your department, class year, and timeframe. ${FLAGSHIP.title} runs as a single session, and more workshops are on the way.`}
+          >
             <Button href="/contact" variant="gold">
               Request a workshop
             </Button>
             <Button href="/framework" variant="ghost-light">
               See all five pillars
             </Button>
-          </Rise>
+          </SectionHead>
         </Container>
       </Section>
     </>
