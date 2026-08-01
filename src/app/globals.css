@@ -106,7 +106,10 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* No `overflow-x: hidden` here. Hiding one axis forces the other to `auto`,
+     which makes <body> a scroll container and silently breaks every
+     `position: sticky` descendant. `overflow-x: clip` on <html> above does the
+     clipping without that side effect. */
 }
 
 /* Lenis */

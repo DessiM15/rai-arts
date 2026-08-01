@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import { FLAGSHIP, PILLARS } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
-import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { Rise } from "@/components/Reveal";
 import { Quote, SectionHead } from "@/components/editorial";
-import HeroDancer from "@/components/HeroDancer";
+import CurtainHero from "@/components/CurtainHero";
 import LineWalk, { type Beat } from "@/components/LineWalk";
 import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
@@ -53,37 +53,42 @@ const BEATS: Beat[] = [
 export default function Home() {
   return (
     <>
-      {/* ── hero: she takes the whole screen, headline over her ── */}
-      <section className="grain relative isolate flex min-h-[88svh] items-center overflow-hidden pt-28 pb-16 sm:pt-32">
-        <HeroDancer />
-
-        <Container className="relative z-[2]">
-          <div className="flex max-w-[46rem] flex-col items-start gap-7">
-            <Label>Career readiness for dancers</Label>
-            <Lines
-              as="h1"
-              className="font-statement text-[length:var(--text-step-4)]"
-              lines={[
-                "Preparing dancers",
-                "for the business",
-                "of a dance career.",
-              ]}
-              delay={0.1}
-            />
-            <Words
-              className="max-w-[42ch] text-[length:var(--text-step-0)] text-ink-soft"
-              text={SITE.description}
-              delay={0.55}
-            />
-            <Rise delay={0.75} className="flex flex-wrap gap-3">
-              <Button href="/framework">Explore the framework</Button>
-              <Button href="/contact" variant="ghost">
-                Book a workshop
-              </Button>
-            </Rise>
-          </div>
-        </Container>
-      </section>
+      {/* ── hero: the curtain parts onto the stage ── */}
+      <CurtainHero
+        left={[
+          { src: "/images/dancer-pointe.jpg", alt: "A dancer on pointe" },
+          { src: "/images/studio-interior.jpg", alt: "An empty dance studio" },
+          { src: "/images/nyc-street.jpg", alt: "A New York street" },
+        ]}
+        right={[
+          {
+            src: "/images/kira-speaking.jpg",
+            alt: `${SITE.founder} presenting a Rai Arts session`,
+          },
+          {
+            src: "/images/pointe-shoes-floor.jpg",
+            alt: "Worn pointe shoes on a studio floor",
+          },
+          { src: "/images/empty-house.jpg", alt: "An empty auditorium" },
+        ]}
+        stage={{ src: "/images/empty-house.jpg", alt: "" }}
+      >
+        <p className="label">Career readiness for dancers</p>
+        <h1 className="font-statement text-[length:var(--text-step-4)] text-cream">
+          Preparing dancers for the business of a dance career.
+        </h1>
+        <p className="max-w-[46ch] text-[length:var(--text-step-0)] text-cream/75">
+          {SITE.description}
+        </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button href="/framework" variant="gold">
+            Explore the framework
+          </Button>
+          <Button href="/contact" variant="ghost-light">
+            Book a workshop
+          </Button>
+        </div>
+      </CurtainHero>
 
       <Marquee
         items={[
