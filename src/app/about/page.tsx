@@ -3,7 +3,7 @@ import { SITE } from "@/lib/site";
 import { PILLARS } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
-import { Quote, SectionHead, Stats } from "@/components/editorial";
+import { Quote, SectionHead } from "@/components/editorial";
 import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
@@ -54,16 +54,6 @@ export default function About() {
             isn&apos;t about leaving dance. Dancers keep performing. Rai Arts
             prepares them for the whole profession, not an exit from it.
           </p>
-
-          <Rise className="mt-6 border-t border-forest/12 pt-10">
-            <Stats
-              items={[
-                ["5", "Pillars of readiness"],
-                ["60–90", "Minutes per session"],
-                ["10–30+", "Students per workshop"],
-              ]}
-            />
-          </Rise>
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Button href="/framework">Explore the framework</Button>

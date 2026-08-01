@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import { Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
-import { Stats } from "@/components/editorial";
 import ContactForm from "@/components/ContactForm";
 import Marquee from "@/components/Marquee";
 
@@ -86,15 +85,7 @@ export default function Contact() {
 
       <Section dark className="py-20 sm:py-24">
         <Container>
-          <Stats
-            dark
-            items={[
-              ["5", "Pillars of readiness"],
-              ["60–90", "Minutes per session"],
-              ["2 days", "Typical reply time"],
-            ]}
-          />
-          <p className="font-statement mt-16 text-center text-[length:var(--text-step-3)] text-gold">
+          <p className="font-statement text-center text-[length:var(--text-step-3)] text-gold">
             {SITE.tagline}
           </p>
         </Container>

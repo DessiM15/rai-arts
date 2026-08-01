@@ -4,7 +4,7 @@ import { SITE } from "@/lib/site";
 import { FLAGSHIP, PILLARS } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
-import { Quote, SectionHead, Stats } from "@/components/editorial";
+import { Quote, SectionHead } from "@/components/editorial";
 import DancerStage from "@/components/DancerStage";
 import LineWalk, { type Beat } from "@/components/LineWalk";
 import Marquee from "@/components/Marquee";
@@ -22,39 +22,59 @@ const BEATS: Beat[] = [
     label: "The problem",
     lines: ["A career can hold", "more than one thing."],
     body: "Dance programs train exceptional performers. Most graduates still leave without a roadmap for the business side of the work: how to find it, price it, contract it, or sustain it.",
+    art: { variant: "grid" },
   },
   {
     label: "The approach",
     lines: ["Keep dancing.", "Build the structure", "around it."],
     body: "This isn't about leaving dance. Rai Arts prepares dancers for the whole profession, not an exit from it. The performing keeps going, with something solid underneath it.",
+    art: { variant: "figure" },
   },
   {
     label: "The curriculum",
     lines: ["Five pillars,", "one framework."],
     body: "The Rai Arts Career Readiness Framework™ covers everything from mapping a first year post-grad to reading a contract, budgeting freelance income, and lasting long enough to build a legacy.",
+    art: { variant: "rule" },
   },
   {
     label: "The delivery",
     lines: ["Brought into", "your program."],
     body: "Book a single workshop, a themed series, or the full framework as a semester-long capstone. Sessions run as guest lectures or class visits for groups of ten to thirty and up.",
+    // The one stop we have a real photograph for — and it is the one about
+    // her actually being in the room.
+    art: {
+      src: "/images/kira-speaking.jpg",
+      alt: `${SITE.founder} presenting a Rai Arts session`,
+      caption: "In the room",
+    },
   },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* ── hero ── */}
-      <Container className="grid items-end gap-10 pt-28 pb-14 sm:pt-36 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:pt-44 lg:pb-20">
-        <div className="flex flex-col items-start gap-7">
+      {/* ── hero: split screen, the mark bleeding off the right edge ── */}
+      {/* The panel bleeds off the right and bottom, but starts below the header:
+          the nav spans both halves, so a panel running under it would put dark
+          links on a dark ground with no single colour that works for both. */}
+      <section className="grid items-stretch pt-[4.75rem] sm:pt-[5.25rem] lg:min-h-[92svh] lg:grid-cols-2">
+        <div
+          className="flex flex-col items-start justify-center gap-7 px-5 pt-10 pb-16 sm:px-8 sm:pt-14 lg:py-20 lg:pr-12"
+          // Aligns the copy with the site's container gutter at every width,
+          // even though this section itself runs edge to edge.
+          style={{
+            paddingLeft: "max(1.25rem, calc((100vw - 1180px) / 2 + 3.5rem))",
+          }}
+        >
           <Label>Career readiness for dancers</Label>
           <Lines
             as="h1"
-            className="font-statement text-[length:var(--text-step-5)]"
+            className="font-statement text-[length:var(--text-step-3)]"
             lines={["Preparing dancers", "for the business", "of a dance career."]}
             delay={0.1}
           />
           <Words
-            className="max-w-[46ch] text-[length:var(--text-step-0)] text-ink-soft"
+            className="max-w-[42ch] text-[length:var(--text-step-0)] text-ink-soft"
             text={SITE.description}
             delay={0.55}
           />
@@ -66,23 +86,8 @@ export default function Home() {
           </Rise>
         </div>
 
-        <Rise delay={0.2}>
-          <DancerStage />
-        </Rise>
-      </Container>
-
-      {/* stats sitting on the hero's baseline */}
-      <Container className="pb-16 sm:pb-20">
-        <Rise className="border-t border-forest/12 pt-10">
-          <Stats
-            items={[
-              ["5", "Pillars of readiness"],
-              ["60–90", "Minutes per session"],
-              ["10–30+", "Students per workshop"],
-            ]}
-          />
-        </Rise>
-      </Container>
+        <DancerStage bleed />
+      </section>
 
       <Marquee
         items={[
@@ -199,7 +204,12 @@ export default function Home() {
             </Quote>
           </Rise>
           <Rise delay={0.1}>
-            <ArtPanel variant="rule" ratio="1/1" />
+            <ArtPanel
+              ratio="4/5"
+              src="/images/kira-speaking-portrait.jpg"
+              alt={`${SITE.founder} delivering a Rai Arts session`}
+              caption="Kira Rai Daniel, presenting"
+            />
           </Rise>
         </Container>
       </Section>

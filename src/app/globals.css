@@ -257,12 +257,21 @@ html.lenis body {
   filter: blur(0);
 }
 
-/* Beats dim until she arrives — a focus pull, not a hard cut. */
-.js .walk-beat {
+/* Beats dim until she arrives — a focus pull, not a hard cut.
+   The dim sits on the copy, not the row: a photograph held at 32% just reads
+   as broken, so art dims only slightly and never disappears. */
+.js .walk-copy {
   opacity: 0.32;
   transition: opacity 0.7s var(--ease-cinema);
 }
-.js .walk-beat[data-in] {
+.js .walk-beat[data-in] .walk-copy {
+  opacity: 1;
+}
+.js .walk-beat figure {
+  opacity: 0.62;
+  transition: opacity 0.7s var(--ease-cinema);
+}
+.js .walk-beat[data-in] figure {
   opacity: 1;
 }
 

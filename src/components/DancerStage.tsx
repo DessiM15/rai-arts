@@ -9,7 +9,14 @@ import { SITE } from "@/lib/site";
  * "spotlight" resolves behind her first, so the figure lands into light rather
  * than appearing on a flat field.
  */
-export default function DancerStage({ className = "" }: { className?: string }) {
+export default function DancerStage({
+  className = "",
+  bleed = false,
+}: {
+  className?: string;
+  /** Fill the parent edge-to-edge instead of holding a fixed card ratio. */
+  bleed?: boolean;
+}) {
   const ref = useRef<SVGPathElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const sunRef = useRef<HTMLDivElement>(null);
@@ -80,7 +87,11 @@ export default function DancerStage({ className = "" }: { className?: string }) 
   return (
     <div
       ref={stageRef}
-      className={`relative grid aspect-[4/4.6] place-items-center overflow-hidden rounded-sm bg-forest shadow-[0_30px_70px_-40px_rgba(22,33,15,.75)] ${className}`}
+      className={`grain relative isolate grid place-items-center overflow-hidden bg-forest ${
+        bleed
+          ? "h-full min-h-[54svh] w-full"
+          : "aspect-[4/4.6] rounded-sm shadow-[0_30px_70px_-40px_rgba(22,33,15,.75)]"
+      } ${className}`}
     >
       {/* spotlight */}
       <div
@@ -91,7 +102,9 @@ export default function DancerStage({ className = "" }: { className?: string }) 
 
       <svg
         viewBox={DANCER_VIEWBOX}
-        className="relative z-10 block w-[74%] text-cream"
+        className={`relative z-[2] block text-cream ${
+          bleed ? "h-[76%] w-auto max-w-[82%]" : "w-[74%]"
+        }`}
         fill="none"
         role="img"
         aria-label="The Rai Arts dancer, drawn as one continuous line"
@@ -116,7 +129,7 @@ export default function DancerStage({ className = "" }: { className?: string }) 
         />
       </svg>
 
-      <p className="absolute inset-x-0 bottom-5 text-center font-mono text-[0.58rem] uppercase tracking-[0.24em] text-cream/50 sm:text-[0.64rem]">
+      <p className="absolute inset-x-0 bottom-5 z-[2] text-center font-mono text-[0.58rem] uppercase tracking-[0.24em] text-cream/50 sm:text-[0.64rem]">
         {SITE.name} · {SITE.tagline}
       </p>
     </div>

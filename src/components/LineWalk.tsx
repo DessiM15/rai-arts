@@ -2,11 +2,23 @@
 
 import { Fragment, useEffect, useRef } from "react";
 import { DANCER_PATH } from "@/lib/brand";
+import ArtPanel from "./ArtPanel";
 
 export type Beat = {
   label: string;
   lines: string[];
   body: string;
+  /**
+   * Optional visual shown opposite the copy. Pass `src` for a photograph;
+   * otherwise an ArtPanel composition stands in, so a stop never looks empty
+   * while we're waiting on photography.
+   */
+  art?: {
+    src?: string;
+    alt?: string;
+    caption?: string;
+    variant?: "figure" | "sun" | "rule" | "grid";
+  };
 };
 
 /**
@@ -57,7 +69,10 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
 
       const wrapTop = rect.top + window.scrollY;
       const midX = small ? W * 0.62 : W * 0.5;
-      const swing = W * (small ? 0.2 : 0.19);
+      // With art beside the copy the line runs the central gutter between the
+      // two columns; with copy alone it keeps the wider sweep.
+      const hasArt = beats.some((b) => b.art);
+      const swing = W * (small ? 0.2 : hasArt ? 0.07 : 0.19);
 
       const pts: { x: number; y: number }[] = [{ x: midX, y: 0 }];
       beatRefs.current.forEach((b, i) => {
@@ -247,10 +262,26 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
               beatRefs.current[i] = el;
             }}
             className={[
-              "walk-beat w-full sm:w-[min(34rem,68%)]",
-              i % 2 === 1 ? "sm:ml-auto sm:text-right" : "",
+              "walk-beat grid w-full items-center gap-8 sm:gap-12",
+              beat.art ? "lg:grid-cols-2 lg:gap-20" : "sm:w-[min(34rem,68%)]",
+              i % 2 === 1 && !beat.art ? "sm:ml-auto sm:text-right" : "",
             ].join(" ")}
           >
+            {/* art first in the DOM on odd rows so it lands on the left */}
+            {beat.art && i % 2 === 1 && (
+              <ArtPanel
+                className="order-2 lg:order-1"
+                ratio="4/5"
+                src={beat.art.src}
+                alt={beat.art.alt}
+                caption={beat.art.caption}
+                variant={beat.art.variant ?? "figure"}
+              />
+            )}
+
+            <div
+              className={`walk-copy ${beat.art && i % 2 === 1 ? "order-1 lg:order-2" : ""}`}
+            >
             {/* The stop number, set large enough to be a graphic element */}
             <span
               aria-hidden="true"
@@ -300,6 +331,17 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
                 </Fragment>
               ))}
             </p>
+            </div>
+
+            {beat.art && i % 2 === 0 && (
+              <ArtPanel
+                ratio="4/5"
+                src={beat.art.src}
+                alt={beat.art.alt}
+                caption={beat.art.caption}
+                variant={beat.art.variant ?? "figure"}
+              />
+            )}
           </div>
         ))}
       </div>
