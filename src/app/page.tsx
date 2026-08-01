@@ -9,7 +9,7 @@ import LineWalk, { type Beat } from "@/components/LineWalk";
 import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
-import Ascent from "@/components/Ascent";
+import Wings from "@/components/Wings";
 
 export const metadata: Metadata = {
   title: "Career readiness for dancers",
@@ -22,31 +22,21 @@ const BEATS: Beat[] = [
     label: "The problem",
     lines: ["A career can hold", "more than one thing."],
     body: "Dance programs train exceptional performers. Most graduates still leave without a roadmap for the business side of the work: how to find it, price it, contract it, or sustain it.",
-    art: { src: "/images/studio-interior.jpg", alt: "An empty dance studio", caption: "Where the training happens" },
   },
   {
     label: "The approach",
     lines: ["Keep dancing.", "Build the structure", "around it."],
     body: "This isn't about leaving dance. Rai Arts prepares dancers for the whole profession, not an exit from it. The performing keeps going, with something solid underneath it.",
-    art: { src: "/images/dancer-pointe.jpg", alt: "A dancer on pointe", caption: "Keep dancing" },
   },
   {
     label: "The curriculum",
     lines: ["Five pillars,", "one framework."],
     body: "The Rai Arts Career Readiness Framework™ covers everything from mapping a first year post-grad to reading a contract, budgeting freelance income, and lasting long enough to build a legacy.",
-    art: { src: "/images/pointe-shoes-floor.jpg", alt: "Worn pointe shoes on a studio floor", caption: "The craft" },
   },
   {
     label: "The delivery",
     lines: ["Brought into", "your program."],
     body: "Book a single workshop, a themed series, or the full framework as a semester-long capstone. Sessions run as guest lectures or class visits for groups of ten to thirty and up.",
-    // The one stop we have a real photograph for — and it is the one about
-    // her actually being in the room.
-    art: {
-      src: "/images/kira-speaking.jpg",
-      alt: `${SITE.founder} presenting a Rai Arts session`,
-      caption: "In the room",
-    },
   },
 ];
 
@@ -121,16 +111,27 @@ export default function Home() {
             body="Our signature curriculum covers everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness."
           />
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          {/* ── the wings: one pillar downstage in the light ── */}
+          <div className="mt-14">
+            <Wings
+              pillars={PILLARS}
+              art={[
+                { src: "/images/studio-interior.jpg", alt: "" },
+                { src: "/images/nyc-street.jpg", alt: "" },
+                { src: "/images/pointe-shoes-floor.jpg", alt: "" },
+                { src: "/images/kira-speaking.jpg", alt: "" },
+                { src: "/images/dancer-pointe.jpg", alt: "" },
+              ]}
+            />
+          </div>
+
+          <div className="mt-12 flex flex-wrap gap-3">
             <Button href="/framework" variant="gold">
               Explore all five pillars
             </Button>
           </div>
         </Container>
       </Section>
-
-      {/* ── the ascent: five slabs climbing a raked stage ── */}
-      <Ascent pillars={PILLARS} />
 
       {/* ── flagship as an editorial spread ── */}
       <Container className="py-20 sm:py-28 lg:py-32">

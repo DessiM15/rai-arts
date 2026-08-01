@@ -20,7 +20,22 @@ export type NavItem = {
 };
 
 export const NAV: NavItem[] = [
-  { label: "About", href: "/about" },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      {
+        label: "The company",
+        href: "/about",
+        blurb: "What Rai Arts does, and the gap it exists to close.",
+      },
+      {
+        label: "Founders",
+        href: "/founders",
+        blurb: "Kira Rai Daniel, and why she built the framework.",
+      },
+    ],
+  },
   {
     label: "Workshops",
     href: "/workshops",
