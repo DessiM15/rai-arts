@@ -7,6 +7,7 @@ import { Quote, SectionHead } from "@/components/editorial";
 import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
+import PillarQuestions from "@/components/PillarQuestions";
 
 export const metadata: Metadata = {
   title: "About",
@@ -86,26 +87,16 @@ export default function About() {
             dark
             lines={["Five questions every", "dancer should be able", "to answer."]}
           />
-          <ul className="mt-14 flex flex-col">
-            {PILLARS.map((p, i) => (
-              <li key={p.n}>
-                <Rise
-                  delay={i * 0.05}
-                  className="grid gap-3 border-t border-cream/15 py-8 sm:grid-cols-[4.5rem_18rem_1fr] sm:items-baseline sm:gap-8"
-                >
-                  <span className="font-statement text-[length:var(--text-step-2)] leading-none text-gold/70">
-                    {p.n}
-                  </span>
-                  <h3 className="font-statement text-[length:var(--text-step-1)]">
-                    {p.title}
-                  </h3>
-                  <p className="max-w-[46ch] text-[1rem] italic text-cream/70">
-                    {p.question}
-                  </p>
-                </Rise>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-16">
+            <PillarQuestions
+              pillars={PILLARS}
+              photo={{
+                src: "/images/kira.jpg",
+                alt: `${SITE.founder}, founder of Rai Arts`,
+              }}
+              caption={`${SITE.founder} · Founder`}
+            />
+          </div>
         </Container>
       </Section>
 
