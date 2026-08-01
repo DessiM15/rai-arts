@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import { FLAGSHIP, PILLARS } from "@/lib/content";
@@ -10,6 +9,7 @@ import LineWalk, { type Beat } from "@/components/LineWalk";
 import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
+import Ascent from "@/components/Ascent";
 
 export const metadata: Metadata = {
   title: "Career readiness for dancers",
@@ -120,38 +120,16 @@ export default function Home() {
             body="Our signature curriculum covers everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness."
           />
 
-          <ul className="mt-14 flex flex-col">
-            {PILLARS.map((p, i) => (
-              <li key={p.n}>
-                <Rise delay={i * 0.05}>
-                  <Link
-                    href="/framework"
-                    className="group grid items-baseline gap-3 border-t border-cream/15 py-7 transition-colors hover:bg-cream/[0.04] sm:grid-cols-[4.5rem_1fr_auto] sm:gap-8"
-                  >
-                    <span className="font-statement text-[length:var(--text-step-2)] leading-none text-gold/70">
-                      {p.n}
-                    </span>
-                    <div>
-                      <h3 className="font-statement text-[length:var(--text-step-2)]">
-                        {p.title}
-                      </h3>
-                      <p className="mt-2 max-w-[48ch] text-[0.95rem] text-cream/65">
-                        {p.body}
-                      </p>
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      className="hidden font-mono text-[0.62rem] tracking-[0.16em] text-gold uppercase transition-transform duration-500 group-hover:translate-x-1 sm:block"
-                    >
-                      →
-                    </span>
-                  </Link>
-                </Rise>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Button href="/framework" variant="gold">
+              Explore all five pillars
+            </Button>
+          </div>
         </Container>
       </Section>
+
+      {/* ── the ascent: five slabs climbing a raked stage ── */}
+      <Ascent pillars={PILLARS} />
 
       {/* ── flagship as an editorial spread ── */}
       <Container className="py-20 sm:py-28 lg:py-32">

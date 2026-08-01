@@ -345,6 +345,159 @@ html.lenis body {
   text-wrap: balance;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   The Ascent — five pillars as slabs climbing a raked stage floor.
+
+   Composed at fixed pixel coordinates inside a centred 1180px stage, so the
+   geometry holds while still sitting on the site's grid. Below 1180 it scales
+   rather than reflowing; below 1024 it drops to stacked cards, because a
+   perspective scene on a phone is just a tall column with a wasted half.
+   ───────────────────────────────────────────────────────────── */
+
+.ascent {
+  position: relative;
+  overflow: hidden;
+  min-height: 760px;
+  background: radial-gradient(
+    120% 90% at 30% 10%,
+    var(--color-forest-mid) 0%,
+    var(--color-forest) 42%,
+    var(--color-forest-deep) 100%
+  );
+}
+
+/* The only light source in the scene. Every shadow below points away from it. */
+.ascent-key {
+  position: absolute;
+  left: 50%;
+  top: -140px;
+  margin-left: -420px;
+  width: 620px;
+  height: 620px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(240, 222, 170, 0.2) 0%,
+    rgba(240, 222, 170, 0) 68%
+  );
+}
+
+.ascent-stage {
+  position: relative;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1180px;
+  height: 760px;
+}
+
+.ascent-scene {
+  position: absolute;
+  inset: 0;
+  perspective: 1700px;
+  perspective-origin: 46% 34%;
+}
+
+.ascent-plane {
+  position: absolute;
+  left: 74px;
+  /* 470 rather than the spec's 430: when slab 05 lifts it rises another ~46px,
+     and at 430 its top corner was clipped by the section's overflow. */
+  top: 470px;
+  width: 620px;
+  height: 168px;
+  transform-style: preserve-3d;
+  transform: rotateX(58deg) rotateZ(-14deg);
+}
+
+.ascent-slab {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 560px;
+  height: 168px;
+  border-radius: 7px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  background: linear-gradient(
+    160deg,
+    rgba(58, 85, 48, 0.94) 0%,
+    rgba(44, 64, 35, 0.94) 100%
+  );
+  border: 1px solid rgba(239, 185, 59, 0.28);
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+.ascent-slab[data-active="true"] {
+  background: linear-gradient(
+    160deg,
+    rgba(96, 124, 74, 0.98) 0%,
+    rgba(64, 88, 50, 0.98) 100%
+  );
+  border-color: var(--color-gold);
+}
+
+/* The extruded back face. This is what makes a slab read as an object
+   rather than a rectangle — do not remove it. */
+.ascent-under {
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  background: var(--color-forest-deep);
+  transform: translateZ(-16px);
+}
+
+/* The 1.86 counter-scale undoes the vertical squash from rotateX(58deg);
+   without it the type is crushed to unreadable. */
+.ascent-label {
+  position: absolute;
+  left: 34px;
+  top: 50%;
+  display: flex;
+  align-items: baseline;
+  gap: 26px;
+  transform: translateY(-50%) scaleY(1.86);
+  transform-origin: left center;
+  white-space: nowrap;
+}
+
+.ascent-copy {
+  position: absolute;
+  right: 56px;
+  top: 76px;
+  width: 360px;
+  /* Remounted on change via a React key, so this plays as a cross-fade
+     rather than a hard swap. */
+  animation: ascentFade 0.28s ease both;
+}
+@keyframes ascentFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1179.98px) and (min-width: 1024px) {
+  .ascent-scene {
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ascent-slab {
+    transition: none;
+  }
+  .ascent-copy {
+    animation: none;
+  }
+}
+
 /* Playbill — the workshop rendered as a theatre programme. */
 .playbill {
   font-variant-numeric: tabular-nums;

@@ -76,6 +76,10 @@ export default function PinnedPillars({ pillars }: { pillars: Pillar[] }) {
         {pillars.map((p, i) => (
           <div
             key={p.n}
+            // Anchor target for The Ascent on the home page. scroll-mt keeps
+            // the heading clear of the fixed header on arrival.
+            id={`pillar-${p.n}`}
+            className="scroll-mt-28"
             data-i={i}
             ref={(el) => {
               itemRefs.current[i] = el;
