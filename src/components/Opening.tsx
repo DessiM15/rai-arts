@@ -6,6 +6,17 @@ import { Wordmark } from "./Marks";
 
 const SEEN_KEY = "rai-arts:opening-seen";
 
+/**
+ * PREVIEW MODE — set back to `false` before launch.
+ *
+ * While true, the title sequence replays on every page load so it can be
+ * reviewed and tweaked. In production it should play once per browser session,
+ * otherwise returning visitors sit through it every single time.
+ *
+ * (Reduced-motion visitors always skip it, in either mode.)
+ */
+const PLAY_EVERY_VISIT = true;
+
 type Phase = "idle" | "playing" | "lifting" | "gone";
 
 /**
@@ -32,7 +43,7 @@ export default function Opening() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let seen = false;
     try {
-      seen = sessionStorage.getItem(SEEN_KEY) === "1";
+      seen = !PLAY_EVERY_VISIT && sessionStorage.getItem(SEEN_KEY) === "1";
     } catch {
       // Private mode or storage blocked — treat as unseen, harmless either way.
     }
