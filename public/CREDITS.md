@@ -13,8 +13,9 @@ replaced.
 | `studio-interior.jpg` | dance studio interior | CC0 |
 | `empty-house.jpg` | empty auditorium seating | CC0 |
 
-All five are duotoned into the brand palette (forest-deep shadows through to
-warm cream highlights) so they read as designed rather than as stock.
+All five are presented in natural colour with only a gentle contrast lift. An
+earlier version duotoned them into the brand green; it was removed because the
+tint read as a filter over everything rather than as a treatment.
 
 No identifiable faces appear in any of them. A CC0 licence covers copyright,
 not a person's likeness, so photographs of recognisable people are kept to

@@ -128,18 +128,25 @@ export default function CurtainHero({
       {/* keeps the mark and the seam readable over any photograph */}
       <div
         aria-hidden="true"
-        className={`absolute inset-0 bg-forest-deep/55 ${
+        className={`absolute inset-0 ${
           side === "left"
-            ? "bg-gradient-to-r from-forest-deep/70 to-forest-deep/40"
-            : "bg-gradient-to-l from-forest-deep/70 to-forest-deep/40"
+            ? "bg-gradient-to-r from-black/45 to-black/15"
+            : "bg-gradient-to-l from-black/45 to-black/15"
         }`}
       />
     </div>
   );
 
+  // data-nav-plain keeps the header fully transparent over the hero: inverted
+  // to cream, but never filled, so the curtain reads edge to edge.
   return (
-    <div ref={wrapRef} data-nav="dark" className="relative h-[210svh]">
-      <div className="sticky top-0 grain isolate h-svh overflow-hidden bg-forest-deep">
+    <div
+      ref={wrapRef}
+      data-nav="dark"
+      data-nav-plain=""
+      className="relative h-[210svh]"
+    >
+      <div className="sticky top-0 grain isolate h-svh overflow-hidden bg-[#0b0a09]">
         {/* ── the stage behind the curtain ── */}
         <div ref={stageRef} className="absolute inset-0 z-[1] opacity-0">
           <Image
@@ -151,7 +158,7 @@ export default function CurtainHero({
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-b from-forest-deep/75 via-forest-deep/55 to-forest-deep/85"
+            className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65"
           />
           <div className="relative z-[2] flex h-full items-center justify-center px-5 text-center sm:px-8">
             <div className="on-dark flex max-w-[46rem] flex-col items-center gap-7">

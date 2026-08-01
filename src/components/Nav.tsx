@@ -11,6 +11,8 @@ export default function Nav() {
   const [open, setOpen] = useState(false); // mobile sheet
   const [menu, setMenu] = useState<string | null>(null); // desktop dropdown
   const [onDark, setOnDark] = useState(false);
+  // Sections can ask the bar to stay fully transparent over them.
+  const [plain, setPlain] = useState(false);
   const [lifted, setLifted] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -53,11 +55,16 @@ export default function Nav() {
       const y = 34; // roughly the vertical centre of the bar
       const darks = document.querySelectorAll<HTMLElement>('[data-nav="dark"]');
       let hit = false;
+      let bare = false;
       darks.forEach((el) => {
         const r = el.getBoundingClientRect();
-        if (r.top <= y && r.bottom >= y) hit = true;
+        if (r.top <= y && r.bottom >= y) {
+          hit = true;
+          if (el.hasAttribute("data-nav-plain")) bare = true;
+        }
       });
       setOnDark(hit);
+      setPlain(bare);
       setLifted(window.scrollY > 12);
       ticking = false;
     };
@@ -92,8 +99,8 @@ export default function Nav() {
       className={[
         "fixed inset-x-0 top-0 z-[100] transition-colors duration-500",
         onDark ? "text-cream on-dark" : "text-ink",
-        lifted && !onDark ? "bg-cream/85 backdrop-blur-md" : "",
-        lifted && onDark ? "bg-forest/80 backdrop-blur-md" : "",
+        lifted && !onDark && !plain ? "bg-cream/85 backdrop-blur-md" : "",
+        lifted && onDark && !plain ? "bg-forest/80 backdrop-blur-md" : "",
       ].join(" ")}
     >
       <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-6 px-5 py-3 sm:px-8 lg:px-14">
