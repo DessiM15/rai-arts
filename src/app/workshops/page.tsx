@@ -7,7 +7,7 @@ import { Label, Lines, Rise, Words } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Workshops",
   description:
-    "Career workshops for dance programs — guest lectures and class visits for college and university students, plus online sessions opening soon.",
+    "Career workshops for dance programs: guest lectures and class visits for college and university students, plus online sessions opening soon.",
   alternates: { canonical: "/workshops" },
 };
 
@@ -18,7 +18,7 @@ const FORMATS = [
   },
   {
     n: "Pillar series",
-    body: "Three to five linked sessions built around the pillars your students need most — often run across a semester.",
+    body: "Three to five linked sessions built around the pillars your students need most, often run across a semester.",
   },
   {
     n: "Full capstone",
@@ -38,7 +38,7 @@ export default function Workshops() {
         />
         <Words
           className="mt-7 max-w-[58ch] text-ink-soft"
-          text="Rai Arts comes to your department and gives students the language, tools, and confidence to understand their options — what the work pays, how to find it, and how to build a career that lasts."
+          text="Rai Arts comes to your department and gives students the language, tools, and confidence to understand their options: what the work pays, how to find it, and how to build a career that lasts."
         />
       </Container>
 

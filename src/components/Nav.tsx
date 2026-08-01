@@ -100,7 +100,7 @@ export default function Nav() {
         <Link
           href="/"
           className="shrink-0 py-2"
-          aria-label="Rai Arts — home"
+          aria-label="Rai Arts, home"
           onClick={() => setOpen(false)}
         >
           <Wordmark className="h-auto w-[104px] sm:w-[128px]" />

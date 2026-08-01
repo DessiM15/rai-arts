@@ -17,12 +17,12 @@ const BEATS: Beat[] = [
   {
     label: "The problem",
     lines: ["A career can hold", "more than one thing."],
-    body: "Dance programs train exceptional performers. Most graduates still leave without a roadmap for the business side of the work — how to find it, price it, contract it, or sustain it.",
+    body: "Dance programs train exceptional performers. Most graduates still leave without a roadmap for the business side of the work: how to find it, price it, contract it, or sustain it.",
   },
   {
     label: "The approach",
     lines: ["Keep dancing.", "Build the structure", "around it."],
-    body: "This isn't about leaving dance. Rai Arts prepares dancers for the whole profession, not an exit from it — the performing keeps going, with something solid underneath it.",
+    body: "This isn't about leaving dance. Rai Arts prepares dancers for the whole profession, not an exit from it. The performing keeps going, with something solid underneath it.",
   },
   {
     label: "The curriculum",
@@ -82,7 +82,7 @@ export default function Home() {
             />
             <Words
               className="mt-6 text-cream/70"
-              text="Our signature curriculum — everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness."
+              text="Our signature curriculum covers everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness."
             />
           </div>
 
@@ -198,7 +198,7 @@ export default function Home() {
             />
             <p className="mt-5 max-w-[48ch] text-cream/70">
               Conversations on building a life in dance, and writing on the
-              business of a dance career — both free to follow.
+              business of a dance career. Both are free to follow.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button href="/learn" variant="gold">
@@ -231,7 +231,7 @@ export default function Home() {
           />
           <p className="mt-7 max-w-[46ch] text-cream/70">
             Whether it&apos;s booking a workshop for your dance program or
-            grabbing the career guide — reach out and Kira will get back to you
+            grabbing the career guide, reach out and Kira will get back to you
             within a couple of days.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">

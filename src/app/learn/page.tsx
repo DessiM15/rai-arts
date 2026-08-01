@@ -6,7 +6,7 @@ import { Label, Lines, Rise, Words } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Learn",
   description:
-    "The Rai Arts podcast and newsletter — conversations and writing on building a sustainable career in dance. Both free to follow.",
+    "The Rai Arts podcast and newsletter: conversations and writing on building a sustainable career in dance. Both free to follow.",
   alternates: { canonical: "/learn" },
 };
 
@@ -22,7 +22,7 @@ export default function Learn() {
         />
         <Words
           className="mt-7 max-w-[56ch] text-ink-soft"
-          text="You don't need a program to bring Rai Arts in to start learning. The podcast and newsletter cover the same ground the workshops do — what the work pays, how to find it, and how to make it last."
+          text="You don't need a program to bring Rai Arts in to start learning. The podcast and newsletter cover the same ground the workshops do: what the work pays, how to find it, and how to make it last."
         />
       </Container>
 
@@ -92,7 +92,7 @@ export default function Learn() {
             <p className="mt-5 max-w-[48ch] text-cream/70">{GUIDE.body}</p>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Button href="/shop" variant="gold">
-                Get the guide — {GUIDE.price}
+                Get the guide for {GUIDE.price}
               </Button>
               <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-cream/50">
                 {GUIDE.format}

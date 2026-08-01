@@ -4,7 +4,7 @@ import { SITE } from "@/lib/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = `${SITE.name} — Career readiness for dancers`;
+export const alt = `${SITE.name} | Career readiness for dancers`;
 
 /**
  * Social card. Built from the vector dancer rather than a flat export, so it
@@ -76,7 +76,7 @@ export default function OpengraphImage() {
               fontFamily: "system-ui, sans-serif",
             }}
           >
-            Rai Arts — Your Art. Your Business.
+            Rai Arts · Your Art. Your Business.
           </div>
         </div>
 

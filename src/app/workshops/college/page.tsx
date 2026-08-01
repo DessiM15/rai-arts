@@ -7,7 +7,7 @@ import { Label, Lines, Rise, Words } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "College workshops",
   description:
-    "More Than a Dancer: Careers and Income Streams in the Arts — a 60–90 minute guest lecture for college and university dance programs, from the Rai Arts Career Readiness Framework™.",
+    "More Than a Dancer: Careers and Income Streams in the Arts. A 60–90 minute guest lecture for college and university dance programs, from the Rai Arts Career Readiness Framework™.",
   alternates: { canonical: "/workshops/college" },
 };
 
@@ -37,7 +37,7 @@ export default function College() {
       />
 
       <Container className="pt-32 pb-14 sm:pt-40 sm:pb-16">
-        <Label>Workshops — College</Label>
+        <Label>Workshops · College</Label>
         <Lines
           as="h1"
           className="font-display mt-5 max-w-4xl text-[length:var(--text-step-3)]"
@@ -45,7 +45,7 @@ export default function College() {
         />
         <Words
           className="mt-7 max-w-[58ch] text-ink-soft"
-          text="Sessions built for degree programs and delivered on your campus — as a guest lecture, a class visit, or a semester-long capstone for graduating cohorts."
+          text="Sessions built for degree programs and delivered on your campus, as a guest lecture, a class visit, or a semester-long capstone for graduating cohorts."
         />
       </Container>
 
@@ -119,7 +119,7 @@ export default function College() {
             lines={["Bringing Rai Arts", "to your program?"]}
           />
           <p className="mt-5 max-w-[54ch] text-cream/70">
-            Tell us your department, class year, and timeframe —{" "}
+            Tell us your department, class year, and timeframe.{" "}
             {FLAGSHIP.title} runs as a single session, and more workshops are on
             the way.
           </p>

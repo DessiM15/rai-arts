@@ -8,7 +8,7 @@ import WaitlistForm from "@/components/WaitlistForm";
 export const metadata: Metadata = {
   title: "Online workshops",
   description:
-    "The Rai Arts Career Readiness Framework is coming online — self-paced modules and live sessions for dancers. Join the list to hear when enrolment opens.",
+    "The Rai Arts Career Readiness Framework is coming online, with self-paced modules and live sessions for dancers. Join the list to hear when enrolment opens.",
   alternates: { canonical: "/workshops/online" },
 };
 
@@ -16,7 +16,7 @@ export default function Online() {
   return (
     <>
       <Container className="pt-32 pb-16 sm:pt-40 sm:pb-20">
-        <Label>Workshops — Online</Label>
+        <Label>Workshops · Online</Label>
         <Lines
           as="h1"
           className="font-display mt-5 max-w-4xl text-[length:var(--text-step-3)]"
@@ -80,7 +80,7 @@ export default function Online() {
         <Container>
           <p className="max-w-[62ch] text-cream/70">
             In the meantime, the full framework is available as an in-person
-            workshop for college and university programs — and the career guide
+            workshop for college and university programs, and the career guide
             covers the same ground at your own pace.
           </p>
           <div className="mt-7 flex flex-wrap gap-6">

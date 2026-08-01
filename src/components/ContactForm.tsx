@@ -13,7 +13,7 @@ const INTERESTS = [
   "A single workshop",
   "A pillar series",
   "The full capstone",
-  "Not sure yet — let's talk",
+  "Not sure yet, let's talk",
   "Something else",
 ];
 
@@ -51,7 +51,7 @@ export default function ContactForm() {
         className="rounded-sm border border-gold-deep/35 bg-gold/12 p-8"
       >
         <h2 className="font-display-sm text-[length:var(--text-step-1)]">
-          Thank you — that came through.
+          Thank you, that came through.
         </h2>
         <p className="mt-3 max-w-[48ch] text-ink-soft">
           Kira will get back to you within a couple of days. If it&apos;s

@@ -77,7 +77,7 @@ export default function Founders() {
                 {SITE.founder}
               </p>
               <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-gold-deep">
-                Founder — Rai Arts
+                Founder · Rai Arts
               </p>
             </figcaption>
           </figure>
@@ -92,7 +92,7 @@ export default function Founders() {
           {/* DRAFT — written in the brand voice, awaiting Kira's own words. */}
           <p className="max-w-[62ch] leading-relaxed text-ink-soft">
             Like most dancers, she trained for years in technique, artistry, and
-            performance — and graduated into a profession nobody had explained
+            performance, then graduated into a profession nobody had explained
             the business of. What a contract actually says. What the work pays.
             How to build income across a season. Which of her skills transferred,
             and where.

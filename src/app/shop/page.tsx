@@ -7,7 +7,7 @@ import { Dancer } from "@/components/Marks";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: `${GUIDE.title} — a ${GUIDE.price} digital career guide for dancers, covering the five pillars of the Rai Arts Career Readiness Framework™.`,
+  description: `${GUIDE.title} is a ${GUIDE.price} digital career guide for dancers, covering the five pillars of the Rai Arts Career Readiness Framework™.`,
   alternates: { canonical: "/shop" },
 };
 
@@ -117,7 +117,7 @@ export default function Shop() {
                 {live ? (
                   <>
                     <Button href={GUIDE.stripeLink} variant="gold" external>
-                      Buy the guide — {GUIDE.price}
+                      Buy the guide for {GUIDE.price}
                     </Button>
                     <p className="mt-3 text-[0.78rem] text-ink-soft">
                       Secure checkout via Stripe. Delivered instantly by email.
@@ -156,7 +156,7 @@ export default function Shop() {
               Teaching a whole cohort?
             </h2>
             <p className="mt-3 max-w-[46ch] text-cream/70">
-              The guide works alongside the workshops — bring Rai Arts to your
+              The guide works alongside the workshops. Bring Rai Arts to your
               program and every student leaves with the framework.
             </p>
           </div>

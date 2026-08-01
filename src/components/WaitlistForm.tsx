@@ -31,7 +31,7 @@ export default function WaitlistForm() {
         role="status"
         className="mt-6 rounded-sm border border-gold-deep/35 bg-gold/12 px-4 py-3.5 text-[0.9rem]"
       >
-        You&apos;re on the list — we&apos;ll email you when enrolment opens.
+        You&apos;re on the list. We&apos;ll email you when enrolment opens.
       </p>
     );
   }

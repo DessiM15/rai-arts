@@ -9,8 +9,8 @@ import SmoothScroll from "@/components/SmoothScroll";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — Career readiness for dancers`,
-    template: `%s — ${SITE.name}`,
+    default: `${SITE.name} | Career readiness for dancers`,
+    template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
   applicationName: SITE.name,
@@ -33,12 +33,12 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     locale: SITE.locale,
     url: SITE.url,
-    title: `${SITE.name} — Career readiness for dancers`,
+    title: `${SITE.name} | Career readiness for dancers`,
     description: SITE.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — Career readiness for dancers`,
+    title: `${SITE.name} | Career readiness for dancers`,
     description: SITE.description,
   },
   robots: {

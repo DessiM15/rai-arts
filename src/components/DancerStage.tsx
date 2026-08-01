@@ -117,7 +117,7 @@ export default function DancerStage({ className = "" }: { className?: string }) 
       </svg>
 
       <p className="absolute inset-x-0 bottom-5 text-center font-mono text-[0.58rem] uppercase tracking-[0.24em] text-cream/50 sm:text-[0.64rem]">
-        {SITE.name} — {SITE.tagline}
+        {SITE.name} · {SITE.tagline}
       </p>
     </div>
   );

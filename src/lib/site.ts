@@ -2,7 +2,7 @@ export const SITE = {
   name: "Rai Arts",
   tagline: "Your Art. Your Business.",
   description:
-    "Rai Arts equips aspiring dancers with the business knowledge and skills to navigate a successful, sustainable career in dance — delivered as workshops for college and university dance programs.",
+    "Rai Arts equips aspiring dancers with the business knowledge and skills to navigate a successful, sustainable career in dance, delivered as workshops for college and university dance programs.",
   /**
    * Update this once raiarts.com is pointed at the deploy. Everything
    * canonical — sitemap, OG tags, JSON-LD — reads from here.

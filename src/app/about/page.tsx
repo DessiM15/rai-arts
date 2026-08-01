@@ -8,7 +8,7 @@ import { Dancer } from "@/components/Marks";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Rai Arts fills the gap between dance training and the business of a dance career — a signature curriculum delivered as workshops for college and university dance programs.",
+    "Rai Arts fills the gap between dance training and the business of a dance career, with a signature curriculum delivered as workshops for college and university dance programs.",
   alternates: { canonical: "/about" },
 };
 
@@ -48,11 +48,11 @@ export default function About() {
         <div className="flex flex-col gap-6">
           <Words
             className="text-[1.02rem] leading-relaxed text-ink-soft"
-            text="Rai Arts equips aspiring dancers with the essential business knowledge and skills needed to navigate a successful and sustainable career in dance. Dance programs train exceptional performers — but most graduates leave without a roadmap for the business side of a dance career."
+            text="Rai Arts equips aspiring dancers with the essential business knowledge and skills needed to navigate a successful and sustainable career in dance. Dance programs train exceptional performers, but most graduates leave without a roadmap for the business side of a dance career."
           />
           <p className="max-w-[62ch] leading-relaxed text-ink-soft">
             Rai Arts fills that gap. Its signature curriculum, the Rai Arts
-            Career Readiness Framework™, prepares dancers across five pillars —
+            Career Readiness Framework™, prepares dancers across five pillars,
             from mapping a first year post-grad to understanding contracts,
             budgeting freelance income, building professional relationships, and
             sustaining a long career in the arts. Schools can bring Rai Arts in
@@ -60,7 +60,7 @@ export default function About() {
             capstone program.
           </p>
           <p className="max-w-[62ch] leading-relaxed text-ink-soft">
-            This isn&apos;t about leaving dance. Dancers keep performing — Rai
+            This isn&apos;t about leaving dance. Dancers keep performing. Rai
             Arts prepares them for the whole profession, not an exit from it.
           </p>
 
@@ -125,7 +125,7 @@ export default function About() {
             lines={["Bring Rai Arts to your program."]}
           />
           <p className="mt-5 max-w-[46ch] text-cream/70">
-            Tell us your department, class year, and timeframe — we&apos;ll come
+            Tell us your department, class year, and timeframe, and we&apos;ll come
             back with a session that fits.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

@@ -7,7 +7,7 @@ import { Label, Lines, Rise, Words } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "The Career Readiness Framework",
   description:
-    "The Rai Arts Career Readiness Framework™ — the signature curriculum built on five pillars: career foundations, business, financial, professional, and longevity readiness.",
+    "The Rai Arts Career Readiness Framework™ is the signature curriculum, built on five pillars: career foundations, business, financial, professional, and longevity readiness.",
   alternates: { canonical: "/framework" },
 };
 
@@ -52,7 +52,7 @@ export default function Framework() {
         />
         <Words
           className="mt-7 max-w-[58ch] text-ink-soft"
-          text="Our signature curriculum — everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness. Take one pillar as a standalone workshop, a themed series, or the whole framework as a semester-long capstone."
+          text="Our signature curriculum covers everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness. Take one pillar as a standalone workshop, a themed series, or the whole framework as a semester-long capstone."
         />
         <Rise delay={0.4} className="mt-9 flex flex-wrap gap-3">
           <Button href="/contact">Bring it to your program</Button>

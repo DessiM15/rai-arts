@@ -30,7 +30,7 @@ export default function Contact() {
         />
         <Words
           className="mt-7 max-w-[54ch] text-ink-soft"
-          text="Whether it's booking a workshop for your dance program or grabbing the career guide — reach out and Kira will get back to you within a couple of days."
+          text="Whether it's booking a workshop for your dance program or grabbing the career guide, reach out and Kira will get back to you within a couple of days."
         />
       </Container>
 

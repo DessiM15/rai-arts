@@ -95,17 +95,17 @@ export const FLAGSHIP: Workshop = {
   title: "More Than a Dancer",
   subtitle: "Careers and Income Streams in the Arts",
   summary:
-    "A look at arts administration and the supplemental income paths that let dancers stay in the arts, build financial stability, and diversify what a career can look like. This session reframes “dance career” from a single job title into a portfolio of skills that can be combined and recombined — on stage and off.",
+    "A look at arts administration and the supplemental income paths that let dancers stay in the arts, build financial stability, and diversify what a career can look like. This session reframes “dance career” from a single job title into a portfolio of skills that can be combined and recombined, on stage and off.",
   outcomes: [
     "Name at least four categories of income streams open to trained dancers, beyond performance",
     "Map two or three of their own transferable skills to specific roles and opportunities",
     "Leave with one concrete next step to explore an income stream that interests them",
   ],
   agenda: [
-    "The one-job myth — why most students picture the same few roles",
-    "Four income buckets — performance, teaching, arts administration, and adjacent creative work",
-    "Income Stream Map — students map their own skills to real roles",
-    "Share out & next steps — one concrete move each",
+    "The one-job myth: why most students picture the same few roles",
+    "Four income buckets: performance, teaching, arts administration, and adjacent creative work",
+    "Income Stream Map: students map their own skills to real roles",
+    "Share out and next steps: one concrete move each",
   ],
   length: "60–90 min",
   audience: "College / university dance students",
@@ -126,7 +126,7 @@ export const ONLINE_DRAFT = {
 export const LEARN = {
   podcast: {
     title: "The Rai Arts podcast",
-    body: "Conversations on building a life in dance — what the work actually pays, what nobody explains in training, and how working artists put a career together.",
+    body: "Conversations on building a life in dance: what the work actually pays, what nobody explains in training, and how working artists put a career together.",
     cta: "Watch on YouTube",
     /** TODO: real channel URL from Kira. */
     href: "https://www.youtube.com/",
@@ -143,7 +143,7 @@ export const LEARN = {
 export const GUIDE = {
   title: "Building a Sustainable Career in Dance",
   price: "$18",
-  format: "Digital guide — PDF, instant download",
+  format: "PDF guide, instant download",
   body: "The career guide that sits alongside the workshops: the frameworks, worksheets, and plain-language explanations dancers ask for most, in one place you can keep and work through at your own pace.",
   includes: [
     "The five pillars of the Career Readiness Framework, explained",
