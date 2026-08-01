@@ -124,7 +124,7 @@ export default function Opening() {
       <div className="flex w-full flex-col items-center gap-8 px-6" aria-hidden="true">
         <svg
           viewBox={DANCER_VIEWBOX}
-          className="h-[46vh] max-h-[420px] w-auto text-gold"
+          className="h-[46vh] max-h-[420px] w-auto max-w-[76vw] text-gold"
           fill="none"
         >
           <path

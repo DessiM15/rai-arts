@@ -67,7 +67,7 @@ export default function Shop() {
                 </p>
                 <Dancer
                   className="mx-auto w-[52%] text-cream/90"
-                  strokeWidth={7}
+                  strokeWidth={9}
                 />
                 <div>
                   <h2 className="font-display text-[length:var(--text-step-1)] text-cream">

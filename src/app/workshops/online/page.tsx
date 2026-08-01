@@ -70,7 +70,7 @@ export default function Online() {
             />
             <Dancer
               className="relative w-[58%] text-cream/90"
-              strokeWidth={7}
+              strokeWidth={9}
             />
           </Rise>
         </div>

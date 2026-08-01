@@ -41,7 +41,7 @@ export default function About() {
                   "repeating-linear-gradient(115deg, #efb93b 0 1px, transparent 1px 26px)",
               }}
             />
-            <Dancer className="relative w-[64%] text-cream/85" strokeWidth={7} />
+            <Dancer className="relative w-[64%] text-cream/85" strokeWidth={9} />
           </div>
         </Rise>
 

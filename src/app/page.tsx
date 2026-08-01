@@ -6,6 +6,8 @@ import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import DancerStage from "@/components/DancerStage";
 import LineWalk, { type Beat } from "@/components/LineWalk";
+import Marquee from "@/components/Marquee";
+import Statement from "@/components/Statement";
 
 export const metadata: Metadata = {
   title: "Career readiness for dancers",
@@ -67,8 +69,25 @@ export default function Home() {
         </Rise>
       </Container>
 
+      <Marquee
+        items={[
+          "Career Foundations",
+          "Business Readiness",
+          "Financial Readiness",
+          "Professional Readiness",
+          "Longevity Readiness",
+        ]}
+      />
+
       {/* ── the walk ── */}
       <LineWalk beats={BEATS} />
+
+      {/* ── the promise, set as artwork ── */}
+      <Statement
+        kicker="The promise"
+        lines={["Your Art.", "Your Business."]}
+        footnote="Two things most dancers are told to choose between. The whole point of Rai Arts is that you should not have to."
+      />
 
       {/* ── framework ── */}
       <Section dark className="py-20 sm:py-28">

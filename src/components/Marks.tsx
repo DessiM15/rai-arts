@@ -50,9 +50,16 @@ export function Wordmark({
 }
 
 /** The dancer alone — one unbroken stroke, normalised to 0 0 1000 1000. */
+/**
+ * `strokeWidth` is in viewBox units (0–1000), NOT screen pixels, so the mark
+ * scales proportionally the way a logo must. Do not add
+ * `vector-effect="non-scaling-stroke"` here: that pins the stroke to a fixed
+ * pixel width, which fills the figure into a solid blob at small sizes.
+ * 9 matches the weight of the original drawn line.
+ */
 export function Dancer({
   className,
-  strokeWidth = 8,
+  strokeWidth = 9,
   decorative = true,
 }: {
   className?: string;
@@ -74,7 +81,6 @@ export function Dancer({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
       />
     </svg>
   );

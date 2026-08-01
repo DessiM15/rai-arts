@@ -97,7 +97,7 @@ export function Section({
     <Tag
       id={id}
       data-nav={dark ? "dark" : undefined}
-      className={`${dark ? "on-dark bg-forest text-cream" : ""} ${className}`}
+      className={`grain relative isolate ${dark ? "on-dark bg-forest text-cream" : ""} ${className}`}
     >
       {children}
     </Tag>

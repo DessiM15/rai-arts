@@ -26,6 +26,7 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
   const haloRef = useRef<SVGCircleElement>(null);
   const figRef = useRef<SVGGElement>(null);
   const beatRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const stopRefs = useRef<(SVGCircleElement | null)[]>([]);
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -56,7 +57,7 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
 
       const wrapTop = rect.top + window.scrollY;
       const midX = small ? W * 0.62 : W * 0.5;
-      const swing = W * (small ? 0.2 : 0.17);
+      const swing = W * (small ? 0.2 : 0.19);
 
       const pts: { x: number; y: number }[] = [{ x: midX, y: 0 }];
       beatRefs.current.forEach((b, i) => {
@@ -102,6 +103,15 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
         return (lo + hi) / 2;
       });
 
+      // Pin a station marker to the line where each beat sits.
+      anchors.forEach((at, i) => {
+        const c = stopRefs.current[i];
+        if (!c || !line) return;
+        const pt = line.getPointAtLength(at);
+        c.setAttribute("cx", String(pt.x));
+        c.setAttribute("cy", String(pt.y));
+      });
+
       frame();
     }
 
@@ -138,8 +148,15 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
         if (!b) return;
         // `data-in` is the same hook the CSS reveals use everywhere else, so a
         // beat lighting up releases its label, heading, and body together.
-        if (at >= anchors[i] - (small ? 40 : 70)) b.setAttribute("data-in", "");
+        const reached = at >= anchors[i] - (small ? 40 : 70);
+        if (reached) b.setAttribute("data-in", "");
         else b.removeAttribute("data-in");
+
+        const c = stopRefs.current[i];
+        if (c) {
+          c.setAttribute("r", String(reached ? (small ? 6 : 8) : small ? 3 : 4));
+          c.style.fillOpacity = reached ? "1" : "0.28";
+        }
       });
     }
 
@@ -177,7 +194,7 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
   }, [beats.length]);
 
   return (
-    <div ref={wrapRef} className="relative py-20 sm:py-28 lg:py-36">
+    <div ref={wrapRef} className="grain relative isolate py-20 sm:py-28 lg:py-32">
       <svg
         ref={svgRef}
         className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
@@ -199,6 +216,16 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
           strokeWidth={2.5}
           strokeLinecap="round"
         />
+        {beats.map((_, i) => (
+          <circle
+            key={i}
+            ref={(el) => {
+              stopRefs.current[i] = el;
+            }}
+            className="fill-gold-deep"
+            r={4}
+          />
+        ))}
         <circle ref={haloRef} className="fill-gold opacity-15" r={34} />
         <g ref={figRef} className="text-gold-deep">
           <path
@@ -212,7 +239,7 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
         </g>
       </svg>
 
-      <div className="relative z-10 mx-auto flex max-w-[1180px] flex-col gap-24 px-5 sm:gap-32 sm:px-8 lg:gap-44 lg:px-14">
+      <div className="relative z-[2] mx-auto flex max-w-[1180px] flex-col gap-24 px-5 sm:gap-28 sm:px-8 lg:gap-36 lg:px-14">
         {beats.map((beat, i) => (
           <div
             key={i}
@@ -220,18 +247,29 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
               beatRefs.current[i] = el;
             }}
             className={[
-              "walk-beat w-full sm:w-[min(30rem,72%)]",
+              "walk-beat w-full sm:w-[min(34rem,68%)]",
               i % 2 === 1 ? "sm:ml-auto sm:text-right" : "",
             ].join(" ")}
           >
+            {/* The stop number, set large enough to be a graphic element */}
+            <span
+              aria-hidden="true"
+              className={[
+                "font-statement block text-[length:var(--text-step-4)] leading-none text-gold-deep/30",
+                i % 2 === 1 ? "sm:text-right" : "",
+              ].join(" ")}
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+
             <p
               data-rv-label=""
-              className={`label ${i % 2 === 1 ? "sm:flex-row-reverse" : ""}`}
+              className={`label mt-4 ${i % 2 === 1 ? "sm:flex-row-reverse" : ""}`}
             >
               {beat.label}
             </p>
 
-            <h2 className="font-display mt-3 mb-3 text-[length:var(--text-step-2)]">
+            <h2 className="font-statement mt-4 mb-5 text-[length:var(--text-step-3)]">
               {beat.lines.map((line, j) => (
                 <span key={j} className="rv-line">
                   <span style={{ ["--rv-d" as string]: `${j * 0.11}s` }}>
@@ -244,7 +282,7 @@ export default function LineWalk({ beats }: { beats: Beat[] }) {
             <p
               data-rv-words=""
               className={[
-                "max-w-[60ch] text-[length:var(--text-step--1)] leading-[1.7] text-ink-soft",
+                "max-w-[46ch] text-[length:var(--text-step-0)] leading-[1.65] text-ink-soft",
                 i % 2 === 1 ? "sm:ml-auto" : "",
               ].join(" ")}
             >
