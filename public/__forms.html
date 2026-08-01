@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rai Arts — form definitions</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <!--
+      Netlify discovers forms by parsing static HTML at build time. Because this
+      site is server-rendered, the real React forms are never present as static
+      markup, so they are declared here instead. The live forms POST to this
+      path. Do not delete: removing this file silently breaks both forms.
+    -->
+
+    <form name="workshop-enquiry" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="workshop-enquiry" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="institution" />
+      <input type="text" name="role" />
+      <input type="text" name="timeframe" />
+      <input type="text" name="interest" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="online-waitlist" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="online-waitlist" />
+      <input type="text" name="bot-field" />
+      <input type="email" name="email" />
+    </form>
+  </body>
+</html>
