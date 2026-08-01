@@ -31,7 +31,12 @@ export default function About() {
       {/* ── the case, as an asymmetric spread ── */}
       <Container className="grid gap-10 pb-20 sm:pb-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <Rise className="lg:sticky lg:top-32 lg:self-start">
-          <ArtPanel variant="rule" ratio="3/4" caption="For dancers, by a dancer" />
+          <ArtPanel
+            ratio="3/4"
+            src="/images/dancer-pointe.jpg"
+            alt="A dancer on pointe"
+            caption="For dancers, by a dancer"
+          />
         </Rise>
 
         <div className="flex flex-col gap-6">
@@ -114,7 +119,7 @@ export default function About() {
             </Quote>
           </Rise>
           <Rise delay={0.1}>
-            <ArtPanel variant="sun" ratio="1/1" />
+            <ArtPanel ratio="1/1" src="/images/pointe-shoes-floor.jpg" alt="Worn pointe shoes on a studio floor" />
           </Rise>
         </div>
       </Container>

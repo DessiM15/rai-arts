@@ -77,7 +77,12 @@ export default function Framework() {
           </Rise>
         </div>
         <Rise delay={0.2}>
-          <ArtPanel variant="grid" ratio="4/5" caption="Five pillars of readiness" />
+          <ArtPanel
+            ratio="4/5"
+            src="/images/nyc-street.jpg"
+            alt="A New York street"
+            caption="Five pillars of readiness"
+          />
         </Rise>
       </Container>
 

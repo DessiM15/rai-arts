@@ -4,7 +4,7 @@ import { FLAGSHIP, PILLARS } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { Quote, SectionHead } from "@/components/editorial";
-import DancerStage from "@/components/DancerStage";
+import HeroDancer from "@/components/HeroDancer";
 import LineWalk, { type Beat } from "@/components/LineWalk";
 import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
@@ -22,19 +22,19 @@ const BEATS: Beat[] = [
     label: "The problem",
     lines: ["A career can hold", "more than one thing."],
     body: "Dance programs train exceptional performers. Most graduates still leave without a roadmap for the business side of the work: how to find it, price it, contract it, or sustain it.",
-    art: { variant: "grid" },
+    art: { src: "/images/studio-interior.jpg", alt: "An empty dance studio", caption: "Where the training happens" },
   },
   {
     label: "The approach",
     lines: ["Keep dancing.", "Build the structure", "around it."],
     body: "This isn't about leaving dance. Rai Arts prepares dancers for the whole profession, not an exit from it. The performing keeps going, with something solid underneath it.",
-    art: { variant: "figure" },
+    art: { src: "/images/dancer-pointe.jpg", alt: "A dancer on pointe", caption: "Keep dancing" },
   },
   {
     label: "The curriculum",
     lines: ["Five pillars,", "one framework."],
     body: "The Rai Arts Career Readiness Framework™ covers everything from mapping a first year post-grad to reading a contract, budgeting freelance income, and lasting long enough to build a legacy.",
-    art: { variant: "rule" },
+    art: { src: "/images/pointe-shoes-floor.jpg", alt: "Worn pointe shoes on a studio floor", caption: "The craft" },
   },
   {
     label: "The delivery",
@@ -53,40 +53,36 @@ const BEATS: Beat[] = [
 export default function Home() {
   return (
     <>
-      {/* ── hero: split screen, the mark bleeding off the right edge ── */}
-      {/* The panel bleeds off the right and bottom, but starts below the header:
-          the nav spans both halves, so a panel running under it would put dark
-          links on a dark ground with no single colour that works for both. */}
-      <section className="grid items-stretch pt-[4.75rem] sm:pt-[5.25rem] lg:min-h-[92svh] lg:grid-cols-2">
-        <div
-          className="flex flex-col items-start justify-center gap-7 px-5 pt-10 pb-16 sm:px-8 sm:pt-14 lg:py-20 lg:pr-12"
-          // Aligns the copy with the site's container gutter at every width,
-          // even though this section itself runs edge to edge.
-          style={{
-            paddingLeft: "max(1.25rem, calc((100vw - 1180px) / 2 + 3.5rem))",
-          }}
-        >
-          <Label>Career readiness for dancers</Label>
-          <Lines
-            as="h1"
-            className="font-statement text-[length:var(--text-step-3)]"
-            lines={["Preparing dancers", "for the business", "of a dance career."]}
-            delay={0.1}
-          />
-          <Words
-            className="max-w-[42ch] text-[length:var(--text-step-0)] text-ink-soft"
-            text={SITE.description}
-            delay={0.55}
-          />
-          <Rise delay={0.75} className="flex flex-wrap gap-3">
-            <Button href="/framework">Explore the framework</Button>
-            <Button href="/contact" variant="ghost">
-              Book a workshop
-            </Button>
-          </Rise>
-        </div>
+      {/* ── hero: she takes the whole screen, headline over her ── */}
+      <section className="grain relative isolate flex min-h-[88svh] items-center overflow-hidden pt-28 pb-16 sm:pt-32">
+        <HeroDancer />
 
-        <DancerStage bleed />
+        <Container className="relative z-[2]">
+          <div className="flex max-w-[46rem] flex-col items-start gap-7">
+            <Label>Career readiness for dancers</Label>
+            <Lines
+              as="h1"
+              className="font-statement text-[length:var(--text-step-4)]"
+              lines={[
+                "Preparing dancers",
+                "for the business",
+                "of a dance career.",
+              ]}
+              delay={0.1}
+            />
+            <Words
+              className="max-w-[42ch] text-[length:var(--text-step-0)] text-ink-soft"
+              text={SITE.description}
+              delay={0.55}
+            />
+            <Rise delay={0.75} className="flex flex-wrap gap-3">
+              <Button href="/framework">Explore the framework</Button>
+              <Button href="/contact" variant="ghost">
+                Book a workshop
+              </Button>
+            </Rise>
+          </div>
+        </Container>
       </section>
 
       <Marquee
@@ -135,7 +131,12 @@ export default function Home() {
       <Container className="py-20 sm:py-28 lg:py-32">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <Rise className="lg:sticky lg:top-32 lg:self-start">
-            <ArtPanel variant="sun" ratio="4/5" caption="The flagship session" />
+            <ArtPanel
+              ratio="4/5"
+              src="/images/empty-house.jpg"
+              alt="An empty auditorium"
+              caption="The flagship session"
+            />
           </Rise>
 
           <div>

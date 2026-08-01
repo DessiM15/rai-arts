@@ -32,7 +32,12 @@ export default function Online() {
           />
         </div>
         <Rise delay={0.15}>
-          <ArtPanel variant="sun" ratio="4/5" caption="Opening soon" />
+          <ArtPanel
+            ratio="4/5"
+            src="/images/studio-interior.jpg"
+            alt="An empty dance studio"
+            caption="Opening soon"
+          />
         </Rise>
       </Container>
 

@@ -158,7 +158,7 @@ export default function Workshops() {
             </SectionHead>
           </div>
           <Rise delay={0.1}>
-            <ArtPanel variant="figure" ratio="4/5" />
+            <ArtPanel ratio="4/5" src="/images/empty-house.jpg" alt="An empty auditorium" />
           </Rise>
         </Container>
       </Section>

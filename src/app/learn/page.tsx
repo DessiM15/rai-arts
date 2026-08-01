@@ -69,7 +69,12 @@ export default function Learn() {
       <Container className="py-20 sm:py-28">
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <Rise>
-            <ArtPanel variant="rule" ratio="1/1" caption="Free on Substack" />
+            <ArtPanel
+              ratio="1/1"
+              src="/images/nyc-street.jpg"
+              alt="A New York street"
+              caption="Free on Substack"
+            />
           </Rise>
           <div>
             <SectionHead
