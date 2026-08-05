@@ -91,7 +91,7 @@ export default function About() {
             <PillarQuestions
               pillars={PILLARS}
               photo={{
-                src: "/images/kira.jpg",
+                src: "/images/kira-portrait.jpg",
                 alt: `${SITE.founder}, founder of Rai Arts`,
               }}
               caption={`${SITE.founder} · Founder`}

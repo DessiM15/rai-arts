@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
-import { FLAGSHIP, PILLARS } from "@/lib/content";
+import { PILLARS } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Rise } from "@/components/Reveal";
 import { Quote, SectionHead } from "@/components/editorial";
@@ -10,6 +10,7 @@ import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
 import Wings from "@/components/Wings";
+import LearnTiles from "@/components/LearnTiles";
 
 export const metadata: Metadata = {
   title: "Career readiness for dancers",
@@ -21,12 +22,12 @@ const BEATS: Beat[] = [
   {
     label: "The problem",
     lines: ["A career can hold", "more than one thing."],
-    body: "Dance programs train exceptional performers. Most graduates still leave without a roadmap for the business side of the work: how to find it, price it, contract it, or sustain it.",
+    body: "Dancers spend years preparing their bodies for the stage. A lasting career asks for more: understanding the industry, managing your finances, and taking care of yourself through it all.",
   },
   {
     label: "The approach",
     lines: ["Keep dancing.", "Build the structure", "around it."],
-    body: "This isn't about leaving dance. Rai Arts prepares dancers for the whole profession, not an exit from it. The performing keeps going, with something solid underneath it.",
+    body: "This isn't about leaving dance, or asking dancers for a Plan B. Rai Arts prepares the whole person, not just the dancer, for the profession. The performing keeps going, with something solid underneath it.",
   },
   {
     label: "The curriculum",
@@ -35,8 +36,8 @@ const BEATS: Beat[] = [
   },
   {
     label: "The delivery",
-    lines: ["Brought into", "your program."],
-    body: "Book a single workshop, a themed series, or the full framework as a semester-long capstone. Sessions run as guest lectures or class visits for groups of ten to thirty and up.",
+    lines: ["Wherever you're", "ready to learn."],
+    body: "Bring Rai Arts to your program as a single workshop, a themed series, or a full capstone, or sign up for a live online session yourself. In person or online, the work translates.",
   },
 ];
 
@@ -46,29 +47,26 @@ export default function Home() {
       {/* ── hero: the curtain parts onto the stage ── */}
       <CurtainHero
         left={[
-          { src: "/images/dancer-pointe.jpg", alt: "A dancer on pointe" },
-          { src: "/images/studio-interior.jpg", alt: "An empty dance studio" },
-          { src: "/images/nyc-street.jpg", alt: "A New York street" },
+          { src: "/images/kira-barre.jpg", alt: "Kira at the barre in the studio" },
+          { src: "/images/kira-steps.jpg", alt: "Kira on the steps at Columbia" },
+          { src: "/images/kira-teaching.jpg", alt: "Kira in conversation after a session" },
         ]}
         right={[
           {
             src: "/images/kira-speaking.jpg",
             alt: `${SITE.founder} presenting a Rai Arts session`,
           },
-          {
-            src: "/images/pointe-shoes-floor.jpg",
-            alt: "Worn pointe shoes on a studio floor",
-          },
-          { src: "/images/empty-house.jpg", alt: "An empty auditorium" },
+          { src: "/images/kira-portrait.jpg", alt: `${SITE.founder}` },
+          { src: "/images/kira-aerial.jpg", alt: "Kira inverted mid-movement" },
         ]}
-        stage={{ src: "/images/empty-house.jpg", alt: "" }}
+        stage={{ src: "/images/kira-barre.jpg", alt: "" }}
       >
         <p className="label">Career readiness for dancers</p>
         <h1 className="font-statement text-[length:var(--text-step-4)] text-cream">
           Preparing dancers for the business of a dance career.
         </h1>
         <p className="max-w-[46ch] text-[length:var(--text-step-0)] text-cream/75">
-          {SITE.description}
+          {SITE.intro}
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Button href="/framework" variant="gold">
@@ -97,7 +95,7 @@ export default function Home() {
       <Statement
         kicker="The promise"
         lines={["Your Art.", "Your Business."]}
-        footnote="Two things most dancers are told to choose between. The whole point of Rai Arts is that you should not have to."
+        footnote="Art or business — most dancers are told to choose. The whole point of Rai Arts is that you don't have to."
       />
 
       {/* ── framework ── */}
@@ -116,11 +114,11 @@ export default function Home() {
             <Wings
               pillars={PILLARS}
               art={[
-                { src: "/images/studio-interior.jpg", alt: "" },
-                { src: "/images/nyc-street.jpg", alt: "" },
-                { src: "/images/pointe-shoes-floor.jpg", alt: "" },
-                { src: "/images/kira-speaking.jpg", alt: "" },
-                { src: "/images/dancer-pointe.jpg", alt: "" },
+                { src: "/images/kira-steps.jpg", alt: "" },
+                { src: "/images/kira-portrait.jpg", alt: "" },
+                { src: "/images/kira-barre.jpg", alt: "" },
+                { src: "/images/kira-teaching.jpg", alt: "" },
+                { src: "/images/kira-aerial.jpg", alt: "" },
               ]}
             />
           </div>
@@ -132,52 +130,6 @@ export default function Home() {
           </div>
         </Container>
       </Section>
-
-      {/* ── flagship as an editorial spread ── */}
-      <Container className="py-20 sm:py-28 lg:py-32">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <Rise className="lg:sticky lg:top-32 lg:self-start">
-            <ArtPanel
-              ratio="4/5"
-              src="/images/empty-house.jpg"
-              alt="An empty auditorium"
-              caption="The flagship session"
-            />
-          </Rise>
-
-          <div>
-            <SectionHead
-              index="02"
-              label="Flagship workshop"
-              lines={["More Than", "a Dancer."]}
-              body={FLAGSHIP.summary}
-            />
-
-            <ol className="mt-12 flex flex-col">
-              {FLAGSHIP.agenda.map((step, i) => (
-                <li
-                  key={i}
-                  className="flex gap-5 border-t border-forest/12 py-5 sm:gap-8"
-                >
-                  <span className="font-display-sm w-8 shrink-0 text-[1rem] text-gold-deep/70 tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-[0.98rem] leading-relaxed text-ink-soft">
-                    {step}
-                  </span>
-                </li>
-              ))}
-            </ol>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Button href="/workshops/college">See the full programme</Button>
-              <Button href="/contact" variant="ghost">
-                Request this workshop
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Container>
 
       {/* ── quote ── */}
       <Section dark className="bg-forest-deep py-20 sm:py-28">
@@ -207,17 +159,23 @@ export default function Home() {
 
       {/* ── learn ── */}
       <Container className="py-20 sm:py-28">
-        <SectionHead
-          index="03"
-          label="Learn"
-          lines={["Free to follow,", "wherever you are", "in the career."]}
-          body="You don't need a program to bring Rai Arts in to start learning. The podcast and newsletter cover the same ground the workshops do."
-        >
-          <Button href="/learn">Watch and read</Button>
-          <Button href="/shop" variant="ghost">
-            Get the guide
-          </Button>
-        </SectionHead>
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <SectionHead
+            index="03"
+            label="Learn"
+            lines={["Free to follow,", "wherever you are", "in the career."]}
+            body="You don't need a program to bring Rai Arts in to start learning. The ebooks, podcast, and newsletter cover the same ground the workshops do."
+          >
+            <Button href="/learn">Watch and read</Button>
+            <Button href="/shop" variant="ghost">
+              Ebooks
+            </Button>
+          </SectionHead>
+
+          <Rise delay={0.1}>
+            <LearnTiles />
+          </Rise>
+        </div>
       </Container>
 
       {/* ── cta ── */}
@@ -227,14 +185,11 @@ export default function Home() {
             label="Get in touch"
             align="center"
             dark
-            lines={["Have a program,", "a question, or", "want the guide?"]}
-            body="Whether it's booking a workshop for your dance program or grabbing the career guide, reach out and Kira will get back to you within a couple of days."
+            lines={["Have a question", "or ready to begin?"]}
+            body="Whether you're booking a workshop for your dance program or signing up for a session yourself, reach out and Kira will get back to you within a couple of days."
           >
-            <Button href="/contact" variant="gold">
-              Book a workshop
-            </Button>
-            <Button href={`mailto:${SITE.email}`} variant="ghost-light" external>
-              Email {SITE.email}
+            <Button href={`mailto:${SITE.email}`} variant="gold" external>
+              Email Me
             </Button>
           </SectionHead>
         </Container>

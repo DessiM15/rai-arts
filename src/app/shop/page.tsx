@@ -9,7 +9,7 @@ import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 
 export const metadata: Metadata = {
-  title: "Shop",
+  title: "Ebooks",
   description: `${GUIDE.title} is a ${GUIDE.price} digital career guide for dancers, covering the five pillars of the Rai Arts Career Readiness Framework™.`,
   alternates: { canonical: "/shop" },
 };
@@ -43,19 +43,19 @@ export default function Shop() {
       />
 
       <Container className="pt-32 pb-14 sm:pt-40 sm:pb-16">
-        <Label>Shop</Label>
+        <Label>Ebooks</Label>
         <Lines
           as="h1"
           className="font-statement mt-6 max-w-[12ch] text-[length:var(--text-step-5)]"
-          lines={["The career", "guide."]}
+          lines={["The ebooks."]}
         />
         <Words
           className="mt-8 max-w-[50ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text="Everything the workshops cover, in a form you can keep and work through at your own pace."
+          text="Everything the workshops cover, in a form you can keep and work through at your own pace. More titles are on the way."
         />
       </Container>
 
-      <Marquee items={[GUIDE.title, GUIDE.price, "Instant download"]} speed={32} />
+      <Marquee items={["Ebooks", GUIDE.title, GUIDE.price]} speed={32} />
 
       {/* ── the object ── */}
       <Container className="py-16 sm:py-24">
@@ -120,7 +120,7 @@ export default function Shop() {
               {live ? (
                 <>
                   <Button href={GUIDE.stripeLink} variant="gold" external>
-                    Buy the guide for {GUIDE.price}
+                    Buy for {GUIDE.price}
                   </Button>
                   <p className="mt-4 text-[0.8rem] text-ink-soft">
                     Secure checkout via Stripe. Delivered instantly by email.

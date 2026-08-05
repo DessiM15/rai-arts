@@ -26,11 +26,11 @@ export default function Learn() {
         />
         <Words
           className="mt-8 max-w-[54ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text="You don't need a program to bring Rai Arts in to start learning. The podcast and newsletter cover the same ground the workshops do: what the work pays, how to find it, and how to make it last."
+          text="You don't need a program to bring Rai Arts in to start learning. The ebooks, podcast, and newsletter cover the same ground the workshops do: what the work pays, how to find it, and how to make it last."
         />
       </Container>
 
-      <Marquee items={["The podcast", "The newsletter", "The career guide"]} />
+      <Marquee items={["The podcast", "The newsletter", "The ebooks"]} />
 
       {/* ── podcast ── */}
       <Section dark className="py-20 sm:py-28 lg:py-32">
@@ -108,7 +108,7 @@ export default function Learn() {
               body={GUIDE.body}
             >
               <Button href="/shop" variant="gold">
-                Get the guide for {GUIDE.price}
+                Ebooks — {GUIDE.price}
               </Button>
             </SectionHead>
           </div>

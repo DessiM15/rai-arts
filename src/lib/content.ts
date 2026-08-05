@@ -18,7 +18,7 @@ export const PILLARS: Pillar[] = [
     n: "01",
     title: "Career Foundations",
     question: "Am I ready to enter the field with a clear plan?",
-    body: "Career mapping, networking, professional identity, and portfolio building.",
+    body: "Career mapping, networking, and professional identity.",
     covers: [
       "Mapping a realistic first year after graduation",
       "Building a portfolio that reflects range, not just repertoire",
@@ -30,7 +30,7 @@ export const PILLARS: Pillar[] = [
     n: "02",
     title: "Business Readiness",
     question: "Am I ready to create opportunities for myself?",
-    body: "Entrepreneurship, starting a company, branding, and diversifying income.",
+    body: "Entrepreneurship, starting a company, contracts, and diversifying income.",
     covers: [
       "Structuring a company, a collective, or a freelance practice",
       "Branding that reads as professional to presenters and schools",

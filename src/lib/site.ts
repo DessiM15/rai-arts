@@ -1,8 +1,16 @@
 export const SITE = {
   name: "Rai Arts",
   tagline: "Your Art. Your Business.",
+  /** Shown on the page. Kira's words, kept exactly. */
+  intro:
+    "Rai Arts equips dancers with the essential business knowledge and skills to navigate a successful, sustainable career in dance.",
+  /**
+   * Never rendered — this is the search description. It keeps "workshops for
+   * college and university dance programs", the phrase departments actually
+   * search for, which the shorter on-page line above drops.
+   */
   description:
-    "Rai Arts equips aspiring dancers with the business knowledge and skills to navigate a successful, sustainable career in dance, delivered as workshops for college and university dance programs.",
+    "Rai Arts equips dancers with the essential business knowledge and skills to navigate a successful, sustainable career in dance, delivered as workshops for college and university dance programs.",
   /**
    * Update this once raiarts.com is pointed at the deploy. Everything
    * canonical — sitemap, OG tags, JSON-LD — reads from here.
@@ -54,6 +62,6 @@ export const NAV: NavItem[] = [
   },
   { label: "Framework", href: "/framework" },
   { label: "Learn", href: "/learn" },
-  { label: "Shop", href: "/shop" },
+  { label: "Ebooks", href: "/shop" },
   { label: "Get in Touch", href: "/contact" },
 ];
