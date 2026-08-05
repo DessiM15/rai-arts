@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Lenis from "lenis";
 import { registerLenis, scrollToTop } from "@/lib/scroll";
 
@@ -12,6 +12,29 @@ import { registerLenis, scrollToTop } from "@/lib/scroll";
  */
 export default function SmoothScroll() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  /**
+   * A refresh returns to the home page hero, from wherever you were.
+   *
+   * This checks for a genuine reload rather than simply "not a client-side
+   * navigation". The Navigation Timing API reports "reload" only when the
+   * visitor actually refreshed; arriving from a search result, a shared link
+   * or a bookmark reports "navigate", and the back button reports
+   * "back_forward". Those all stay where they point, so deep links keep
+   * working — only a refresh goes home.
+   *
+   * Runs once per full page load: this component lives in the root layout, so
+   * client-side navigation never remounts it and can never trigger a bounce.
+   */
+  useEffect(() => {
+    if (window.location.pathname === "/") return;
+    const nav = performance.getEntriesByType("navigation")[0] as
+      | PerformanceNavigationTiming
+      | undefined;
+    if (nav?.type !== "reload") return;
+    router.replace("/");
+  }, [router]);
 
   /**
    * Start every page at the top.
