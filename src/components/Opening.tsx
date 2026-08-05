@@ -7,15 +7,13 @@ import { Wordmark } from "./Marks";
 const SEEN_KEY = "rai-arts:opening-seen";
 
 /**
- * PREVIEW MODE — set back to `false` before launch.
+ * Set true to replay the title sequence on every page load while reviewing it.
+ * Leave false in production: it plays once per browser session, so returning
+ * visitors and anyone clicking between pages don't sit through it again.
  *
- * While true, the title sequence replays on every page load so it can be
- * reviewed and tweaked. In production it should play once per browser session,
- * otherwise returning visitors sit through it every single time.
- *
- * (Reduced-motion visitors always skip it, in either mode.)
+ * (Reduced-motion visitors always skip it, either way.)
  */
-const PLAY_EVERY_VISIT = true;
+const PLAY_EVERY_VISIT = false;
 
 type Phase = "idle" | "playing" | "lifting" | "gone";
 

@@ -27,9 +27,9 @@ Four spots need real values before or shortly after launch. Everything else work
 
 Search the repo for `DRAFT` and `TODO` to find them all.
 
-**Before launch:** `PLAY_EVERY_VISIT` in `src/components/Opening.tsx` is currently
-`true` so the title sequence replays on every load while it's being reviewed. Set it
-to `false` before going live, or returning visitors sit through the intro every time.
+**The title sequence** plays once per browser session. To watch it repeatedly while
+working on it, set `PLAY_EVERY_VISIT` to `true` in `src/components/Opening.tsx` — and
+set it back to `false` before shipping.
 
 **Domain:** `SITE.url` in `src/lib/site.ts` is set to `https://raiarts.com`. Canonicals,
 the sitemap, OG tags, and JSON-LD all read from it. Point the domain at the Netlify
