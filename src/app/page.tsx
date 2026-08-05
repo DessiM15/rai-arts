@@ -44,20 +44,25 @@ const BEATS: Beat[] = [
 export default function Home() {
   return (
     <>
-      {/* ── hero: the curtain parts onto the stage ── */}
+      {/* ── hero: the curtain parts onto the stage ──
+          The curtain rotates in pairs: left[i] and right[i] are on screen
+          together, so these arrays are a running order, not two loose lists. */}
       <CurtainHero
         left={[
           { src: "/images/kira-barre.jpg", alt: "Kira at the barre in the studio" },
           { src: "/images/kira-steps.jpg", alt: "Kira on the steps at Columbia" },
-          { src: "/images/kira-teaching.jpg", alt: "Kira in conversation after a session" },
-        ]}
-        right={[
           {
             src: "/images/kira-speaking.jpg",
             alt: `${SITE.founder} presenting a Rai Arts session`,
           },
+        ]}
+        right={[
           { src: "/images/kira-portrait.jpg", alt: `${SITE.founder}` },
           { src: "/images/kira-aerial.jpg", alt: "Kira inverted mid-movement" },
+          {
+            src: "/images/kira-teaching.jpg",
+            alt: "Kira in conversation after a session",
+          },
         ]}
         stage={{ src: "/images/kira-barre.jpg", alt: "" }}
       >
