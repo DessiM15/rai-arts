@@ -46,7 +46,10 @@ export default function Home() {
     <>
       {/* ── hero: the curtain parts onto the stage ──
           The curtain rotates in pairs: left[i] and right[i] are on screen
-          together, so these arrays are a running order, not two loose lists. */}
+          together, so these arrays are a running order, not two loose lists.
+          The stage uses a landscape crop of the speaking photo: the source is
+          portrait, and object-cover on a full-bleed band would have cut both
+          heads off. */}
       <CurtainHero
         left={[
           { src: "/images/kira-barre.jpg", alt: "Kira at the barre in the studio" },
@@ -64,7 +67,7 @@ export default function Home() {
             alt: "Kira in conversation after a session",
           },
         ]}
-        stage={{ src: "/images/kira-barre.jpg", alt: "" }}
+        stage={{ src: "/images/kira-speaking-wide.jpg", alt: "" }}
       >
         <p className="label">Career readiness for dancers</p>
         <h1 className="font-statement text-[length:var(--text-step-4)] text-cream">

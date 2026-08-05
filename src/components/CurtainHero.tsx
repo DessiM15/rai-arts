@@ -154,7 +154,10 @@ export default function CurtainHero({
             alt={stage.alt}
             fill
             sizes="100vw"
-            className="object-cover"
+            // A landscape frame in a portrait viewport crops to the middle,
+            // which on this photo is the empty gap between the two figures.
+            // Biasing right keeps Kira in shot on a phone.
+            className="object-cover object-[70%_center] sm:object-center"
           />
           <div
             aria-hidden="true"
