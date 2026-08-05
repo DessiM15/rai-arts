@@ -5,6 +5,7 @@ import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { SectionHead, Steps } from "@/components/editorial";
 import PinnedPillars from "@/components/PinnedPillars";
+import Wings from "@/components/Wings";
 import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
@@ -88,8 +89,24 @@ export default function Framework() {
 
       <Marquee items={PILLARS.map((p) => p.title)} speed={42} />
 
-      {/* ── the pillars, pinned ── */}
-      <Section dark className="py-20 sm:py-28 lg:py-36">
+      {/* ── the pillars at a glance ── */}
+      <Section dark className="py-20 sm:py-24">
+        <Container>
+          <Wings
+            pillars={PILLARS}
+            art={[
+              { src: "/images/kira-steps.jpg", alt: "" },
+              { src: "/images/kira-portrait.jpg", alt: "" },
+              { src: "/images/kira-barre.jpg", alt: "" },
+              { src: "/images/kira-teaching.jpg", alt: "" },
+              { src: "/images/kira-aerial.jpg", alt: "" },
+            ]}
+          />
+        </Container>
+      </Section>
+
+      {/* ── then the same five in full, pinned ── */}
+      <Section dark className="pb-20 sm:pb-28 lg:pb-36">
         <Container>
           <PinnedPillars pillars={PILLARS} />
         </Container>

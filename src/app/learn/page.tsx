@@ -6,6 +6,7 @@ import { SectionHead } from "@/components/editorial";
 import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
+import LearnTiles from "@/components/LearnTiles";
 
 export const metadata: Metadata = {
   title: "Learn",
@@ -24,10 +25,15 @@ export default function Learn() {
           className="font-statement mt-6 max-w-[13ch] text-[length:var(--text-step-5)]"
           lines={["Free to follow,", "wherever you are", "in the career."]}
         />
-        <Words
-          className="mt-8 max-w-[54ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text="You don't need a program to bring Rai Arts in to start learning. The ebooks, podcast, and newsletter cover the same ground the workshops do: what the work pays, how to find it, and how to make it last."
-        />
+        <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <Words
+            className="max-w-[54ch] text-[length:var(--text-step-0)] text-ink-soft"
+            text="You don't need a program to bring Rai Arts in to start learning. The ebooks, podcast, and newsletter cover the same ground the workshops do: what the work pays, how to find it, and how to make it last."
+          />
+          <Rise delay={0.1}>
+            <LearnTiles />
+          </Rise>
+        </div>
       </Container>
 
       <Marquee items={["The podcast", "The newsletter", "The ebooks"]} />

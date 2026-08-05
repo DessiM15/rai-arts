@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
-import { PILLARS } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Rise } from "@/components/Reveal";
 import { Quote, SectionHead } from "@/components/editorial";
@@ -9,8 +8,6 @@ import LineWalk, { type Beat } from "@/components/LineWalk";
 import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
-import Wings from "@/components/Wings";
-import LearnTiles from "@/components/LearnTiles";
 
 export const metadata: Metadata = {
   title: "Career readiness for dancers",
@@ -106,39 +103,6 @@ export default function Home() {
         footnote="Art or business — most dancers are told to choose. The whole point of Rai Arts is that you don't have to."
       />
 
-      {/* ── framework ── */}
-      <Section dark className="py-20 sm:py-28 lg:py-32">
-        <Container>
-          <SectionHead
-            index="01"
-            label="The framework"
-            dark
-            lines={["The Rai Arts Career", "Readiness Framework™"]}
-            body="Our signature curriculum covers everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness."
-          />
-
-          {/* ── the wings: one pillar downstage in the light ── */}
-          <div className="mt-14">
-            <Wings
-              pillars={PILLARS}
-              art={[
-                { src: "/images/kira-steps.jpg", alt: "" },
-                { src: "/images/kira-portrait.jpg", alt: "" },
-                { src: "/images/kira-barre.jpg", alt: "" },
-                { src: "/images/kira-teaching.jpg", alt: "" },
-                { src: "/images/kira-aerial.jpg", alt: "" },
-              ]}
-            />
-          </div>
-
-          <div className="mt-12 flex flex-wrap gap-3">
-            <Button href="/framework" variant="gold">
-              Explore all five pillars
-            </Button>
-          </div>
-        </Container>
-      </Section>
-
       {/* ── quote ── */}
       <Section dark className="bg-forest-deep py-20 sm:py-28">
         <Container className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
@@ -159,40 +123,19 @@ export default function Home() {
         </Container>
       </Section>
 
+      {/* dark so it separates the quote above from the sand inquire below */}
       <Marquee
         dark
         speed={44}
         items={["Your Art. Your Business.", "For dancers, by a dancer"]}
       />
 
-      {/* ── learn ── */}
-      <Container className="py-20 sm:py-28">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <SectionHead
-            index="03"
-            label="Learn"
-            lines={["Free to follow,", "wherever you are", "in the career."]}
-            body="You don't need a program to bring Rai Arts in to start learning. The ebooks, podcast, and newsletter cover the same ground the workshops do."
-          >
-            <Button href="/learn">Watch and read</Button>
-            <Button href="/shop" variant="ghost">
-              Ebooks
-            </Button>
-          </SectionHead>
-
-          <Rise delay={0.1}>
-            <LearnTiles />
-          </Rise>
-        </div>
-      </Container>
-
-      {/* ── cta ── */}
-      <Section dark className="py-24 sm:py-32">
+      {/* ── inquire ── */}
+      <Section className="bg-sand py-24 sm:py-32">
         <Container className="flex flex-col items-center text-center">
           <SectionHead
             label="Get in touch"
             align="center"
-            dark
             lines={["Have a question", "or ready to begin?"]}
             body="Whether you're booking a workshop for your dance program or signing up for a session yourself, reach out and Kira will get back to you within a couple of days."
           >
