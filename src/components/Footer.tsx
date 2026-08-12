@@ -81,6 +81,18 @@ export default function Footer() {
           <p className="font-mono tracking-[0.12em] uppercase text-[0.62rem]">
             For dancers, by a dancer
           </p>
+          <p>
+            Website by{" "}
+            <a
+              href="https://smartscaleagent.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-gold"
+            >
+              Smart Scale
+            </a>
+            , LLC
+          </p>
         </div>
       </Container>
     </footer>
