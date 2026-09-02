@@ -85,3 +85,45 @@ export function Dancer({
     </svg>
   );
 }
+
+/**
+ * Cropped viewBoxes for the two halves of the wordmark, so "RAI" and "ARTS"
+ * can be set either side of the dancer at any size. Both share the same
+ * vertical range — the baseline and the tall T and S — so the words align
+ * across the seam whatever their widths.
+ */
+const WORDS = {
+  rai: { viewBox: "257 730 303 113", letters: [0, 1, 2] },
+  arts: { viewBox: "789 730 443 113", letters: [3, 4, 5, 6] },
+} as const;
+
+/** One word of the lockup, "RAI" or "ARTS", in genuine letterforms. */
+export function Word({
+  word,
+  className,
+  style,
+}: {
+  word: keyof typeof WORDS;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  const w = WORDS[word];
+  return (
+    <svg
+      viewBox={w.viewBox}
+      className={className}
+      style={style}
+      aria-hidden="true"
+      fill="currentColor"
+    >
+      {w.letters.map((i) => {
+        const l = LOCKUP_LETTERS[i];
+        return (
+          <g key={i} transform={`translate(${l.t[0]},${l.t[1]})`}>
+            <path d={l.d} />
+          </g>
+        );
+      })}
+    </svg>
+  );
+}

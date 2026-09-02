@@ -45,7 +45,7 @@ export default function DancerStage({
     const draw = () => {
       light();
       // WAAPI, not a CSS transition — setting the start and end values in the
-      // same frame makes a transition a no-op. See Opening.tsx.
+      // same frame makes a transition a no-op. See CurtainHero.tsx.
       anim = path.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], {
         duration: 2600,
         delay: 250,

@@ -550,3 +550,66 @@ html.lenis body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── the title curtain ──
+   The lockup is sized from one number, the dancer's height, so RAI and ARTS
+   keep their proportion to her at every viewport: cap height a fifth of the
+   figure, as in the original artwork. Each word lives inside its own half of
+   the curtain and is positioned from the seam, which is what lets the words
+   ride off with the panels when the curtain parts.
+
+   ARTS is wider than RAI, so a lockup set symmetrically about the seam reads
+   off-centre. --shift slides the words (and, side by side, the dancer) left
+   by half that difference so the whole composition is optically centred. */
+.curtain {
+  --mark: min(46svh, 420px, 36vw);
+  --word: calc(var(--mark) * 0.2);
+  /* the figure fills ~61% of her box, so this is the clearance to her edge */
+  --inset: calc(var(--mark) * 0.39);
+  --shift: calc(var(--mark) * 0.125);
+  --dancer-shift: var(--shift);
+}
+.curtain-word {
+  position: absolute;
+  top: calc(50% - var(--word) / 2);
+  height: var(--word);
+  width: auto;
+}
+.curtain-word-rai {
+  right: calc(var(--inset) + var(--shift));
+}
+.curtain-word-arts {
+  left: calc(var(--inset) - var(--shift));
+}
+.curtain-dancer {
+  height: var(--mark);
+  width: auto;
+  transform: translateX(calc(-1 * var(--dancer-shift)));
+}
+/* Phones: the words sit together above the dancer, still split at the seam. */
+@media (max-width: 639px) {
+  .curtain {
+    --mark: min(40svh, 68vw);
+    --word: min(calc(var(--mark) * 0.22), 10vw);
+    --inset: calc(var(--word) * 0.35);
+    --shift: calc(var(--word) * 0.62);
+    --dancer-shift: 0px;
+    --stack: calc(var(--word) * 1.3 + var(--mark));
+  }
+  .curtain-word {
+    top: calc(50% - var(--stack) / 2);
+  }
+  .curtain-dancer {
+    margin-top: calc(var(--word) * 1.3);
+  }
+}
+@keyframes raiFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

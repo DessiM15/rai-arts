@@ -3,7 +3,6 @@ import "./globals.css";
 import { SITE } from "@/lib/site";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import Opening from "@/components/Opening";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
@@ -110,7 +109,6 @@ export default function RootLayout({
           Skip to content
         </a>
         <SmoothScroll />
-        <Opening />
         <Nav />
         <main id="main" className="flex-1">
           {children}

@@ -21,3 +21,16 @@ export function scrollToTop({ immediate = false } = {}) {
   }
   window.scrollTo({ top: 0, behavior: immediate ? "auto" : "smooth" });
 }
+
+/**
+ * Hold the page still while the title sequence plays. Lenis has to be told
+ * explicitly — it drives the scroll position itself and ignores overflow on
+ * the root — and the overflow rule covers native scrolling everywhere Lenis
+ * never started (touch devices, reduced motion).
+ */
+export function lockScroll(locked: boolean) {
+  document.documentElement.style.overflow = locked ? "hidden" : "";
+  if (!lenis) return;
+  if (locked) lenis.stop();
+  else lenis.start();
+}

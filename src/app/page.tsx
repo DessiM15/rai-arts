@@ -41,44 +41,21 @@ const BEATS: Beat[] = [
 export default function Home() {
   return (
     <>
-      {/* ── hero: the curtain parts onto the stage ──
-          The curtain rotates in pairs: left[i] and right[i] are on screen
-          together, so these arrays are a running order, not two loose lists.
+      {/* ── hero: the house curtain, with the lockup on it, parts onto the stage ──
           The stage uses a landscape crop of the speaking photo: the source is
           portrait, and object-cover on a full-bleed band would have cut both
           heads off. */}
-      <CurtainHero
-        left={[
-          { src: "/images/kira-barre.jpg", alt: "Kira at the barre in the studio" },
-          { src: "/images/kira-steps.jpg", alt: "Kira on the steps at Columbia" },
-          {
-            src: "/images/kira-speaking.jpg",
-            alt: `${SITE.founder} presenting a Rai Arts session`,
-          },
-        ]}
-        right={[
-          { src: "/images/kira-portrait.jpg", alt: `${SITE.founder}` },
-          { src: "/images/kira-aerial.jpg", alt: "Kira inverted mid-movement" },
-          {
-            src: "/images/kira-teaching.jpg",
-            alt: "Kira in conversation after a session",
-          },
-        ]}
-        stage={{ src: "/images/kira-speaking-wide.jpg", alt: "" }}
-      >
+      <CurtainHero stage={{ src: "/images/kira-speaking-wide.jpg", alt: "" }}>
         <p className="label">Career readiness for dancers</p>
         <h1 className="font-statement text-[length:var(--text-step-4)] text-cream">
-          Preparing dancers for the business of a dance career.
+          Helping dancers build sustainable careers
         </h1>
-        <p className="max-w-[46ch] text-[length:var(--text-step-0)] text-cream/75">
-          {SITE.intro}
-        </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Button href="/framework" variant="gold">
-            Explore the framework
+          <Button href="/workshops" variant="gold">
+            Services
           </Button>
           <Button href="/contact" variant="ghost-light">
-            Book a workshop
+            Book Free Consultation
           </Button>
         </div>
       </CurtainHero>
