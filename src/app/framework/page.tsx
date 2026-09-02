@@ -62,7 +62,7 @@ export default function Framework() {
           <Label>The framework</Label>
           <Lines
             as="h1"
-            className="font-statement mt-6 text-[length:var(--text-step-5)]"
+            className="font-statement mt-6 text-[length:var(--text-step-3)]"
             lines={["The Rai Arts", "Career Readiness", "Framework™"]}
           />
           <Words

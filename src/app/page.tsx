@@ -43,7 +43,7 @@ export default function Home() {
           heads off. */}
       <CurtainHero stage={{ src: "/images/kira-speaking-wide.jpg", alt: "" }}>
         <p className="label">Career readiness for dancers</p>
-        <h1 className="font-statement text-[length:var(--text-step-4)] text-cream">
+        <h1 className="font-statement text-[length:var(--text-step-3)] text-cream">
           Helping dancers build sustainable careers
         </h1>
         <div className="flex flex-wrap justify-center gap-3">
@@ -62,7 +62,7 @@ export default function Home() {
           <div className="max-w-[62ch]">
             <Lines
               as="h2"
-              className="font-statement text-[length:var(--text-step-4)]"
+              className="font-statement text-[length:var(--text-step-3)]"
               lines={["Who We Are"]}
             />
             {WHO_WE_ARE.map((p, i) => (

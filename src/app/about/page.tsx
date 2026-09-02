@@ -23,7 +23,7 @@ export default function About() {
         <Label>About</Label>
         <Lines
           as="h1"
-          className="font-statement mt-6 max-w-[16ch] text-[length:var(--text-step-5)]"
+          className="font-statement mt-6 max-w-[16ch] text-[length:var(--text-step-3)]"
           lines={["From the studio", "to the front", "of the room."]}
         />
       </Container>

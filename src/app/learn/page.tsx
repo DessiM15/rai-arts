@@ -21,7 +21,7 @@ export default function Learn() {
         <Label>Learn</Label>
         <Lines
           as="h1"
-          className="font-statement mt-6 max-w-[13ch] text-[length:var(--text-step-5)]"
+          className="font-statement mt-6 max-w-[13ch] text-[length:var(--text-step-3)]"
           lines={["Free to follow,", "wherever you are", "in the career."]}
         />
         <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">

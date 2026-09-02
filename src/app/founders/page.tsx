@@ -35,7 +35,7 @@ export default function Founders() {
         <Label>Founders</Label>
         <Lines
           as="h1"
-          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-5)]"
+          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-3)]"
           lines={["The dancer who", "went looking for", "the roadmap."]}
         />
       </Container>

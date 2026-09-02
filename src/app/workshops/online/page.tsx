@@ -22,7 +22,7 @@ export default function Online() {
           <Label>Workshops · Online</Label>
           <Lines
             as="h1"
-            className="font-statement mt-6 text-[length:var(--text-step-5)]"
+            className="font-statement mt-6 text-[length:var(--text-step-3)]"
             lines={["Rai Arts,", "online."]}
           />
           <Words

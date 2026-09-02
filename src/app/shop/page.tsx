@@ -45,7 +45,7 @@ export default function Shop() {
         <Label>Ebooks</Label>
         <Lines
           as="h1"
-          className="font-statement mt-6 max-w-[12ch] text-[length:var(--text-step-5)]"
+          className="font-statement mt-6 max-w-[12ch] text-[length:var(--text-step-3)]"
           lines={["The ebooks."]}
         />
         <Words

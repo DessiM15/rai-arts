@@ -58,7 +58,7 @@ export default function College() {
         <Label>Workshops · College</Label>
         <Lines
           as="h1"
-          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-5)]"
+          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-3)]"
           lines={["For college and", "university programs."]}
         />
         <Words

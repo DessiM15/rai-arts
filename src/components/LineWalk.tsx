@@ -255,7 +255,7 @@ export default function LineWalk({
           alongside the words on a phone. */}
       <div className="relative z-[2] grid grid-cols-[1fr_3.5rem] gap-x-4 sm:grid-cols-[1fr_5rem] lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:gap-x-16">
         <div className="min-w-0">
-          <h2 className="font-statement text-[length:var(--text-step-4)]">
+          <h2 className="font-statement text-[length:var(--text-step-3)]">
             {heading}
           </h2>
 
@@ -272,12 +272,12 @@ export default function LineWalk({
                   {/* The stop number, set large enough to be a graphic element */}
                   <span
                     aria-hidden="true"
-                    className="font-statement block text-[length:var(--text-step-4)] leading-none text-gold-deep/30"
+                    className="font-statement block text-[length:var(--text-step-3)] leading-none text-gold-deep/30"
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
-                  <h3 className="font-statement mt-4 mb-5 text-[length:var(--text-step-3)]">
+                  <h3 className="font-statement mt-4 mb-5 text-[length:var(--text-step-2)]">
                     <span className="rv-line">
                       <span>{item.title}</span>
                     </span>

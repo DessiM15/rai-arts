@@ -57,7 +57,7 @@ export default function Workshops() {
         <Label>Workshops</Label>
         <Lines
           as="h1"
-          className="font-statement mt-6 max-w-[15ch] text-[length:var(--text-step-5)]"
+          className="font-statement mt-6 max-w-[15ch] text-[length:var(--text-step-3)]"
           lines={["Career workshops", "for dance programs."]}
         />
         <Words

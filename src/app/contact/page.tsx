@@ -34,7 +34,7 @@ export default function Contact() {
         <Label>Get in touch</Label>
         <Lines
           as="h1"
-          className="font-statement mt-6 max-w-[13ch] text-[length:var(--text-step-5)]"
+          className="font-statement mt-6 max-w-[13ch] text-[length:var(--text-step-3)]"
           lines={["Have a program,", "a question, or", "want the guide?"]}
         />
         <Words
