@@ -6,7 +6,6 @@ import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { SectionHead, Steps } from "@/components/editorial";
 import PinnedPillars from "@/components/PinnedPillars";
 import Wings from "@/components/Wings";
-import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
 
@@ -87,7 +86,6 @@ export default function Framework() {
         </Rise>
       </Container>
 
-      <Marquee items={PILLARS.map((p) => p.title)} speed={42} />
 
       {/* ── the pillars at a glance ── */}
       <Section dark className="py-20 sm:py-24">

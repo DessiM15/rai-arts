@@ -3,7 +3,6 @@ import { GUIDE, LEARN } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
-import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
 import LearnTiles from "@/components/LearnTiles";
@@ -36,7 +35,6 @@ export default function Learn() {
         </div>
       </Container>
 
-      <Marquee items={["The podcast", "The newsletter", "The ebooks"]} />
 
       {/* ── podcast ── */}
       <Section dark className="py-20 sm:py-28 lg:py-32">

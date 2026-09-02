@@ -3,7 +3,6 @@ import { SITE } from "@/lib/site";
 import { Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
-import Marquee from "@/components/Marquee";
 
 export const metadata: Metadata = {
   title: "Get in touch",
@@ -44,7 +43,6 @@ export default function Contact() {
         />
       </Container>
 
-      <Marquee items={["Book a workshop", "Ask a question", "Get the guide"]} speed={30} />
 
       <Container className="py-16 sm:py-24">
         <div className="grid gap-14 lg:grid-cols-[1.3fr_0.7fr] lg:gap-20">

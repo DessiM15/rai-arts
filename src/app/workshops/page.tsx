@@ -4,7 +4,6 @@ import { FLAGSHIP } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { SectionHead, Steps } from "@/components/editorial";
-import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
 
@@ -67,7 +66,6 @@ export default function Workshops() {
         />
       </Container>
 
-      <Marquee items={["Guest lectures", "Class visits", "Semester capstones"]} />
 
       {/* ── two doors ── */}
       <Container className="py-16 sm:py-24">

@@ -4,7 +4,6 @@ import { PILLARS } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { Quote, SectionHead } from "@/components/editorial";
-import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
 import PillarQuestions from "@/components/PillarQuestions";
@@ -70,7 +69,6 @@ export default function About() {
         </div>
       </Container>
 
-      <Marquee items={["For dancers, by a dancer", "Your Art. Your Business."]} />
 
       <Statement
         kicker="The gap"

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import { Button, Container, Section } from "@/components/ui";
-import { Rise } from "@/components/Reveal";
+import { Lines, Rise, Words } from "@/components/Reveal";
 import { Quote, SectionHead } from "@/components/editorial";
 import CurtainHero from "@/components/CurtainHero";
-import LineWalk, { type Beat } from "@/components/LineWalk";
-import Marquee from "@/components/Marquee";
+import LineWalk, { type Service } from "@/components/LineWalk";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
 
@@ -15,26 +14,23 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const BEATS: Beat[] = [
+const WHO_WE_ARE = [
+  "Rai Arts is a dance career consulting agency helping dancers acquire the knowledge and skills they need to build sustainable careers in the arts.",
+  "We want to see a dance industry where career preparation goes beyond artistic achievement and considers the artist as a whole person, equipping dancers with the knowledge and tools to support both their careers and their lives.",
+];
+
+const SERVICES: Service[] = [
   {
-    label: "The problem",
-    lines: ["A career can hold", "more than one thing."],
-    body: "Dancers spend years preparing their bodies for the stage. A lasting career asks for more: understanding the industry, managing your finances, and taking care of yourself through it all.",
+    title: "Literacy Series",
+    body: "Accessible workshops that introduce dancers to the practical knowledge and skills that support a professional career.",
   },
   {
-    label: "The approach",
-    lines: ["Keep dancing.", "Build the structure", "around it."],
-    body: "This isn't about leaving dance, or asking dancers for a Plan B. Rai Arts prepares the whole person, not just the dancer, for the profession. The performing keeps going, with something solid underneath it.",
+    title: "Consulting",
+    body: "Individual and organizational consulting focused on career development, professional strategy, and the systems that help artists navigate the industry.",
   },
   {
-    label: "The curriculum",
-    lines: ["Five pillars,", "one framework."],
-    body: "The Rai Arts Career Readiness Framework™ covers everything from mapping a first year post-grad to reading a contract, budgeting freelance income, and lasting long enough to build a legacy.",
-  },
-  {
-    label: "The delivery",
-    lines: ["Wherever you're", "ready to learn."],
-    body: "Bring Rai Arts to your program as a single workshop, a themed series, or a full capstone, or sign up for a live online session yourself. In person or online, the work translates.",
+    title: "Resources",
+    body: "Practical tools from ebooks and guides to templates and other educational resources designed to help dancers navigate the realities of building a career in the arts.",
   },
 ];
 
@@ -60,18 +56,30 @@ export default function Home() {
         </div>
       </CurtainHero>
 
-      <Marquee
-        items={[
-          "Career Foundations",
-          "Business Readiness",
-          "Financial Readiness",
-          "Professional Readiness",
-          "Longevity Readiness",
-        ]}
-      />
+      {/* ── who we are, then the walk ── */}
+      <Section className="py-20 sm:py-28 lg:py-32">
+        <Container>
+          <div className="max-w-[62ch]">
+            <Lines
+              as="h2"
+              className="font-statement text-[length:var(--text-step-4)]"
+              lines={["Who We Are"]}
+            />
+            {WHO_WE_ARE.map((p, i) => (
+              <Words
+                key={i}
+                text={p}
+                delay={0.15 + i * 0.1}
+                className="mt-6 text-[length:var(--text-step-0)] leading-[1.65] text-ink-soft first-of-type:mt-8"
+              />
+            ))}
+          </div>
 
-      {/* ── the walk ── */}
-      <LineWalk beats={BEATS} />
+          <div className="mt-24 sm:mt-28 lg:mt-36">
+            <LineWalk heading="What We Do" items={SERVICES} />
+          </div>
+        </Container>
+      </Section>
 
       {/* ── the promise, set as artwork ── */}
       <Statement
@@ -99,13 +107,6 @@ export default function Home() {
           </Rise>
         </Container>
       </Section>
-
-      {/* dark so it separates the quote above from the sand inquire below */}
-      <Marquee
-        dark
-        speed={44}
-        items={["Your Art. Your Business.", "For dancers, by a dancer"]}
-      />
 
       {/* ── inquire ── */}
       <Section className="bg-sand py-24 sm:py-32">

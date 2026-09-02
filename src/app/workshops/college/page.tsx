@@ -5,7 +5,6 @@ import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { SectionHead, Steps } from "@/components/editorial";
 import Playbill from "@/components/Playbill";
-import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 
 export const metadata: Metadata = {
@@ -68,10 +67,6 @@ export default function College() {
         />
       </Container>
 
-      <Marquee
-        items={["More Than a Dancer", "Careers & Income Streams in the Arts"]}
-        speed={30}
-      />
 
       {/* the session, set as a theatre programme */}
       <Container className="py-16 sm:py-24">

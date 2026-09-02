@@ -4,7 +4,6 @@ import { SITE } from "@/lib/site";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { Quote, SectionHead } from "@/components/editorial";
-import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 
 export const metadata: Metadata = {
@@ -124,7 +123,6 @@ export default function Founders() {
         </div>
       </Container>
 
-      <Marquee items={["Dancer", "Educator", "Advocate", "Founder"]} speed={34} />
 
       <Statement
         kicker="Why it exists"

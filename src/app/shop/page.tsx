@@ -5,7 +5,6 @@ import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
 import { Dancer } from "@/components/Marks";
-import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 
 export const metadata: Metadata = {
@@ -55,7 +54,6 @@ export default function Shop() {
         />
       </Container>
 
-      <Marquee items={["Ebooks", GUIDE.title, GUIDE.price]} speed={32} />
 
       {/* ── the object ── */}
       <Container className="py-16 sm:py-24">

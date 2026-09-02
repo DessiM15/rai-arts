@@ -4,7 +4,6 @@ import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
 import WaitlistForm from "@/components/WaitlistForm";
-import Marquee from "@/components/Marquee";
 import Statement from "@/components/Statement";
 import ArtPanel from "@/components/ArtPanel";
 
@@ -41,7 +40,6 @@ export default function Online() {
         </Rise>
       </Container>
 
-      <Marquee items={["Opening soon", "Join the list"]} speed={26} />
 
       {/* what's coming + waitlist */}
       <Container className="py-16 sm:py-24">
