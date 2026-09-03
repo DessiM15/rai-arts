@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { submitForm } from "@/lib/submitForm";
+import { SITE } from "@/lib/site";
 import { Button } from "./ui";
 
 export default function WaitlistForm() {
@@ -65,7 +66,7 @@ export default function WaitlistForm() {
 
       {state === "error" && (
         <p role="alert" className="text-[0.85rem] text-[#8f2f16]">
-          That didn&apos;t send. Try again, or email hello@raiarts.com directly.
+          That didn&apos;t send. Try again, or email {SITE.email} directly.
         </p>
       )}
     </form>

@@ -589,3 +589,10 @@ html.lenis body {
     transform: none;
   }
 }
+
+/* PinnedQuote: words start dim and are lit by scroll. Only under .js so a
+   visitor without JavaScript reads the passage at full brightness. */
+.js [data-pq-word] {
+  opacity: 0.22;
+  transition: opacity 120ms linear;
+}

@@ -31,7 +31,7 @@ Search the repo for `DRAFT` and `TODO` to find them all.
 working on it, set `PLAY_EVERY_VISIT` to `true` in `src/components/Opening.tsx` — and
 set it back to `false` before shipping.
 
-**Domain:** `SITE.url` in `src/lib/site.ts` is set to `https://raiarts.com`. Canonicals,
+**Domain:** `SITE.url` in `src/lib/site.ts` is set to `https://thisisraiarts.com`. Canonicals,
 the sitemap, OG tags, and JSON-LD all read from it. Point the domain at the Netlify
 deploy and this is already correct. Until then those URLs reference a domain that
 isn't live yet.

@@ -12,11 +12,11 @@ export const SITE = {
   description:
     "Rai Arts equips dancers with the essential business knowledge and skills to navigate a successful, sustainable career in dance, delivered as workshops for college and university dance programs.",
   /**
-   * Update this once raiarts.com is pointed at the deploy. Everything
+   * thisisraiarts.com is Kira's domain, not yet pointed at the deploy. Everything
    * canonical — sitemap, OG tags, JSON-LD — reads from here.
    */
-  url: "https://raiarts.com",
-  email: "hello@raiarts.com",
+  url: "https://thisisraiarts.com",
+  email: "info@thisisraiarts.com",
   founder: "Kira Rai Daniel",
   locale: "en_US",
 } as const;

@@ -16,8 +16,8 @@ export default function Footer() {
               {SITE.tagline}
             </p>
             <p className="mt-3 text-[0.86rem] leading-relaxed text-cream/65">
-              Career readiness for dancers, preparing artists for the business
-              of a dance career.
+              Helping dancers acquire the knowledge and skills they need to
+              build sustainable careers in the arts.
             </p>
           </div>
 

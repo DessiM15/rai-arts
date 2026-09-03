@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import { Button, Container, Section } from "@/components/ui";
-import { Lines, Rise, Words } from "@/components/Reveal";
-import { Quote, SectionHead } from "@/components/editorial";
+import { Lines, Words } from "@/components/Reveal";
+import { SectionHead } from "@/components/editorial";
 import CurtainHero from "@/components/CurtainHero";
 import LineWalk, { type Service } from "@/components/LineWalk";
-import Statement from "@/components/Statement";
-import ArtPanel from "@/components/ArtPanel";
+import PinnedQuote from "@/components/PinnedQuote";
 
 export const metadata: Metadata = {
   title: "Career readiness for dancers",
@@ -18,6 +17,9 @@ const WHO_WE_ARE = [
   "Rai Arts is a dance career consulting agency helping dancers acquire the knowledge and skills they need to build sustainable careers in the arts.",
   "We want to see a dance industry where career preparation goes beyond artistic achievement and considers the artist as a whole person, equipping dancers with the knowledge and tools to support both their careers and their lives.",
 ];
+
+const THE_GAP =
+  "Dancers are exceptionally prepared for the artistic demands of their careers \u2014 and significantly less prepared for everything that comes after. Rai Arts exists to close that gap: to make practical career education available to dancers before they need it, not after they\u2019ve already struggled without it.";
 
 const SERVICES: Service[] = [
   {
@@ -81,32 +83,8 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* ── the promise, set as artwork ── */}
-      <Statement
-        kicker="The promise"
-        lines={["Your Art.", "Your Business."]}
-        footnote="Art or business — most dancers are told to choose. The whole point of Rai Arts is that you don't have to."
-      />
-
-      {/* ── quote ── */}
-      <Section dark className="bg-forest-deep py-20 sm:py-28">
-        <Container className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <Rise>
-            <Quote attribution={SITE.founder} role="Founder" dark>
-              Dancers shouldn&apos;t have to choose between the art and a
-              living. The whole point is to build a career that holds both.
-            </Quote>
-          </Rise>
-          <Rise delay={0.1}>
-            <ArtPanel
-              ratio="4/5"
-              src="/images/kira-speaking-portrait.jpg"
-              alt={`${SITE.founder} delivering a Rai Arts session`}
-              caption="Kira Rai Daniel, presenting"
-            />
-          </Rise>
-        </Container>
-      </Section>
+      {/* ── the gap, pinned: the passage lights up word by word on scroll ── */}
+      <PinnedQuote text={THE_GAP} />
 
       {/* ── inquire ── */}
       <Section className="bg-sand py-24 sm:py-32">
