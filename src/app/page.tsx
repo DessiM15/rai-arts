@@ -49,7 +49,7 @@ export default function Home() {
           Helping dancers build sustainable careers
         </h1>
         <div className="flex flex-wrap justify-center gap-3">
-          <Button href="/workshops" variant="gold">
+          <Button href="/services" variant="gold">
             Services
           </Button>
           <Button href="/contact" variant="ghost-light">

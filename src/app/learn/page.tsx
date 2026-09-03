@@ -1,135 +1,116 @@
 import type { Metadata } from "next";
-import { GUIDE, LEARN } from "@/lib/content";
+import { LEARN } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
-import Statement from "@/components/Statement";
-import ArtPanel from "@/components/ArtPanel";
-import LearnTiles from "@/components/LearnTiles";
+import LearnTiles, { EbookTile } from "@/components/LearnTiles";
+import NewsletterForm from "@/components/NewsletterForm";
+import SubstackRail from "@/components/SubstackRail";
 
 export const metadata: Metadata = {
   title: "Learn",
   description:
-    "The Rai Arts podcast and newsletter: conversations and writing on building a sustainable career in dance. Both free to follow.",
+    "Free to follow, three ways to learn: the Rai Arts ebook, the newsletter, and Kira's essays on Substack. Writing on money, work, identity, and the career around the art.",
   alternates: { canonical: "/learn" },
 };
 
 export default function Learn() {
   return (
     <>
+      {/* ── hero ── */}
       <Container className="pt-32 pb-14 sm:pt-40 sm:pb-20">
         <Label>Learn</Label>
         <Lines
           as="h1"
-          className="font-statement mt-6 max-w-[13ch] text-[length:var(--text-step-3)]"
-          lines={["Free to follow,", "wherever you are", "in the career."]}
+          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-3)]"
+          lines={["Free to follow,", "three ways to learn."]}
         />
-        <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <Words
-            className="max-w-[54ch] text-[length:var(--text-step-0)] text-ink-soft"
-            text="You don't need a program to bring Rai Arts in to start learning. The ebooks, podcast, and newsletter cover the same ground the workshops do: what the work pays, how to find it, and how to make it last."
-          />
-          <Rise delay={0.1}>
-            <LearnTiles />
+        <Words
+          className="mt-8 max-w-[54ch] text-[length:var(--text-step-0)] text-ink-soft"
+          text="You don't need a program to bring Rai Arts in to start learning. The ebook, the newsletter, and the essays cover the same ground the workshops do."
+        />
+        <Rise delay={0.2} className="mt-12">
+          <LearnTiles />
+        </Rise>
+      </Container>
+
+      {/* ── 01 ebook ── */}
+      <Container id="ebook" className="scroll-mt-20 py-20 sm:py-28">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
+            <SectionHead
+              index="01"
+              label="Ebook"
+              lines={[LEARN.ebook.title]}
+              body={LEARN.ebook.body}
+            >
+              <Button href={LEARN.ebook.href} variant="gold" external>
+                {LEARN.ebook.cta}
+              </Button>
+            </SectionHead>
+          </div>
+          <Rise delay={0.1} className="mx-auto w-full max-w-[22rem] lg:max-w-none">
+            <EbookTile href={LEARN.ebook.href} />
           </Rise>
         </div>
       </Container>
 
-
-      {/* ── podcast ── */}
-      <Section dark className="py-20 sm:py-28 lg:py-32">
-        <Container className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+      {/* ── 02 newsletter ── */}
+      <Section dark id="newsletter" className="scroll-mt-20 py-20 sm:py-28">
+        <Container className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             <SectionHead
-              index="01"
-              label="Podcast"
+              index="02"
+              label="Newsletter"
               dark
-              lines={["The Rai Arts", "podcast."]}
-              body={LEARN.podcast.body}
-            >
-              <Button href={LEARN.podcast.href} variant="gold" external>
-                {LEARN.podcast.cta}
-              </Button>
-            </SectionHead>
+              lines={["The newsletter."]}
+              body={LEARN.newsletter.body}
+            />
           </div>
           <Rise delay={0.1}>
-            <div className="grain relative isolate grid aspect-[4/3] place-items-center overflow-hidden rounded-sm bg-forest-mid">
-              <svg
-                width="120"
-                height="120"
-                viewBox="0 0 100 100"
-                fill="none"
-                aria-hidden="true"
-                className="relative z-[2] text-gold"
-              >
-                <path d="M28 18 L82 50 L28 82 Z" fill="currentColor" />
-              </svg>
+            <div className="grain relative isolate rounded-sm border border-cream/15 bg-forest-mid p-8 sm:p-10">
+              <h3 className="font-statement text-[length:var(--text-step-2)]">
+                Get the next one.
+              </h3>
+              <p className="mt-4 max-w-[36ch] text-cream/70">
+                Free, occasional, and easy to leave.
+              </p>
+              <NewsletterForm dark />
             </div>
           </Rise>
         </Container>
       </Section>
 
-      {/* ── newsletter ── */}
-      <Container className="py-20 sm:py-28">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <Rise>
-            <ArtPanel
-              ratio="1/1"
-              src="/images/nyc-street.jpg"
-              alt="A New York street"
-              caption="Free on Substack"
-            />
-          </Rise>
-          <div>
-            <SectionHead
-              index="02"
-              label="Newsletter"
-              lines={["The newsletter."]}
-              body={LEARN.newsletter.body}
-            >
-              <Button href={LEARN.newsletter.href} external>
-                {LEARN.newsletter.cta}
-              </Button>
-            </SectionHead>
-          </div>
+      {/* ── 03 substack ── */}
+      <Container id="substack" className="scroll-mt-20 py-20 sm:py-28">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHead
+            index="03"
+            label="Substack"
+            lines={["Honest writing about", "dance, and the", "career around it."]}
+            body={LEARN.substack.body}
+          />
+          <p className="font-mono text-[0.6rem] tracking-[0.2em] text-ink-soft uppercase lg:pb-2">
+            Scroll sideways →
+          </p>
+        </div>
+        <div className="mt-12">
+          <SubstackRail articles={LEARN.substack.articles} />
+        </div>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <Button href={LEARN.substack.href} external>
+            {LEARN.substack.cta}
+          </Button>
         </div>
       </Container>
 
-      <Statement
-        kicker="Why it's free"
-        lines={["Not every dancer", "has a department", "behind them."]}
-        footnote="The workshops reach the students whose programs book them. The podcast and newsletter reach everyone else."
-      />
-
-      {/* ── the guide ── */}
-      <Container className="py-20 sm:py-28">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-          <div>
-            <SectionHead
-              index="03"
-              label="Go deeper"
-              lines={[GUIDE.title]}
-              body={GUIDE.body}
-            >
-              <Button href="/shop" variant="gold">
-                Ebooks — {GUIDE.price}
-              </Button>
-            </SectionHead>
-          </div>
-
-          <ul className="flex flex-col">
-            {GUIDE.includes.map((inc, i) => (
-              <li
-                key={i}
-                className="flex gap-5 border-t border-forest/12 py-4 text-[0.95rem] leading-relaxed text-ink-soft"
-              >
-                <span className="font-mono text-[0.6rem] text-gold-deep/70 tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span>{inc}</span>
-              </li>
-            ))}
-          </ul>
+      {/* ── eventually ── */}
+      <Container className="pb-20 sm:pb-28">
+        <div className="flex flex-col gap-3 border-t border-forest/12 pt-6 sm:flex-row sm:items-baseline sm:gap-8">
+          <span className="font-mono text-[0.6rem] tracking-[0.2em] text-gold-deep uppercase">
+            {LEARN.toolkit.label}
+          </span>
+          <p className="text-[0.95rem] text-ink-soft">{LEARN.toolkit.text}</p>
         </div>
       </Container>
     </>

@@ -33,35 +33,29 @@ export const NAV: NavItem[] = [
     href: "/about",
     children: [
       {
-        label: "The company",
+        label: "Our Story",
         href: "/about",
-        blurb: "What Rai Arts does, and the gap it exists to close.",
-      },
-      {
-        label: "Founders",
-        href: "/founders",
-        blurb: "Kira Rai Daniel, and why she built the framework.",
+        blurb: "Why Rai Arts exists, and what it believes.",
       },
     ],
   },
   {
-    label: "Workshops",
-    href: "/workshops",
+    label: "Services",
+    href: "/services",
     children: [
       {
-        label: "College",
-        href: "/workshops/college",
-        blurb: "Guest lectures and class visits for degree programs.",
+        label: "Literacy Series",
+        href: "/services/literacy-series",
+        blurb: "Low-cost online workshops for dancers.",
       },
       {
-        label: "Online",
-        href: "/workshops/online",
-        blurb: "Self-paced and live sessions, opening soon.",
+        label: "Consulting",
+        href: "/services/consulting",
+        blurb: "Programming for schools, studios, companies, and universities.",
       },
     ],
   },
   { label: "Framework", href: "/framework" },
   { label: "Learn", href: "/learn" },
-  { label: "Ebooks", href: "/shop" },
-  { label: "Get in Touch", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];

@@ -10,7 +10,7 @@
       Netlify discovers forms by parsing static HTML at build time. Because this
       site is server-rendered, the real React forms are never present as static
       markup, so they are declared here instead. The live forms POST to this
-      path. Do not delete: removing this file silently breaks both forms.
+      path. Do not delete: removing this file silently breaks every form.
     -->
 
     <form name="workshop-enquiry" data-netlify="true" netlify-honeypot="bot-field" hidden>
@@ -27,6 +27,14 @@
 
     <form name="online-waitlist" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="online-waitlist" />
+      <input type="text" name="bot-field" />
+      <input type="email" name="email" />
+    </form>
+
+    <!-- Newsletter fallback: used only until the MailerLite form URL is set in
+         src/lib/content.ts (LEARN.newsletter.action). -->
+    <form name="newsletter" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="newsletter" />
       <input type="text" name="bot-field" />
       <input type="email" name="email" />
     </form>

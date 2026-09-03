@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
-import { PILLARS } from "@/lib/content";
+import { PILLARS, STORY } from "@/lib/content";
 import { Button, Container, Section } from "@/components/ui";
-import { Label, Lines, Rise, Words } from "@/components/Reveal";
-import { Quote, SectionHead } from "@/components/editorial";
-import Statement from "@/components/Statement";
-import ArtPanel from "@/components/ArtPanel";
-import PillarQuestions from "@/components/PillarQuestions";
+import { Label, Lines } from "@/components/Reveal";
+import { SectionHead } from "@/components/editorial";
+import OurStory from "@/components/OurStory";
+import QuestionStrip from "@/components/QuestionStrip";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Rai Arts fills the gap between dance training and the business of a dance career, with a signature curriculum delivered as workshops for college and university dance programs.",
+    "Rai Arts was founded by Kira Rai Daniel to close the gap between dance training and the business of a dance career. Our story, and why the work exists.",
   alternates: { canonical: "/about" },
 };
 
@@ -28,103 +27,32 @@ export default function About() {
         />
       </Container>
 
-      {/* ── the case, as an asymmetric spread ── */}
-      <Container className="grid gap-10 pb-20 sm:pb-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-        <Rise className="lg:sticky lg:top-32 lg:self-start">
-          <ArtPanel
-            ratio="3/4"
-            src="/images/dancer-pointe.jpg"
-            alt="A dancer on pointe"
-            caption="For dancers, by a dancer"
-          />
-        </Rise>
-
-        <div className="flex flex-col gap-6">
-          <Words
-            className="text-[length:var(--text-step-1)] leading-snug"
-            text="Rai Arts equips aspiring dancers with the essential business knowledge and skills needed to navigate a successful and sustainable career in dance."
-          />
-          <p className="max-w-[60ch] leading-relaxed text-ink-soft">
-            Dance programs train exceptional performers, but most graduates
-            leave without a roadmap for the business side of a dance career.
-            Rai Arts fills that gap. Its signature curriculum, the Rai Arts
-            Career Readiness Framework™, prepares dancers across five pillars,
-            from mapping a first year post-grad to understanding contracts,
-            budgeting freelance income, building professional relationships,
-            and sustaining a long career in the arts.
-          </p>
-          <p className="max-w-[60ch] leading-relaxed text-ink-soft">
-            Schools can bring Rai Arts in for a single workshop, a themed
-            series, or the full framework as a capstone program. This
-            isn&apos;t about leaving dance. Dancers keep performing. Rai Arts
-            prepares them for the whole profession, not an exit from it.
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button href="/framework">Explore the framework</Button>
-            <Button href="/founders" variant="ghost">
-              Meet the founder
-            </Button>
-          </div>
-        </div>
+      {/* ── our story ── */}
+      <Container id="our-story" className="scroll-mt-24 pb-24 sm:pb-32">
+        <Label className="mb-10">Our story</Label>
+        <OurStory
+          intro={STORY.intro}
+          chapters={STORY.chapters}
+          photo={{ src: "/images/kira.jpg", alt: `${SITE.founder}, founder of Rai Arts` }}
+          caption={`${SITE.founder} · Founder`}
+        />
       </Container>
 
-
-      <Statement
-        kicker="The gap"
-        lines={["Trained for the stage.", "Sent out into", "a profession."]}
-        footnote="Nobody hands a graduating dancer a contract explainer, a tax guide, or a map of the roles that exist. That is the gap Rai Arts was built to close."
-      />
-
-      {/* ── the five questions ── */}
-      <Section dark className="py-20 sm:py-28 lg:py-32">
-        <Container>
-          <SectionHead
-            index="01"
-            label="What we teach"
-            dark
-            lines={["Five questions every", "dancer should be able", "to answer."]}
-          />
-          <div className="mt-16">
-            <PillarQuestions
-              pillars={PILLARS}
-              photo={{
-                src: "/images/kira-portrait.jpg",
-                alt: `${SITE.founder}, founder of Rai Arts`,
-              }}
-              caption={`${SITE.founder} · Founder`}
-            />
-          </div>
-        </Container>
-      </Section>
-
-      {/* ── quote ── */}
-      <Container className="py-20 sm:py-28">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <Rise>
-            <Quote attribution={SITE.founder} role="Founder">
-              The point was never to talk anyone out of dancing. It was to make
-              staying possible.
-            </Quote>
-          </Rise>
-          <Rise delay={0.1}>
-            <ArtPanel ratio="1/1" src="/images/pointe-shoes-floor.jpg" alt="Worn pointe shoes on a studio floor" />
-          </Rise>
-        </div>
-      </Container>
+      {/* ── the five questions, as a strip ── */}
+      <QuestionStrip pillars={PILLARS} />
 
       {/* ── cta ── */}
       <Section dark className="bg-forest-deep py-24 sm:py-32">
         <Container className="flex flex-col items-center text-center">
           <SectionHead
-            label="Bring it in"
+            label="Work with us"
             align="center"
             dark
-            lines={["Bring Rai Arts", "to your program."]}
-            body="Tell us your department, class year, and timeframe, and we'll come back with a session that fits."
+            lines={["Bring Rai Arts", "to your community."]}
+            body="Tell us who you're serving and what you want them to walk away knowing, and we'll come back with a program that fits."
           >
             <Button href="/contact" variant="gold">
-              Request a workshop
+              Book a consultation
             </Button>
             <Button href={`mailto:${SITE.email}`} variant="ghost-light" external>
               {SITE.email}

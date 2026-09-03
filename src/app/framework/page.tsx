@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { PILLARS } from "@/lib/content";
+import { FRAMEWORK, PILLARS } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import { Button, Container, Section } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
-import { SectionHead, Steps } from "@/components/editorial";
+import { SectionHead } from "@/components/editorial";
+import FrameworkDiagram from "@/components/FrameworkDiagram";
 import PinnedPillars from "@/components/PinnedPillars";
-import Wings from "@/components/Wings";
-import Statement from "@/components/Statement";
-import ArtPanel from "@/components/ArtPanel";
 
 export const metadata: Metadata = {
   title: "The Career Readiness Framework",
   description:
-    "The Rai Arts Career Readiness Framework™ is the signature curriculum, built on five pillars: career foundations, business, financial, professional, and longevity readiness.",
+    "The Rai Arts Career Readiness Framework™ is made up of five pillars, each centered on a guiding question: career foundations, business, financial, professional, and longevity readiness.",
   alternates: { canonical: "/framework" },
 };
 
@@ -20,33 +18,16 @@ const COURSE_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Course",
   name: "The Rai Arts Career Readiness Framework™",
-  description:
-    "A five-pillar curriculum preparing dancers for the business of a dance career: career foundations, business readiness, financial readiness, professional readiness, and longevity readiness.",
+  description: FRAMEWORK.intro,
   provider: { "@type": "Organization", name: SITE.name, url: SITE.url },
-  educationalLevel: "Undergraduate",
   audience: { "@type": "EducationalAudience", educationalRole: "student" },
   teaches: PILLARS.map((p) => p.title),
   hasCourseInstance: {
     "@type": "CourseInstance",
-    courseMode: "onsite",
+    courseMode: ["onsite", "online"],
     courseWorkload: "PT90M",
   },
 };
-
-const FORMATS = [
-  {
-    title: "A single workshop",
-    body: "One pillar, 60 to 90 minutes, delivered as a guest lecture or class visit. The most common way a program starts.",
-  },
-  {
-    title: "A pillar series",
-    body: "Three to five linked sessions built around the pillars your students need most, usually spread across a semester.",
-  },
-  {
-    title: "The full capstone",
-    body: "All five pillars as a semester-long capstone for a graduating cohort, with worksheets and take-home frameworks.",
-  },
-];
 
 export default function Framework() {
   return (
@@ -57,78 +38,61 @@ export default function Framework() {
       />
 
       {/* ── hero ── */}
-      <Container className="grid items-end gap-10 pt-32 pb-16 sm:pt-40 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:pb-24">
-        <div>
-          <Label>The framework</Label>
-          <Lines
-            as="h1"
-            className="font-statement mt-6 text-[length:var(--text-step-3)]"
-            lines={["The Rai Arts", "Career Readiness", "Framework™"]}
-          />
-          <Words
-            className="mt-8 max-w-[52ch] text-[length:var(--text-step-0)] text-ink-soft"
-            text="Our signature curriculum covers everything a dancer needs to enter and navigate the profession with confidence, built on five pillars of readiness."
-          />
-          <Rise delay={0.4} className="mt-9 flex flex-wrap gap-3">
-            <Button href="/contact">Bring it to your program</Button>
-            <Button href="/workshops" variant="ghost">
-              See workshop formats
-            </Button>
-          </Rise>
-        </div>
-        <Rise delay={0.2}>
-          <ArtPanel
-            ratio="4/5"
-            src="/images/nyc-street.jpg"
-            alt="A New York street"
-            caption="Five pillars of readiness"
-          />
+      <Container className="pt-32 pb-12 sm:pt-40 sm:pb-16">
+        <Label>Framework</Label>
+        <Lines
+          as="h1"
+          className="font-statement mt-6 max-w-[20ch] text-[length:var(--text-step-2)]"
+          lines={["The Rai Arts Career", "Readiness Framework™"]}
+        />
+        <Words
+          className="mt-7 max-w-[64ch] text-[length:var(--text-step-0)] text-ink-soft"
+          text={FRAMEWORK.intro}
+        />
+      </Container>
+
+      {/* ── the graphic ── */}
+      <Container className="pb-20 sm:pb-28">
+        <Rise delay={0.15}>
+          <FrameworkDiagram pillars={PILLARS} />
         </Rise>
       </Container>
 
-
-      {/* ── the pillars at a glance ── */}
-      <Section dark className="py-20 sm:py-24">
-        <Container>
-          <Wings
-            pillars={PILLARS}
-            art={[
-              { src: "/images/kira-steps.jpg", alt: "" },
-              { src: "/images/kira-portrait.jpg", alt: "" },
-              { src: "/images/kira-barre.jpg", alt: "" },
-              { src: "/images/kira-teaching.jpg", alt: "" },
-              { src: "/images/kira-aerial.jpg", alt: "" },
-            ]}
-          />
-        </Container>
-      </Section>
-
-      {/* ── then the same five in full, pinned ── */}
-      <Section dark className="pb-20 sm:pb-28 lg:pb-36">
+      {/* ── the five in full, pinned ── */}
+      <Section dark className="py-20 sm:py-28 lg:py-36">
         <Container>
           <PinnedPillars pillars={PILLARS} />
         </Container>
       </Section>
 
-      <Statement
-        dark={false}
-        kicker="Why it's built this way"
-        lines={["Technique is taught.", "The profession", "is not."]}
-        footnote="Every pillar exists because it is something dancers are expected to already know, and are almost never actually taught."
-      />
-
-      {/* ── formats ── */}
-      <Container className="py-20 sm:py-28">
-        <SectionHead
-          index="02"
-          label="Formats"
-          lines={["Three ways", "to run it."]}
-          body="Take one pillar on its own, a themed series, or the whole framework as a capstone. Every version is built around your students, not a fixed script."
-        />
-        <div className="mt-12">
-          <Steps items={FORMATS} />
-        </div>
-      </Container>
+      {/* ── from framework to education ── */}
+      <Section className="bg-sand py-16 sm:py-20">
+        <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div>
+            <Label>{FRAMEWORK.education.heading}</Label>
+            <Lines
+              as="h2"
+              className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-2)]"
+              lines={["The framework is", "the foundation", "of Rai Arts."]}
+            />
+          </div>
+          <div className="flex flex-col gap-5 lg:pt-2">
+            {FRAMEWORK.education.paragraphs.map((p, i) => (
+              <Rise key={i} delay={i * 0.08}>
+                <p className="max-w-[56ch] text-[length:var(--text-step-0)] leading-[1.7] text-ink-soft">
+                  {p}
+                </p>
+              </Rise>
+            ))}
+            <Rise delay={0.2} className="mt-4 flex flex-wrap gap-3">
+              <Button href="/contact">Book a consultation</Button>
+              <Button href="/learn" variant="ghost">
+                Explore our resources
+              </Button>
+            </Rise>
+          </div>
+        </Container>
+      </Section>
 
       {/* ── cta ── */}
       <Section dark className="bg-forest-deep py-24 sm:py-32">
@@ -137,14 +101,13 @@ export default function Framework() {
             label="Next step"
             align="center"
             dark
-            lines={["One workshop, a series,", "or the full capstone."]}
-            body="Tell us your department, class year, and timeframe, and we'll put together the shape that fits your program."
+            lines={["Want to bring the", "Framework to you?"]}
           >
             <Button href="/contact" variant="gold">
-              Request a workshop
+              Free consultation
             </Button>
-            <Button href="/shop" variant="ghost-light">
-              Get the career guide
+            <Button href="/learn" variant="ghost-light">
+              Explore resources
             </Button>
           </SectionHead>
         </Container>

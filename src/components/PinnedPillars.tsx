@@ -40,7 +40,7 @@ export default function PinnedPillars({ pillars }: { pillars: Pillar[] }) {
       {/* sticky side */}
       <div className="hidden lg:block">
         <div className="sticky top-32">
-          <p className="label">The framework</p>
+          <p className="label">The five pillars</p>
           <p className="font-statement mt-6 text-[length:var(--text-step-6)] leading-none text-gold">
             {String(active + 1).padStart(2, "0")}
           </p>
@@ -76,8 +76,7 @@ export default function PinnedPillars({ pillars }: { pillars: Pillar[] }) {
         {pillars.map((p, i) => (
           <div
             key={p.n}
-            // Anchor target for The Ascent on the home page. scroll-mt keeps
-            // the heading clear of the fixed header on arrival.
+            // scroll-mt keeps the heading clear of the fixed header on arrival.
             id={`pillar-${p.n}`}
             className="scroll-mt-28"
             data-i={i}
@@ -97,20 +96,30 @@ export default function PinnedPillars({ pillars }: { pillars: Pillar[] }) {
               {p.question}
             </p>
 
-            <p className="mt-6 max-w-[52ch] text-[length:var(--text-step-1)] leading-snug text-cream lg:mt-0">
-              {p.body}
+            <p className="mt-6 max-w-[40ch] text-[length:var(--text-step-1)] leading-snug text-cream lg:mt-0">
+              {p.lead}
             </p>
 
-            <ul className="mt-8 flex flex-col">
-              {p.covers.map((c, j) => (
+            {p.body.map((b, j) => (
+              <p key={j} className="mt-5 max-w-[56ch] leading-[1.7] text-cream/75">
+                {b}
+              </p>
+            ))}
+
+            <p className="mt-6 max-w-[48ch] border-l-2 border-gold pl-5 font-display-sm text-[1.08rem] leading-snug text-cream">
+              {p.close}
+            </p>
+
+            <p className="mt-8 font-mono text-[0.6rem] tracking-[0.18em] text-gold uppercase">
+              Key areas
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {p.areas.map((a) => (
                 <li
-                  key={j}
-                  className="flex gap-5 border-t border-cream/15 py-4 text-[0.95rem] leading-relaxed text-cream/75"
+                  key={a}
+                  className="rounded-full border border-cream/25 px-3.5 py-1.5 text-[0.82rem] text-cream/85"
                 >
-                  <span className="font-mono text-[0.6rem] text-gold/70 tabular-nums">
-                    {String(j + 1).padStart(2, "0")}
-                  </span>
-                  <span>{c}</span>
+                  {a}
                 </li>
               ))}
             </ul>

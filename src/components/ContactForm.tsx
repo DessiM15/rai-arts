@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { submitForm } from "@/lib/submitForm";
 import { SITE } from "@/lib/site";
 import { Button } from "./ui";
@@ -12,15 +12,27 @@ const LABEL = "font-mono text-[0.62rem] uppercase tracking-[0.16em] text-ink-sof
 const INTERESTS = [
   "A single workshop",
   "A pillar series",
-  "The full capstone",
   "Not sure yet, let's talk",
   "Something else",
 ];
+
+const EXAMPLE = `For example: "I run the BFA dance program at a university with about 25 graduating seniors. I'd like a session on contracts and freelance income during spring semester, ideally in March. I want students to leave knowing how to read a contract and budget for irregular income."`;
 
 export default function ContactForm() {
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">(
     "idle",
   );
+  // Topics picked on the Consulting page arrive in the URL and seed the
+  // message. Written straight into the field so it stays uncontrolled.
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    const topics = new URLSearchParams(window.location.search).get("topics");
+    const el = messageRef.current;
+    if (topics && el && !el.value) {
+      el.value = `Topics I'm interested in: ${topics}.\n\n`;
+    }
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -112,12 +124,7 @@ export default function ContactForm() {
           <label htmlFor="role" className={LABEL}>
             Your role
           </label>
-          <input
-            id="role"
-            name="role"
-            placeholder="Department chair, faculty, student…"
-            className={FIELD}
-          />
+          <input id="role" name="role" className={FIELD} />
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="timeframe" className={LABEL}>
@@ -149,14 +156,15 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor="message" className={LABEL}>
-          Anything else
+          Tell me what you&apos;re looking for
         </label>
         <textarea
           id="message"
           name="message"
-          rows={5}
-          placeholder="Class year, group size, what you'd like students to walk away with…"
-          className={`${FIELD} min-h-[130px] resize-y`}
+          rows={7}
+          ref={messageRef}
+          placeholder={EXAMPLE}
+          className={`${FIELD} min-h-[170px] resize-y`}
         />
       </div>
 

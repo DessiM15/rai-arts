@@ -1,28 +1,24 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
-import { Container, Section } from "@/components/ui";
+import { Container } from "@/components/ui";
 import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Get in touch",
+  title: "Contact",
   description:
-    "Book a Rai Arts career workshop for your dance program, ask a question, or get the career guide. We reply within a couple of days.",
+    "Book a free consultation with Rai Arts, bring a career-readiness workshop to your dancers, or ask a question. We reply within a couple of days.",
   alternates: { canonical: "/contact" },
 };
 
 const ANSWERS: [string, string][] = [
   [
     "Who it's for",
-    "College and university dance programs, pre-professional schools, and companies with training arms.",
-  ],
-  [
-    "Group size",
-    "Ten to thirty and up. Larger lectures work; small cohorts get more workshop time.",
+    "Individuals, companies, schools, studios, universities, and pre-professional programs.",
   ],
   [
     "Lead time",
-    "A few weeks is usually plenty. Semester-long capstones need more planning.",
+    "A few weeks is usually plenty. Multi-day intensives and ongoing series need more planning.",
   ],
   ["Reply time", "Within a couple of days, from Kira directly."],
 ];
@@ -31,20 +27,19 @@ export default function Contact() {
   return (
     <>
       <Container className="pt-32 pb-14 sm:pt-40 sm:pb-16">
-        <Label>Get in touch</Label>
+        <Label>Contact</Label>
         <Lines
           as="h1"
           className="font-statement mt-6 max-w-[13ch] text-[length:var(--text-step-3)]"
-          lines={["Have a program,", "a question, or", "want the guide?"]}
+          lines={["Have a program,", "a question, or", "an idea?"]}
         />
         <Words
           className="mt-8 max-w-[52ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text="Whether it's booking a workshop for your dance program or grabbing the career guide, reach out and Kira will get back to you within a couple of days."
+          text="Whether it's booking a workshop for your dancers or scheduling a free consultation, reach out and Kira will get back to you within a couple of days."
         />
       </Container>
 
-
-      <Container className="py-16 sm:py-24">
+      <Container className="pb-24 sm:pb-32">
         <div className="grid gap-14 lg:grid-cols-[1.3fr_0.7fr] lg:gap-20">
           <Rise>
             <ContactForm />
@@ -80,14 +75,6 @@ export default function Contact() {
           </Rise>
         </div>
       </Container>
-
-      <Section dark className="py-20 sm:py-24">
-        <Container>
-          <p className="font-statement text-center text-[length:var(--text-step-3)] text-gold">
-            {SITE.tagline}
-          </p>
-        </Container>
-      </Section>
     </>
   );
 }

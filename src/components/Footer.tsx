@@ -58,15 +58,7 @@ export default function Footer() {
                     href="/contact"
                     className="inline-flex min-h-[44px] items-center text-[0.92rem] text-cream/80 transition-colors hover:text-gold"
                   >
-                    Book a workshop
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/founders"
-                    className="inline-flex min-h-[44px] items-center text-[0.92rem] text-cream/80 transition-colors hover:text-gold"
-                  >
-                    Founders
+                    Book a consultation
                   </Link>
                 </li>
               </ul>
