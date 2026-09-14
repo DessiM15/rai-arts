@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Button, Container, Section } from "@/components/ui";
-import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { Button, Container, PageHero, Section } from "@/components/ui";
+import { Rise } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
 
 export const metadata: Metadata = {
@@ -33,18 +33,12 @@ const DOORS = [
 export default function Services() {
   return (
     <>
-      <Container className="pt-32 pb-14 sm:pt-40 sm:pb-20">
-        <Label>Services</Label>
-        <Lines
-          as="h1"
-          className="font-statement mt-6 max-w-[15ch] text-[length:var(--text-step-3)]"
-          lines={["Two ways to work", "with Rai Arts."]}
-        />
-        <Words
-          className="mt-8 max-w-[54ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text="Everything Rai Arts teaches is built from the Career Readiness Framework. Dancers can take it on directly through the Literacy Series. Institutions can bring it to their community through Consulting."
-        />
-      </Container>
+      <PageHero
+        label="Services"
+        lines={["Two ways to work", "with Rai Arts."]}
+        headingClassName="max-w-[15ch]"
+        intro="Everything Rai Arts teaches is built from the Career Readiness Framework. Dancers can take it on directly through the Literacy Series. Institutions can bring it to their community through Consulting."
+      />
 
       {/* ── two doors ── */}
       <Container className="pb-20 sm:pb-28">

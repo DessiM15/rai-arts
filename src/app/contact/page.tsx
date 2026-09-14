@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
-import { Container } from "@/components/ui";
-import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { Container, PageHero } from "@/components/ui";
+import { Rise } from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -26,20 +26,15 @@ const ANSWERS: [string, string][] = [
 export default function Contact() {
   return (
     <>
-      <Container className="pt-32 pb-14 sm:pt-40 sm:pb-16">
-        <Label>Contact</Label>
-        <Lines
-          as="h1"
-          className="font-statement mt-6 max-w-[13ch] text-[length:var(--text-step-3)]"
-          lines={["Have a program,", "a question, or", "an idea?"]}
-        />
-        <Words
-          className="mt-8 max-w-[52ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text="Whether it's booking a workshop for your dancers or scheduling a free consultation, reach out and Kira will get back to you within a couple of days."
-        />
-      </Container>
+      <PageHero
+        label="Contact"
+        lines={["Have a program,", "a question, or", "an idea?"]}
+        headingClassName="max-w-[13ch]"
+        intro="Whether it's booking a workshop for your dancers or scheduling a free consultation, reach out and Kira will get back to you within a couple of days."
+        introClassName="max-w-[52ch]"
+      />
 
-      <Container className="pb-24 sm:pb-32">
+      <Container className="pt-16 pb-24 sm:pt-20 sm:pb-32">
         <div className="grid gap-14 lg:grid-cols-[1.3fr_0.7fr] lg:gap-20">
           <Rise>
             <ContactForm />

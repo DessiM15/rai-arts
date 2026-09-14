@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Label, Lines, Words } from "./Reveal";
 
 type ButtonVariant = "solid" | "gold" | "ghost" | "ghost-light";
 
@@ -107,32 +108,43 @@ export function Section({
   );
 }
 
-/** Page header shared by every inner route. */
-export function PageHead({
+/**
+ * Page header shared by every inner route: a full-bleed band in the brand
+ * green that runs straight on from the navbar, everything centred. Anything
+ * passed as children sits inside the band under the intro.
+ */
+export function PageHero({
   label,
   lines,
-  body,
+  intro,
+  headingClassName = "",
+  introClassName = "",
   children,
 }: {
   label: string;
   lines: string[];
-  body?: string;
+  intro?: string;
+  headingClassName?: string;
+  introClassName?: string;
   children?: ReactNode;
 }) {
   return (
-    <Container className="pt-32 pb-14 sm:pt-40 sm:pb-20">
-      <p className="label">{label}</p>
-      <h1 className="font-display mt-5 text-[length:var(--text-step-3)]">
-        {lines.map((l, i) => (
-          <span key={i} className="block">
-            {l}
-          </span>
-        ))}
-      </h1>
-      {body && (
-        <p className="mt-6 max-w-[58ch] text-ink-soft">{body}</p>
-      )}
-      {children && <div className="mt-9 flex flex-wrap gap-3">{children}</div>}
-    </Container>
+    <Section dark className="pt-32 pb-16 sm:pt-40 sm:pb-20">
+      <Container className="flex flex-col items-center text-center">
+        <Label>{label}</Label>
+        <Lines
+          as="h1"
+          className={`font-statement mt-6 text-[length:var(--text-step-3)] ${headingClassName}`}
+          lines={lines}
+        />
+        {intro && (
+          <Words
+            className={`mt-8 max-w-[54ch] text-[length:var(--text-step-0)] text-cream/75 ${introClassName}`}
+            text={intro}
+          />
+        )}
+        {children}
+      </Container>
+    </Section>
   );
 }

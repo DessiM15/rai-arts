@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { CONSULTING } from "@/lib/content";
 import { SITE } from "@/lib/site";
-import { Button, Container, Section } from "@/components/ui";
-import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { Button, Container, PageHero, Section } from "@/components/ui";
+import { Lines, Rise } from "@/components/Reveal";
 import { SectionHead, Steps } from "@/components/editorial";
 import TopicPicker from "@/components/TopicPicker";
 
@@ -36,35 +36,30 @@ export default function Consulting() {
       />
 
       {/* ── hero ── */}
-      <Container className="pt-32 pb-14 sm:pt-40 sm:pb-20">
-        <Label>Services · Consulting</Label>
-        <Lines
-          as="h1"
-          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-3)]"
-          lines={["Consulting."]}
-        />
-        <Words
-          className="mt-8 max-w-[58ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text={CONSULTING.intro}
-        />
+      <PageHero
+        label="Services · Consulting"
+        lines={["Consulting."]}
+        intro={CONSULTING.intro}
+        introClassName="max-w-[58ch]"
+      >
         {CONSULTING.paragraphs.map((p, i) => (
           <Rise key={i} delay={0.2 + i * 0.08}>
-            <p className="mt-5 max-w-[58ch] text-[length:var(--text-step-0)] leading-[1.7] text-ink-soft">
+            <p className="mt-5 max-w-[58ch] text-[length:var(--text-step-0)] leading-[1.7] text-cream/75">
               {p}
             </p>
           </Rise>
         ))}
-      </Container>
+      </PageHero>
 
       {/* ── flexible by design ── */}
       <Section dark className="py-16 sm:py-20">
-        <Container className="grid items-end gap-6 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        <Container className="flex flex-col items-center text-center">
           <Lines
             as="h2"
             className="font-statement text-[length:var(--text-step-3)]"
             lines={[CONSULTING.flexible.heading]}
           />
-          <p className="max-w-[40ch] text-[length:var(--text-step-1)] leading-snug text-cream/75">
+          <p className="mt-6 max-w-[48ch] text-[length:var(--text-step-1)] leading-snug text-cream/75">
             {CONSULTING.flexible.body}
           </p>
         </Container>

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { FRAMEWORK, PILLARS } from "@/lib/content";
 import { SITE } from "@/lib/site";
-import { Button, Container, Section } from "@/components/ui";
-import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { Button, Container, PageHero, Section } from "@/components/ui";
+import { Label, Lines, Rise } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
 import FrameworkDiagram from "@/components/FrameworkDiagram";
 import PinnedPillars from "@/components/PinnedPillars";
@@ -38,18 +38,13 @@ export default function Framework() {
       />
 
       {/* ── hero ── */}
-      <Container className="pt-32 pb-12 sm:pt-40 sm:pb-16">
-        <Label>Framework</Label>
-        <Lines
-          as="h1"
-          className="font-statement mt-6 max-w-[20ch] text-[length:var(--text-step-2)]"
-          lines={["The Rai Arts Career", "Readiness Framework™"]}
-        />
-        <Words
-          className="mt-7 max-w-[64ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text={FRAMEWORK.intro}
-        />
-      </Container>
+      <PageHero
+        label="Framework"
+        lines={["The Rai Arts Career", "Readiness Framework™"]}
+        headingClassName="max-w-[20ch] !text-[length:var(--text-step-2)]"
+        intro={FRAMEWORK.intro}
+        introClassName="max-w-[64ch]"
+      />
 
       {/* ── the graphic ── */}
       <Container className="pb-20 sm:pb-28">

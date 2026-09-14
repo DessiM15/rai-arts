@@ -5,7 +5,7 @@ import { Lines, Words } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
 import CurtainHero from "@/components/CurtainHero";
 import LineWalk, { type Service } from "@/components/LineWalk";
-import PinnedQuote from "@/components/PinnedQuote";
+import QuoteBand from "@/components/QuoteBand";
 
 export const metadata: Metadata = {
   title: "Career readiness for dancers",
@@ -61,7 +61,7 @@ export default function Home() {
       {/* ── who we are, then the walk ── */}
       <Section className="py-20 sm:py-28 lg:py-32">
         <Container>
-          <div className="max-w-[62ch]">
+          <div className="mx-auto max-w-[62ch] text-center">
             <Lines
               as="h2"
               className="font-statement text-[length:var(--text-step-3)]"
@@ -83,8 +83,8 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* ── the gap, pinned: the passage lights up word by word on scroll ── */}
-      <PinnedQuote text={THE_GAP} />
+      {/* ── the gap ── */}
+      <QuoteBand text={THE_GAP} />
 
       {/* ── inquire ── */}
       <Section className="bg-sand py-24 sm:py-32">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { LEARN } from "@/lib/content";
-import { Button, Container, Section } from "@/components/ui";
-import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { Button, Container, PageHero, Section } from "@/components/ui";
+import { Rise } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
 import LearnTiles, { EbookTile } from "@/components/LearnTiles";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -18,18 +18,14 @@ export default function Learn() {
   return (
     <>
       {/* ── hero ── */}
-      <Container className="pt-32 pb-14 sm:pt-40 sm:pb-20">
-        <Label>Learn</Label>
-        <Lines
-          as="h1"
-          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-3)]"
-          lines={["Free to follow,", "three ways to learn."]}
-        />
-        <Words
-          className="mt-8 max-w-[54ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text="You don't need a program to bring Rai Arts in to start learning. The ebook, the newsletter, and the essays cover the same ground the workshops do."
-        />
-        <Rise delay={0.2} className="mt-12">
+      <PageHero
+        label="Learn"
+        lines={["Free to follow,", "three ways to learn."]}
+        headingClassName="max-w-[14ch]"
+        intro="You don't need a program to bring Rai Arts in to start learning. The ebook, the newsletter, and the essays cover the same ground the workshops do."
+      />
+      <Container className="pt-14 pb-14 sm:pt-20 sm:pb-20">
+        <Rise delay={0.2}>
           <LearnTiles />
         </Rise>
       </Container>

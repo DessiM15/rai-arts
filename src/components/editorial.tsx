@@ -12,7 +12,7 @@ export function SectionHead({
   label,
   lines,
   body,
-  align = "left",
+  align = "center",
   dark = false,
   children,
 }: {

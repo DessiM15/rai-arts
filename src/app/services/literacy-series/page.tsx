@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { LITERACY } from "@/lib/content";
-import { Button, Container, Section } from "@/components/ui";
-import { Label, Lines, Rise, Words } from "@/components/Reveal";
+import { Button, Container, PageHero, Section } from "@/components/ui";
+import { Label, Lines, Rise } from "@/components/Reveal";
 import WaitlistForm from "@/components/WaitlistForm";
 
 export const metadata: Metadata = {
@@ -15,18 +15,12 @@ export default function LiteracySeries() {
   return (
     <>
       {/* ── hero ── */}
-      <Container className="pt-32 pb-14 sm:pt-40 sm:pb-20">
-        <Label>Services · Literacy Series</Label>
-        <Lines
-          as="h1"
-          className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-3)]"
-          lines={["The Literacy", "Series."]}
-        />
-        <Words
-          className="mt-8 max-w-[58ch] text-[length:var(--text-step-0)] text-ink-soft"
-          text={LITERACY.intro}
-        />
-      </Container>
+      <PageHero
+        label="Services · Literacy Series"
+        lines={["The Literacy", "Series."]}
+        intro={LITERACY.intro}
+        introClassName="max-w-[58ch]"
+      />
 
       {/* ── what it means, as a reveal list ── */}
       <Container className="pb-20 sm:pb-28">
@@ -66,7 +60,7 @@ export default function LiteracySeries() {
 
       {/* ── the goal ── */}
       <Section dark className="py-20 sm:py-28">
-        <Container>
+        <Container className="flex flex-col items-center text-center">
           <Label className="mb-7">The goal</Label>
           <Lines
             as="h2"

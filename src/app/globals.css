@@ -124,13 +124,16 @@ html.lenis body {
   overflow: hidden;
 }
 
-/* Fraunces is variable — this is the display voice: high optical size for
-   real thick/thin contrast, WONK on for its characterful cuts. */
+/* Fraunces is variable — this is the display voice. Set light, with the
+   letters given room and the optical size dialled back from the maximum, so
+   headlines read as airy rather than crowded. WONK on for its characterful
+   cuts. */
 .font-display {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
-  letter-spacing: -0.022em;
-  line-height: 1.04;
+  font-variation-settings: "opsz" 96, "SOFT" 0, "WONK" 1;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.12;
   text-wrap: balance;
 }
 
@@ -260,24 +263,6 @@ html.lenis body {
   filter: blur(0);
 }
 
-/* Beats dim until she arrives — a focus pull, not a hard cut.
-   The dim sits on the copy, not the row: a photograph held at 32% just reads
-   as broken, so art dims only slightly and never disappears. */
-.js .walk-copy {
-  opacity: 0.32;
-  transition: opacity 0.7s var(--ease-cinema);
-}
-.js .walk-beat[data-in] .walk-copy {
-  opacity: 1;
-}
-.js .walk-beat figure {
-  opacity: 0.62;
-  transition: opacity 0.7s var(--ease-cinema);
-}
-.js .walk-beat[data-in] figure {
-  opacity: 1;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .js [data-rv],
   .js [data-rv-label],
@@ -314,13 +299,14 @@ html.lenis body {
   opacity: 0.11;
 }
 
-/* Oversized display type used as artwork rather than as a heading. */
+/* Headline voice: the same face at its lightest useful weight, tracked
+   normally and with breathing room between lines. */
 .font-statement {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 0.92;
+  font-variation-settings: "opsz" 96, "SOFT" 0, "WONK" 1;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.1;
   text-wrap: balance;
 }
 
@@ -588,11 +574,4 @@ html.lenis body {
     opacity: 1;
     transform: none;
   }
-}
-
-/* PinnedQuote: words start dim and are lit by scroll. Only under .js so a
-   visitor without JavaScript reads the passage at full brightness. */
-.js [data-pq-word] {
-  opacity: 0.22;
-  transition: opacity 120ms linear;
 }

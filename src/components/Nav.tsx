@@ -11,10 +11,10 @@ export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false); // mobile sheet
   const [menu, setMenu] = useState<string | null>(null); // desktop dropdown
-  const [onDark, setOnDark] = useState(false);
-  // Sections can ask the bar to stay fully transparent over them.
+  // The bar is solid brand green everywhere, always in its cream livery. The
+  // one exception: a section can ask it to go fully transparent over itself
+  // with data-nav-plain (the home curtain does, so the lockup shows through).
   const [plain, setPlain] = useState(false);
-  const [lifted, setLifted] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Close everything on route change. Adjusting state during render (rather
@@ -47,26 +47,20 @@ export default function Nav() {
   }, []);
 
   /**
-   * Invert the bar when it is sitting over a dark band. Sections opt in with
-   * data-nav="dark", so this keeps working as pages get rearranged.
+   * Go transparent while the bar sits over a section marked data-nav-plain,
+   * so this keeps working as pages get rearranged.
    */
   useEffect(() => {
     let ticking = false;
     const check = () => {
       const y = 34; // roughly the vertical centre of the bar
-      const darks = document.querySelectorAll<HTMLElement>('[data-nav="dark"]');
-      let hit = false;
+      const plains = document.querySelectorAll<HTMLElement>("[data-nav-plain]");
       let bare = false;
-      darks.forEach((el) => {
+      plains.forEach((el) => {
         const r = el.getBoundingClientRect();
-        if (r.top <= y && r.bottom >= y) {
-          hit = true;
-          if (el.hasAttribute("data-nav-plain")) bare = true;
-        }
+        if (r.top <= y && r.bottom >= y) bare = true;
       });
-      setOnDark(hit);
       setPlain(bare);
-      setLifted(window.scrollY > 12);
       ticking = false;
     };
     const onScroll = () => {
@@ -98,10 +92,8 @@ export default function Nav() {
   return (
     <header
       className={[
-        "fixed inset-x-0 top-0 z-[100] transition-colors duration-500",
-        onDark ? "text-cream on-dark" : "text-ink",
-        lifted && !onDark && !plain ? "bg-cream/85 backdrop-blur-md" : "",
-        lifted && onDark && !plain ? "bg-forest/80 backdrop-blur-md" : "",
+        "on-dark fixed inset-x-0 top-0 z-[100] text-cream transition-colors duration-500",
+        plain ? "bg-transparent" : "bg-forest",
       ].join(" ")}
     >
       <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-6 px-5 py-3 sm:px-8 lg:px-14">

@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { DANCER_PATH } from "@/lib/brand";
 
 export type Service = {
@@ -11,9 +11,8 @@ export type Service = {
 /**
  * "What We Do": the numbered services stack down the left; a single gold
  * path runs down the column beside them and the dancer travels it as you
- * scroll. Each item lights when *she reaches it* — not when the element
- * happens to enter the viewport. That's the difference between a scroll
- * effect and something choreographed.
+ * scroll. The copy is set in full from the start: the only things that move
+ * are the line drawing in and the dancer travelling it.
  *
  * Everything is measured in real pixels (1 SVG unit === 1 CSS pixel) and
  * rebuilt on resize, so the dash pattern never distorts.
@@ -155,14 +154,10 @@ export default function LineWalk({
         `translate(${pt.x},${pt.y + bob}) rotate(${lean}) scale(${scale}) translate(-500,-500)`,
       );
 
-      itemRefs.current.forEach((b, i) => {
-        if (!b) return;
-        // `data-in` is the same hook the CSS reveals use everywhere else, so an
-        // item lighting up releases its heading and body together.
-        const reached = at >= anchors[i] - (small ? 40 : 70);
-        if (reached) b.setAttribute("data-in", "");
-        else b.removeAttribute("data-in");
-
+      // The copy is always fully present; only the station marker on the line
+      // swells as she reaches it.
+      anchors.forEach((anchor, i) => {
+        const reached = at >= anchor - (small ? 40 : 70);
         const c = stopRefs.current[i];
         if (c) {
           c.setAttribute("r", String(reached ? (small ? 6 : 8) : small ? 3 : 4));
@@ -253,22 +248,21 @@ export default function LineWalk({
       {/* Copy on the left, the lane she walks on the right. Below lg the lane
           collapses to a narrow gutter beside the list so the path still runs
           alongside the words on a phone. */}
-      <div className="relative z-[2] grid grid-cols-[1fr_3.5rem] gap-x-4 sm:grid-cols-[1fr_5rem] lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:gap-x-16">
-        <div className="min-w-0">
-          <h2 className="font-statement text-[length:var(--text-step-3)]">
-            {heading}
-          </h2>
+      <h2 className="font-statement relative z-[2] text-center text-[length:var(--text-step-3)]">
+        {heading}
+      </h2>
 
-          <ol className="mt-14 flex flex-col gap-16 sm:mt-16 sm:gap-20 lg:gap-24">
+      <div className="relative z-[2] mt-14 grid grid-cols-[1fr_3.5rem] gap-x-4 sm:mt-16 sm:grid-cols-[1fr_5rem] lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:gap-x-16">
+        <div className="min-w-0">
+          <ol className="flex flex-col gap-16 sm:gap-20 lg:gap-24">
             {items.map((item, i) => (
               <li
                 key={i}
                 ref={(el) => {
                   itemRefs.current[i] = el;
                 }}
-                className="walk-beat"
               >
-                <div className="walk-copy">
+                <div>
                   {/* The stop number, set large enough to be a graphic element */}
                   <span
                     aria-hidden="true"
@@ -278,28 +272,11 @@ export default function LineWalk({
                   </span>
 
                   <h3 className="font-statement mt-4 mb-5 text-[length:var(--text-step-2)]">
-                    <span className="rv-line">
-                      <span>{item.title}</span>
-                    </span>
+                    {item.title}
                   </h3>
 
-                  <p
-                    data-rv-words=""
-                    className="max-w-[46ch] text-[length:var(--text-step-0)] leading-[1.65] text-ink-soft"
-                  >
-                    {item.body.split(/\s+/).map((w, k, arr) => (
-                      // Space goes between the spans, never inside one — an
-                      // inline-block swallows its own trailing whitespace.
-                      <Fragment key={k}>
-                        <span
-                          className="w"
-                          style={{ ["--wd" as string]: `${0.2 + k * 0.016}s` }}
-                        >
-                          {w}
-                        </span>
-                        {k < arr.length - 1 ? " " : null}
-                      </Fragment>
-                    ))}
+                  <p className="max-w-[46ch] text-[length:var(--text-step-0)] leading-[1.65] text-ink-soft">
+                    {item.body}
                   </p>
                 </div>
               </li>

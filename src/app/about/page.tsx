@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import { PILLARS, STORY } from "@/lib/content";
-import { Button, Container, Section } from "@/components/ui";
-import { Label, Lines } from "@/components/Reveal";
+import { Button, Container, PageHero, Section } from "@/components/ui";
+import { Label } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
 import OurStory from "@/components/OurStory";
 import QuestionStrip from "@/components/QuestionStrip";
@@ -18,17 +18,14 @@ export default function About() {
   return (
     <>
       {/* ── hero ── */}
-      <Container className="pt-32 pb-14 sm:pt-40 sm:pb-20">
-        <Label>About</Label>
-        <Lines
-          as="h1"
-          className="font-statement mt-6 max-w-[16ch] text-[length:var(--text-step-3)]"
-          lines={["From the studio", "to the front", "of the room."]}
-        />
-      </Container>
+      <PageHero
+        label="About"
+        lines={["From the studio", "to the front", "of the room."]}
+        headingClassName="max-w-[16ch]"
+      />
 
       {/* ── our story ── */}
-      <Container id="our-story" className="scroll-mt-24 pb-24 sm:pb-32">
+      <Container id="our-story" className="scroll-mt-24 pt-20 pb-24 sm:pt-28 sm:pb-32">
         <Label className="mb-10">Our story</Label>
         <OurStory
           intro={STORY.intro}
