@@ -61,31 +61,20 @@ export default function Framework() {
       </Section>
 
       {/* ── from framework to education ── */}
-      <Section className="bg-sand py-16 sm:py-20">
-        <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div>
-            <Label>{FRAMEWORK.education.heading}</Label>
-            <Lines
-              as="h2"
-              className="font-statement mt-6 max-w-[14ch] text-[length:var(--text-step-2)]"
-              lines={["The framework is", "the foundation", "of Rai Arts."]}
-            />
-          </div>
-          <div className="flex flex-col gap-5 lg:pt-2">
-            {FRAMEWORK.education.paragraphs.map((p, i) => (
-              <Rise key={i} delay={i * 0.08}>
-                <p className="max-w-[56ch] text-[length:var(--text-step-0)] leading-[1.7] text-ink-soft">
-                  {p}
-                </p>
-              </Rise>
-            ))}
-            <Rise delay={0.2} className="mt-4 flex flex-wrap gap-3">
-              <Button href="/contact">Book a consultation</Button>
-              <Button href="/learn" variant="ghost">
-                Explore our resources
-              </Button>
-            </Rise>
-          </div>
+      <Section className="bg-sand py-20 sm:py-28">
+        <Container className="flex flex-col items-center text-center">
+          <Label>{FRAMEWORK.education.heading}</Label>
+          <Lines
+            as="h2"
+            className="font-statement mt-6 max-w-[18ch] text-[length:var(--text-step-3)]"
+            lines={["The framework is", "the foundation of Rai Arts."]}
+          />
+          <Rise delay={0.2} className="mt-10 flex flex-wrap justify-center gap-3">
+            <Button href="/contact">Book a consultation</Button>
+            <Button href="/learn" variant="ghost">
+              Explore our resources
+            </Button>
+          </Rise>
         </Container>
       </Section>
 
