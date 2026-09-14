@@ -18,8 +18,10 @@ const WHO_WE_ARE = [
   "We want to see a dance industry where career preparation goes beyond artistic achievement and considers the artist as a whole person, equipping dancers with the knowledge and tools to support both their careers and their lives.",
 ];
 
-const THE_GAP =
-  "Dancers are exceptionally prepared for the artistic demands of their careers \u2014 and significantly less prepared for everything that comes after. Rai Arts exists to close that gap: to make practical career education available to dancers before they need it, not after they\u2019ve already struggled without it.";
+const THE_GAP = [
+  "Dancers are exceptionally prepared for the artistic demands of their careers \u2014 and significantly less prepared for everything that comes after.",
+  "Rai Arts exists to close that gap: to make practical career education available to dancers before they need it, not after they\u2019ve already struggled without it.",
+];
 
 const SERVICES: Service[] = [
   {
@@ -84,7 +86,7 @@ export default function Home() {
       </Section>
 
       {/* ── the gap ── */}
-      <QuoteBand text={THE_GAP} />
+      <QuoteBand paragraphs={THE_GAP} />
 
       {/* ── inquire ── */}
       <Section className="bg-sand py-24 sm:py-32">

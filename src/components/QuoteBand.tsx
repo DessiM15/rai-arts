@@ -4,11 +4,13 @@ import { useEffect, useRef } from "react";
 import { DANCER_PATH, DANCER_VIEWBOX } from "@/lib/brand";
 
 /**
- * A dark band carrying a single passage, set in full and centred. The dancer
+ * A dark band carrying a short passage, set in full and centred, one or two
+ * paragraphs with a clear break between them. The measure is kept wide so the
+ * passage runs to a handful of lines rather than a wall of them. The dancer
  * sits behind it at enormous size, drifting slowly against the scroll so the
  * band has depth rather than sitting flat.
  */
-export default function QuoteBand({ text }: { text: string }) {
+export default function QuoteBand({ paragraphs }: { paragraphs: string[] }) {
   const wrapRef = useRef<HTMLElement>(null);
   const artRef = useRef<SVGSVGElement>(null);
 
@@ -71,9 +73,19 @@ export default function QuoteBand({ text }: { text: string }) {
       </svg>
 
       <div className="relative z-[2] mx-auto w-full max-w-[1180px] px-5 sm:px-8 lg:px-14">
-        <p className="font-statement mx-auto max-w-[34ch] text-center text-[length:var(--text-step-2)] leading-[1.35] text-cream">
-          {text}
-        </p>
+        <div className="flex flex-col items-center gap-8 text-center sm:gap-10">
+          {paragraphs.map((p, i) => (
+            // `pretty`, not the headline default of `balance`: balance shortens
+            // every line to even them out, which is exactly the tall narrow
+            // block this band is meant to avoid.
+            <p
+              key={i}
+              className="font-statement max-w-[44ch] text-[length:var(--text-step-2)] leading-[1.35] text-cream [text-wrap:pretty]"
+            >
+              {p}
+            </p>
+          ))}
+        </div>
       </div>
     </section>
   );
