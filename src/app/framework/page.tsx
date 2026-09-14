@@ -47,14 +47,14 @@ export default function Framework() {
       />
 
       {/* ── the graphic ── */}
-      <Container className="pb-10 sm:pb-14">
-        <Rise delay={0.15}>
+      <Container className="pt-16 pb-16 sm:pt-20 sm:pb-20">
+        <Rise delay={0.15} className="mx-auto max-w-[820px]">
           <Image
             src="/images/framework-diagram.png"
             alt="The Rai Arts Career Readiness Framework™: five pillars, each with its guiding question. Career Foundations, Business Readiness, Financial Readiness, Professional Readiness, and Longevity Readiness."
             width={1800}
             height={590}
-            sizes="(min-width: 1180px) 1068px, 92vw"
+            sizes="(min-width: 900px) 820px, 92vw"
             className="mx-auto h-auto w-full"
             priority
           />
