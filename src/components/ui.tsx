@@ -123,7 +123,8 @@ export function PageHero({
 }: {
   label: string;
   lines: string[];
-  intro?: string;
+  /** One paragraph, or several lines each set on its own row. */
+  intro?: string | string[];
   headingClassName?: string;
   introClassName?: string;
   children?: ReactNode;
@@ -137,12 +138,15 @@ export function PageHero({
           className={`font-statement mt-6 text-[length:var(--text-step-3)] ${headingClassName}`}
           lines={lines}
         />
-        {intro && (
-          <Words
-            className={`mt-8 max-w-[54ch] text-[length:var(--text-step-0)] text-cream/75 ${introClassName}`}
-            text={intro}
-          />
-        )}
+        {intro &&
+          (Array.isArray(intro) ? intro : [intro]).map((line, i) => (
+            <Words
+              key={i}
+              delay={0.1 + i * 0.12}
+              className={`${i === 0 ? "mt-8" : "mt-1"} max-w-[54ch] text-[length:var(--text-step-0)] text-cream/75 ${introClassName}`}
+              text={line}
+            />
+          ))}
         {children}
       </Container>
     </Section>

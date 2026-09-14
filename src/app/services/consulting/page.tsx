@@ -9,7 +9,7 @@ import TopicPicker from "@/components/TopicPicker";
 export const metadata: Metadata = {
   title: "Consulting",
   description:
-    "Rai Arts partners with schools, studios, companies, and universities to deliver career-readiness education for dancers: single workshops, multi-session programs, intensives, and ongoing series built from the Career Readiness Framework.",
+    "Rai Arts partners with schools, studios, companies, and universities to deliver career-readiness education for dancers: single workshops, multi-session programs, intensives, and ongoing series built from the Career Readiness Framework™.",
   alternates: { canonical: "/services/consulting" },
 };
 

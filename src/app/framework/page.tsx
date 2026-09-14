@@ -8,7 +8,7 @@ import FrameworkDiagram from "@/components/FrameworkDiagram";
 import PinnedPillars from "@/components/PinnedPillars";
 
 export const metadata: Metadata = {
-  title: "The Career Readiness Framework",
+  title: "The Career Readiness Framework™",
   description:
     "The Rai Arts Career Readiness Framework™ is made up of five pillars, each centered on a guiding question: career foundations, business, financial, professional, and longevity readiness.",
   alternates: { canonical: "/framework" },

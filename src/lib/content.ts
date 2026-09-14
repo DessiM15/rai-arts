@@ -123,7 +123,7 @@ export const PILLARS: Pillar[] = [
 
 export const FRAMEWORK = {
   intro:
-    "The Rai Arts Career Readiness Framework is made up of five pillars centered around a guiding question, which is explored and answered through a dedicated workshop. Rather than defining readiness by one outcome, the framework looks at the different pieces that allow an artist to enter the field, create opportunities, navigate professional life, and keep going.",
+    "The Rai Arts Career Readiness Framework™ is made up of five pillars centered around a guiding question, which is explored and answered through a dedicated workshop. Rather than defining readiness by one outcome, the framework looks at the different pieces that allow an artist to enter the field, create opportunities, navigate professional life, and keep going.",
   education: {
     heading: "From Framework to Education",
     lead: "The framework is the foundation of Rai Arts.",
@@ -190,7 +190,7 @@ export const STORY = {
         },
         {
           kind: "p",
-          text: "The Rai Arts Career Readiness Framework was created to provide the foundation for our educational work, bringing together the practical knowledge, professional skills, and career strategies that dancers need beyond their artistic training.",
+          text: "The Rai Arts Career Readiness Framework™ was created to provide the foundation for our educational work, bringing together the practical knowledge, professional skills, and career strategies that dancers need beyond their artistic training.",
         },
         {
           kind: "p",
@@ -239,7 +239,7 @@ export const LITERACY = {
   intro:
     "For many dancers, formal education ends when they graduate. They leave school with years of artistic training, but often little education on the knowledge and skills required to navigate the career that comes after it. The Literacy Series was created to change that.",
   paragraphs: [
-    "Drawing from the Rai Arts Career Readiness Framework, The Literacy Series provides accessible, low-cost online education designed to help dancers develop the knowledge they need to navigate their careers, and their lives, beyond the studio.",
+    "Drawing from the Rai Arts Career Readiness Framework™, The Literacy Series provides accessible, low-cost online education designed to help dancers develop the knowledge they need to navigate their careers, and their lives, beyond the studio.",
     "These workshops aren't about teaching dancers to become better artists. They're about teaching dancers how to support the artist beyond artistic readiness.",
   ],
   /** "It means…" — the eight skills, in order. */
@@ -263,7 +263,7 @@ export const CONSULTING = {
   intro:
     "Rai Arts partners with individuals, companies, schools, studios, and universities to provide education on the practical skills and knowledge needed to build a career in the arts.",
   paragraphs: [
-    "Our programming is built from the Rai Arts Career Readiness Framework and can be adapted to the needs of your dancers, students, artists, or community.",
+    "Our programming is built from the Rai Arts Career Readiness Framework™ and can be adapted to the needs of your dancers, students, artists, or community.",
   ],
   flexible: {
     heading: "Flexible by design.",
@@ -293,7 +293,7 @@ export const CONSULTING = {
   ],
   build: {
     heading: "Build your program.",
-    body: "Select the areas of the Rai Arts Career Readiness Framework that are most relevant to your community.",
+    body: "Select the areas of the Rai Arts Career Readiness Framework™ that are most relevant to your community.",
     topics: [
       "Financial Literacy",
       "Networking",
