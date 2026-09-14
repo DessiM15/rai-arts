@@ -21,7 +21,8 @@ export default function LineWalk({
   heading,
   items,
 }: {
-  heading: string;
+  /** Omit when the section supplies its own heading above the walk. */
+  heading?: string;
   items: Service[];
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -248,9 +249,11 @@ export default function LineWalk({
       {/* Copy on the left, the lane she walks on the right. Below lg the lane
           collapses to a narrow gutter beside the list so the path still runs
           alongside the words on a phone. */}
-      <h2 className="font-statement relative z-[2] text-center text-[length:var(--text-step-3)]">
-        {heading}
-      </h2>
+      {heading && (
+        <h2 className="font-statement relative z-[2] text-center text-[length:var(--text-step-3)]">
+          {heading}
+        </h2>
+      )}
 
       <div className="relative z-[2] mt-14 grid grid-cols-[1fr_3.5rem] gap-x-4 sm:mt-16 sm:grid-cols-[1fr_5rem] lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:gap-x-16">
         <div className="min-w-0">

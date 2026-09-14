@@ -3,6 +3,7 @@ import { LITERACY } from "@/lib/content";
 import { Button, Container, PageHero, Section } from "@/components/ui";
 import { Label, Lines, Rise } from "@/components/Reveal";
 import WaitlistForm from "@/components/WaitlistForm";
+import DancerWatermark from "@/components/DancerWatermark";
 
 export const metadata: Metadata = {
   title: "The Literacy Series",
@@ -17,13 +18,14 @@ export default function LiteracySeries() {
       {/* ── hero ── */}
       <PageHero
         label="Services · Literacy Series"
-        lines={["The Literacy", "Series."]}
+        lines={["The Literacy Series."]}
         intro={LITERACY.intro}
         introClassName="max-w-[58ch]"
+        size="compact"
       />
 
       {/* ── what it means, as a reveal list ── */}
-      <Container className="pb-20 sm:pb-28">
+      <Container className="pt-16 pb-20 sm:pt-20 sm:pb-28">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:self-start">
             {LITERACY.paragraphs.map((p, i) => (
@@ -59,8 +61,9 @@ export default function LiteracySeries() {
       </Container>
 
       {/* ── the goal ── */}
-      <Section dark className="py-20 sm:py-28">
-        <Container className="flex flex-col items-center text-center">
+      <Section dark className="overflow-hidden bg-forest-deep py-20 sm:py-28">
+        <DancerWatermark />
+        <Container className="relative z-[2] flex flex-col items-center text-center">
           <Label className="mb-7">The goal</Label>
           <Lines
             as="h2"

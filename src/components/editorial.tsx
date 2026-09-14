@@ -19,7 +19,7 @@ export function SectionHead({
   index?: string;
   label: string;
   lines: string[];
-  body?: string;
+  body?: string | string[];
   align?: "left" | "center";
   dark?: boolean;
   children?: ReactNode;
@@ -51,15 +51,17 @@ export function SectionHead({
         lines={lines}
       />
 
-      {body && (
-        <p
-          className={`mt-6 max-w-[54ch] text-[length:var(--text-step-0)] ${
-            dark ? "text-cream/70" : "text-ink-soft"
-          }`}
-        >
-          {body}
-        </p>
-      )}
+      {body &&
+        (Array.isArray(body) ? body : [body]).map((para, i) => (
+          <p
+            key={i}
+            className={`${i === 0 ? "mt-6" : "mt-4"} max-w-[54ch] text-[length:var(--text-step-0)] ${
+              dark ? "text-cream/70" : "text-ink-soft"
+            }`}
+          >
+            {para}
+          </p>
+        ))}
 
       {children && (
         <div className={`mt-9 flex flex-wrap gap-3 ${center ? "justify-center" : ""}`}>

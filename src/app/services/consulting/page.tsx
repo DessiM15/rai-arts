@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { CONSULTING } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import { Button, Container, PageHero, Section } from "@/components/ui";
-import { Lines, Rise } from "@/components/Reveal";
-import { SectionHead, Steps } from "@/components/editorial";
+import { Rise } from "@/components/Reveal";
+import { SectionHead } from "@/components/editorial";
+import LineWalk from "@/components/LineWalk";
 import TopicPicker from "@/components/TopicPicker";
 
 export const metadata: Metadata = {
@@ -44,32 +45,18 @@ export default function Consulting() {
       >
         {CONSULTING.paragraphs.map((p, i) => (
           <Rise key={i} delay={0.2 + i * 0.08}>
-            <p className="mt-5 max-w-[58ch] text-[length:var(--text-step-0)] leading-[1.7] text-cream/75">
+            <p className="mt-5 max-w-[64ch] text-[length:var(--text-step-0)] leading-[1.7] text-cream/75 [text-wrap:pretty]">
               {p}
             </p>
           </Rise>
         ))}
       </PageHero>
 
-      {/* ── flexible by design ── */}
-      <Section dark className="py-16 sm:py-20">
-        <Container className="flex flex-col items-center text-center">
-          <Lines
-            as="h2"
-            className="font-statement text-[length:var(--text-step-3)]"
-            lines={[CONSULTING.flexible.heading]}
-          />
-          <p className="mt-6 max-w-[48ch] text-[length:var(--text-step-1)] leading-snug text-cream/75">
-            {CONSULTING.flexible.body}
-          </p>
-        </Container>
-      </Section>
-
-      {/* ── formats ── */}
+      {/* ── formats: the five ways, walked by the dancer as on the home page ── */}
       <Container className="py-20 sm:py-28">
-        <SectionHead index="01" label="Hire Rai Arts for" lines={["Five ways", "to run it."]} />
-        <div className="mt-12">
-          <Steps items={CONSULTING.formats} />
+        <SectionHead index="01" label="Hire Rai Arts for" lines={["Five ways to run it."]} />
+        <div className="mt-4">
+          <LineWalk items={CONSULTING.formats} />
         </div>
       </Container>
 

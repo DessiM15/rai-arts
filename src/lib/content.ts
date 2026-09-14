@@ -263,12 +263,8 @@ export const CONSULTING = {
   intro:
     "Rai Arts partners with individuals, companies, schools, studios, and universities to provide education on the practical skills and knowledge needed to build a career in the arts.",
   paragraphs: [
-    "Our programming is built from the Rai Arts Career Readiness Framework™ and can be adapted to the needs of your dancers, students, artists, or community.",
+    "Our programming is built from the Rai Arts Career Readiness Framework™ and can be adapted to the needs of your dancers, students, artists, or\u00a0community.",
   ],
-  flexible: {
-    heading: "Flexible by design.",
-    body: "There is no one-size-fits-all approach to career preparation.",
-  },
   formats: [
     {
       title: "A single workshop",
@@ -293,7 +289,10 @@ export const CONSULTING = {
   ],
   build: {
     heading: "Build your program.",
-    body: "Select the areas of the Rai Arts Career Readiness Framework™ that are most relevant to your community.",
+    body: [
+      "Select the areas of the Rai Arts Career Readiness Framework™ that are most relevant to your community.",
+      "There is no one-size-fits-all approach to career preparation.",
+    ],
     topics: [
       "Financial Literacy",
       "Networking",

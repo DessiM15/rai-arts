@@ -119,6 +119,7 @@ export function PageHero({
   intro,
   headingClassName = "",
   introClassName = "",
+  size = "default",
   children,
 }: {
   label: string;
@@ -127,10 +128,16 @@ export function PageHero({
   intro?: string | string[];
   headingClassName?: string;
   introClassName?: string;
+  /** `compact` trims the band's height and tucks the intro up under the headline. */
+  size?: "default" | "compact";
   children?: ReactNode;
 }) {
+  const compact = size === "compact";
   return (
-    <Section dark className="pt-32 pb-16 sm:pt-40 sm:pb-20">
+    <Section
+      dark
+      className={compact ? "pt-28 pb-12 sm:pt-32 sm:pb-14" : "pt-32 pb-16 sm:pt-40 sm:pb-20"}
+    >
       <Container className="flex flex-col items-center text-center">
         <Label>{label}</Label>
         <Lines
@@ -143,7 +150,7 @@ export function PageHero({
             <Words
               key={i}
               delay={0.1 + i * 0.12}
-              className={`${i === 0 ? "mt-8" : "mt-1"} max-w-[54ch] text-[length:var(--text-step-0)] text-cream/75 ${introClassName}`}
+              className={`${i === 0 ? (compact ? "mt-5" : "mt-8") : "mt-1"} max-w-[54ch] text-[length:var(--text-step-0)] text-cream/75 ${introClassName}`}
               text={line}
             />
           ))}
