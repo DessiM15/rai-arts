@@ -316,7 +316,7 @@ export const CONSULTING = {
 
 export const LEARN = {
   ebook: {
-    title: "Building a Sustainable Career in Dance",
+    title: "More Than a Dancer",
     body: "The ebook sits alongside the workshops: the frameworks, worksheets, and plain-language explanations dancers ask for most, in one place you can keep and work through at your own pace.",
     cta: "Get the ebook",
     href: "https://shop.beacons.ai/thisisraiarts/b1977b1b-f277-463d-b5a1-79d9ee47f407",

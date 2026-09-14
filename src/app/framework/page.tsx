@@ -3,7 +3,7 @@ import { FRAMEWORK, PILLARS } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import { Button, Container, PageHero, Section } from "@/components/ui";
 import { Label, Lines, Rise } from "@/components/Reveal";
-import FrameworkDiagram from "@/components/FrameworkDiagram";
+import Image from "next/image";
 import PinnedPillars from "@/components/PinnedPillars";
 
 export const metadata: Metadata = {
@@ -47,9 +47,17 @@ export default function Framework() {
       />
 
       {/* ── the graphic ── */}
-      <Container className="pb-20 sm:pb-28">
+      <Container className="pb-10 sm:pb-14">
         <Rise delay={0.15}>
-          <FrameworkDiagram pillars={PILLARS} />
+          <Image
+            src="/images/framework-diagram.png"
+            alt="The Rai Arts Career Readiness Framework™: five pillars, each with its guiding question. Career Foundations, Business Readiness, Financial Readiness, Professional Readiness, and Longevity Readiness."
+            width={1800}
+            height={590}
+            sizes="(min-width: 1180px) 1068px, 92vw"
+            className="mx-auto h-auto w-full"
+            priority
+          />
         </Rise>
       </Container>
 

@@ -20,7 +20,7 @@ export default function SubstackRail({ articles }: { articles: Article[] }) {
     // padding re-aligns the first card with the container's content edge.
     <div className="relative left-1/2 w-screen -translate-x-1/2">
       <ul
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto pr-5 pb-4 pl-5 sm:gap-5 sm:pr-8 sm:pl-8 lg:pr-14 lg:pl-[max(3.5rem,calc((100vw-1180px)/2+3.5rem))]"
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto pr-5 pb-3 pl-5 sm:gap-5 sm:pr-8 sm:pl-8 lg:pr-14 lg:pl-[max(3.5rem,calc((100vw-1180px)/2+3.5rem))]"
         style={{ scrollbarWidth: "thin" }}
       >
         {articles.map((a, i) => (
@@ -33,19 +33,19 @@ export default function SubstackRail({ articles }: { articles: Article[] }) {
                 href={a.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group grain on-dark relative isolate flex h-full min-h-[24rem] flex-col justify-between gap-10 rounded-sm bg-forest-deep p-7 text-cream transition-colors duration-500 hover:bg-forest sm:p-8"
+                className="group grain on-dark relative isolate flex h-full min-h-[14rem] flex-col justify-between gap-5 rounded-sm bg-forest-deep p-5 text-cream transition-colors duration-500 hover:bg-forest sm:p-8"
               >
                 <span className="relative z-[2]">
                   <span className="font-mono text-[0.58rem] tracking-[0.22em] text-cream/50 uppercase">
                     Essay
                   </span>
-                  <span className="font-statement mt-6 block text-[length:var(--text-step-3)] leading-none text-cream/45 transition-colors duration-500 group-hover:text-gold">
+                  <span className="font-statement mt-2 block text-[length:var(--text-step-1)] leading-none text-cream/45 transition-colors duration-500 group-hover:text-gold">
                     {a.n}
                   </span>
-                  <span className="font-display-sm mt-4 block text-[length:var(--text-step-1)] leading-[1.15] text-cream">
+                  <span className="font-display-sm mt-2 block text-[length:var(--text-step-1)] leading-[1.15] text-cream">
                     {a.title}
                   </span>
-                  <span className="mt-4 block max-w-[38ch] text-[0.95rem] leading-relaxed text-cream/70">
+                  <span className="mt-2 line-clamp-2 max-w-[38ch] text-[0.9rem] leading-relaxed text-cream/70">
                     {a.excerpt}
                   </span>
                 </span>

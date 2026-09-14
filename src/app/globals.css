@@ -54,6 +54,7 @@
   --color-forest-mid: #3a5530;
   --color-cream: #f7f0e6;
   --color-sand: #e9dcc6;
+  --color-tan: #cdb58d;
   --color-gold: #efb93b;
   /* Darkened from the brand mid-gold so labels clear WCAG AA (4.5:1) on both
      cream and sand grounds — 3.12:1 before. */

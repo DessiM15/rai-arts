@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { LEARN } from "@/lib/content";
 import { Button, Container, PageHero, Section } from "@/components/ui";
-import { Rise } from "@/components/Reveal";
+import { Label, Lines, Rise } from "@/components/Reveal";
 import { SectionHead } from "@/components/editorial";
-import LearnTiles, { EbookTile } from "@/components/LearnTiles";
+import EbookCover from "@/components/EbookCover";
 import NewsletterForm from "@/components/NewsletterForm";
 import SubstackRail from "@/components/SubstackRail";
 
@@ -22,13 +22,12 @@ export default function Learn() {
         label="Learn"
         lines={["Free to follow,", "three ways to learn."]}
         headingClassName="max-w-[14ch]"
-        intro="You don't need a program to bring Rai Arts in to start learning. The ebook, the newsletter, and the essays cover the same ground the workshops do."
+        intro={[
+          "You don't need a program to bring Rai Arts in to start learning.",
+          "The ebook, the newsletter, and the essays cover the same ground the workshops do.",
+        ]}
+        introClassName="max-w-none"
       />
-      <Container className="pt-14 pb-14 sm:pt-20 sm:pb-20">
-        <Rise delay={0.2}>
-          <LearnTiles />
-        </Rise>
-      </Container>
 
       {/* ── 01 ebook ── */}
       <Container id="ebook" className="scroll-mt-20 py-20 sm:py-28">
@@ -45,55 +44,67 @@ export default function Learn() {
               </Button>
             </SectionHead>
           </div>
-          <Rise delay={0.1} className="mx-auto w-full max-w-[22rem] lg:max-w-none">
-            <EbookTile href={LEARN.ebook.href} />
+          <Rise delay={0.1} className="mx-auto w-full max-w-[22rem] lg:max-w-[30rem]">
+            <EbookCover />
           </Rise>
         </div>
       </Container>
 
       {/* ── 02 newsletter ── */}
-      <Section dark id="newsletter" className="scroll-mt-20 py-20 sm:py-28">
+      <Section id="newsletter" className="scroll-mt-20 bg-tan py-20 sm:py-28">
         <Container className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             <SectionHead
               index="02"
               label="Newsletter"
-              dark
               lines={["The newsletter."]}
               body={LEARN.newsletter.body}
             />
           </div>
           <Rise delay={0.1}>
-            <div className="grain relative isolate rounded-sm border border-cream/15 bg-forest-mid p-8 sm:p-10">
+            <div className="grain relative isolate rounded-sm border border-forest/15 bg-cream/70 p-8 sm:p-10">
               <h3 className="font-statement text-[length:var(--text-step-2)]">
                 Get the next one.
               </h3>
-              <p className="mt-4 max-w-[36ch] text-cream/70">
+              <p className="mt-4 max-w-[36ch] text-ink-soft">
                 Free, occasional, and easy to leave.
               </p>
-              <NewsletterForm dark />
+              <NewsletterForm dark={false} />
             </div>
           </Rise>
         </Container>
       </Section>
 
       {/* ── 03 substack ── */}
-      <Container id="substack" className="scroll-mt-20 py-20 sm:py-28">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHead
-            index="03"
-            label="Substack"
-            lines={["Honest writing about", "dance, and the", "career around it."]}
-            body={LEARN.substack.body}
+      {/* Kept tight on purpose: the heading, the rail, and the button are
+          meant to fit in one screen on a laptop. */}
+      <Container id="substack" className="scroll-mt-20 py-12 sm:py-14">
+        <div className="flex flex-col items-center text-center">
+          <div className="flex items-baseline justify-center gap-5">
+            <span
+              aria-hidden="true"
+              className="font-statement text-[length:var(--text-step-2)] leading-none text-gold-deep/40"
+            >
+              03
+            </span>
+            <Label>Substack</Label>
+          </div>
+          <Lines
+            as="h2"
+            className="font-statement mt-4 text-[length:var(--text-step-2)]"
+            lines={["Honest writing about dance,", "and the career around it."]}
           />
-          <p className="font-mono text-[0.6rem] tracking-[0.2em] text-ink-soft uppercase lg:pb-2">
-            Scroll sideways →
+          <p className="mt-3 text-[length:var(--text-step-0)] text-ink-soft">
+            {LEARN.substack.body}
           </p>
         </div>
-        <div className="mt-12">
+        <p className="mt-5 text-right font-mono text-[0.6rem] tracking-[0.2em] text-ink-soft uppercase">
+          Scroll sideways →
+        </p>
+        <div className="mt-2">
           <SubstackRail articles={LEARN.substack.articles} />
         </div>
-        <div className="mt-8 flex flex-wrap items-center gap-4">
+        <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
           <Button href={LEARN.substack.href} external>
             {LEARN.substack.cta}
           </Button>
