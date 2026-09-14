@@ -80,19 +80,18 @@ export default function Consulting() {
       </Section>
 
       {/* ── cta ── */}
-      <Section dark className="bg-forest-deep py-24 sm:py-32">
+      <Section className="py-24 sm:py-32">
         <Container className="flex flex-col items-center text-center">
           <SectionHead
             label="Next step"
             align="center"
-            dark
             lines={["Tell us what", "you're looking for."]}
             body={CONSULTING.close}
           >
             <Button href="/contact" variant="gold">
               Schedule a consultation
             </Button>
-            <Button href="/framework" variant="ghost-light">
+            <Button href="/framework" variant="ghost">
               See the framework
             </Button>
           </SectionHead>
