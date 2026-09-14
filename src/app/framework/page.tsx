@@ -3,7 +3,6 @@ import { FRAMEWORK, PILLARS } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import { Button, Container, PageHero, Section } from "@/components/ui";
 import { Label, Lines, Rise } from "@/components/Reveal";
-import { SectionHead } from "@/components/editorial";
 import FrameworkDiagram from "@/components/FrameworkDiagram";
 import PinnedPillars from "@/components/PinnedPillars";
 
@@ -40,10 +39,11 @@ export default function Framework() {
       {/* ── hero ── */}
       <PageHero
         label="Framework"
-        lines={["The Rai Arts Career", "Readiness Framework™"]}
-        headingClassName="max-w-[20ch] !text-[length:var(--text-step-2)]"
+        lines={["The Rai Arts Career Readiness Framework™"]}
+        headingClassName="!text-[length:var(--text-step-2)]"
         intro={FRAMEWORK.intro}
         introClassName="max-w-[64ch]"
+        size="compact"
       />
 
       {/* ── the graphic ── */}
@@ -89,24 +89,6 @@ export default function Framework() {
         </Container>
       </Section>
 
-      {/* ── cta ── */}
-      <Section dark className="bg-forest-deep py-24 sm:py-32">
-        <Container className="flex flex-col items-center text-center">
-          <SectionHead
-            label="Next step"
-            align="center"
-            dark
-            lines={["Want to bring the", "Framework to you?"]}
-          >
-            <Button href="/contact" variant="gold">
-              Free consultation
-            </Button>
-            <Button href="/learn" variant="ghost-light">
-              Explore resources
-            </Button>
-          </SectionHead>
-        </Container>
-      </Section>
     </>
   );
 }
