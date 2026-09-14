@@ -20,8 +20,8 @@ export default function About() {
       {/* ── hero ── */}
       <PageHero
         label="About"
-        lines={["From the studio", "to the front", "of the room."]}
-        headingClassName="max-w-[16ch]"
+        lines={["From the studio", "to the front of the room."]}
+        headingClassName="max-w-[24ch]"
       />
 
       {/* ── our story ── */}
@@ -39,19 +39,18 @@ export default function About() {
       <QuestionStrip pillars={PILLARS} />
 
       {/* ── cta ── */}
-      <Section dark className="bg-forest-deep py-24 sm:py-32">
+      <Section className="py-24 sm:py-32">
         <Container className="flex flex-col items-center text-center">
           <SectionHead
             label="Work with us"
             align="center"
-            dark
             lines={["Bring Rai Arts", "to your community."]}
             body="Tell us who you're serving and what you want them to walk away knowing, and we'll come back with a program that fits."
           >
             <Button href="/contact" variant="gold">
               Book a consultation
             </Button>
-            <Button href={`mailto:${SITE.email}`} variant="ghost-light" external>
+            <Button href={`mailto:${SITE.email}`} variant="ghost" external>
               {SITE.email}
             </Button>
           </SectionHead>
