@@ -55,6 +55,9 @@
   --color-cream: #f7f0e6;
   --color-sand: #e9dcc6;
   --color-tan: #cdb58d;
+  /* The inner-page hero band. Dark enough to read as "deep tan" against the
+     cream page, light enough that forest-deep text still clears AA on it. */
+  --color-tan-deep: #a8895a;
   --color-gold: #efb93b;
   /* Darkened from the brand mid-gold so labels clear WCAG AA (4.5:1) on both
      cream and sand grounds — 3.12:1 before. */
@@ -169,6 +172,9 @@ html.lenis body {
 .on-dark .label {
   color: var(--color-gold);
 }
+.on-tan .label {
+  color: var(--color-forest-deep);
+}
 
 /* ─────────────────────────────────────────────────────────────
    Reveals.
@@ -272,6 +278,9 @@ html.lenis body {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
+  }
+  /* Only the eyebrow carries tracking; headings and body copy must not. */
+  .js [data-rv-label] {
     letter-spacing: 0.2em;
   }
 }

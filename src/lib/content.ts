@@ -325,15 +325,7 @@ export const LEARN = {
     title: "The newsletter",
     body: "Writing on the business of a dance career, straight to your inbox. Practical, specific, and short enough to actually read.",
     cta: "Subscribe",
-    /**
-     * MailerLite embedded form.
-     *
-     * Paste the form's POST URL here (MailerLite → Forms → Embedded → the
-     * form's Embed tab → look for the `action="https://assets.mailerlite.com/jsonp/…/subscribe"`
-     * line). Until it's filled in, sign-ups are collected by the site's own
-     * Netlify form named "newsletter" instead, so nothing is lost.
-     */
-    action: "" as string,
+    /** Sign-ups go to MailerLite through /api/newsletter. */
   },
   substack: {
     title: "Substack",

@@ -20,8 +20,7 @@ export default function Learn() {
       {/* ── hero ── */}
       <PageHero
         label="Learn"
-        lines={["Free to follow,", "three ways to learn."]}
-        headingClassName="max-w-[14ch]"
+        lines={["Free to follow, three ways to learn."]}
         intro={[
           "You don't need a program to bring Rai Arts in to start learning.",
           "The ebook, the newsletter, and the essays cover the same ground the workshops do.",
@@ -29,13 +28,16 @@ export default function Learn() {
         introClassName="max-w-none"
       />
 
-      {/* ── 01 ebook ── */}
+      {/* ── 01 ebook ──
+          Words on the left edge, cover on the right edge, and a wide gutter
+          between them: Kira wanted breathing room in the middle. */}
       <Container id="ebook" className="scroll-mt-20 py-20 sm:py-28">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-24 xl:gap-32">
           <div>
             <SectionHead
               index="01"
               label="Ebook"
+              align="left"
               lines={[LEARN.ebook.title]}
               body={LEARN.ebook.body}
             >
@@ -44,24 +46,28 @@ export default function Learn() {
               </Button>
             </SectionHead>
           </div>
-          <Rise delay={0.1} className="mx-auto w-full max-w-[22rem] lg:max-w-[30rem]">
+          <Rise delay={0.1} className="mx-auto w-full max-w-[22rem] lg:mx-0 lg:w-[26rem] xl:w-[28rem]">
             <EbookCover />
           </Rise>
         </div>
       </Container>
 
       {/* ── 02 newsletter ── */}
-      <Section id="newsletter" className="scroll-mt-20 bg-tan py-20 sm:py-28">
-        <Container className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+      <Section
+        id="newsletter"
+        className="scroll-mt-20 border-t-2 border-forest bg-tan py-20 sm:py-28"
+      >
+        <Container className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-24 xl:gap-32">
           <div>
             <SectionHead
               index="02"
               label="Newsletter"
+              align="left"
               lines={["The newsletter."]}
               body={LEARN.newsletter.body}
             />
           </div>
-          <Rise delay={0.1}>
+          <Rise delay={0.1} className="w-full lg:w-[26rem] xl:w-[28rem]">
             <div className="grain relative isolate rounded-sm border border-forest/15 bg-cream/70 p-8 sm:p-10">
               <h3 className="font-statement text-[length:var(--text-step-2)]">
                 Get the next one.
@@ -78,6 +84,7 @@ export default function Learn() {
       {/* ── 03 substack ── */}
       {/* Kept tight on purpose: the heading, the rail, and the button are
           meant to fit in one screen on a laptop. */}
+      <div className="border-t-2 border-forest" aria-hidden="true" />
       <Container id="substack" className="scroll-mt-20 py-12 sm:py-14">
         <div className="flex flex-col items-center text-center">
           <div className="flex items-baseline justify-center gap-5">

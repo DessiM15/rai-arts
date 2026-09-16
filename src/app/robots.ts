@@ -6,8 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // Netlify's form-definition stub — real content lives nowhere near it.
-      disallow: ["/__forms.html"],
+      disallow: ["/api/"],
     },
     sitemap: `${SITE.url}/sitemap.xml`,
     host: SITE.url,

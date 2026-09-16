@@ -6,7 +6,12 @@ import { DANCER_PATH, DANCER_VIEWBOX } from "@/lib/brand";
 import { lockScroll } from "@/lib/scroll";
 import { Word } from "./Marks";
 
-type Frame = { src: string; alt: string };
+type Frame = {
+  src: string;
+  alt: string;
+  /** object-position for the full-bleed crop, e.g. "center 62%". */
+  position?: string;
+};
 
 const SEEN_KEY = "rai-arts:opening-seen";
 
@@ -206,10 +211,8 @@ export default function CurtainHero({
             fill
             priority
             sizes="100vw"
-            // A landscape frame in a portrait viewport crops to the middle,
-            // which on this photo is the empty gap between the two figures.
-            // Biasing right keeps Kira in shot on a phone.
-            className="object-cover object-[70%_center] sm:object-center"
+            className="object-cover"
+            style={{ objectPosition: stage.position ?? "center" }}
           />
           <div
             aria-hidden="true"

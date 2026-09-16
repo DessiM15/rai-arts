@@ -2,17 +2,14 @@
 
 import { useState } from "react";
 import { LEARN } from "@/lib/content";
-import { submitForm } from "@/lib/submitForm";
 import { SITE } from "@/lib/site";
 import { Button } from "./ui";
 
 /**
  * Newsletter sign-up, embedded rather than as a MailerLite pop-up so it works
- * without loading MailerLite's script on every page.
- *
- * With LEARN.newsletter.action set, the email posts straight to MailerLite.
- * Without it, the address goes to the site's own Netlify form ("newsletter")
- * so nothing is lost while the URL is being sorted out.
+ * without loading MailerLite's script on every page. The address is posted to
+ * the site's own /api/newsletter route, which adds it to MailerLite with the
+ * secret API key; see src/app/api/newsletter/route.ts.
  */
 export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">(
@@ -27,18 +24,12 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
 
     setState("sending");
     try {
-      const action = LEARN.newsletter.action;
-      if (action) {
-        const body = new FormData();
-        body.set("fields[email]", email);
-        body.set("ml-submit", "1");
-        body.set("anticsrf", "true");
-        // MailerLite's endpoint doesn't send CORS headers, so the response is
-        // opaque. A resolved fetch is the only signal we get.
-        await fetch(action, { method: "POST", body, mode: "no-cors" });
-      } else {
-        await submitForm("newsletter", { email });
-      }
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error(`Sign-up failed (${res.status})`);
       setState("done");
     } catch {
       setState("error");

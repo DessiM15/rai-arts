@@ -59,13 +59,13 @@ export default function OurStory({
       <div>
         <div className="lg:sticky lg:top-28">
           <Rise>
-            <figure className="mx-auto w-full max-w-[17rem] lg:mx-0">
+            <figure className="mx-auto w-full max-w-[22rem] lg:mx-0 lg:max-w-none">
               <div className="grain relative isolate aspect-[4/5] overflow-hidden rounded-sm bg-forest">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  sizes="(min-width: 1024px) 24vw, 70vw"
+                  sizes="(min-width: 1024px) 30vw, 80vw"
                   className="object-cover"
                 />
               </div>

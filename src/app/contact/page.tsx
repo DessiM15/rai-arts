@@ -28,10 +28,9 @@ export default function Contact() {
     <>
       <PageHero
         label="Contact"
-        lines={["Have a program,", "a question, or", "an idea?"]}
-        headingClassName="max-w-[13ch]"
+        lines={["Have a program, a question, or an idea?"]}
         intro="Whether it's booking a workshop for your dancers or scheduling a free consultation, reach out and Kira will get back to you within a couple of days."
-        introClassName="max-w-[52ch]"
+        introClassName="max-w-none"
       />
 
       <Container className="pt-16 pb-24 sm:pt-20 sm:pb-32">

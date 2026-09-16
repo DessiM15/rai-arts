@@ -66,15 +66,19 @@ export function Container({
   children,
   className = "",
   id,
+  wide = false,
 }: {
   children: ReactNode;
   className?: string;
   id?: string;
+  /** A little more room than the page column: for centred hero copy that
+   *  Kira wants on one or two lines rather than wrapped tight. */
+  wide?: boolean;
 }) {
   return (
     <div
       id={id}
-      className={`mx-auto w-full max-w-[1180px] px-5 sm:px-8 lg:px-14 ${className}`}
+      className={`mx-auto w-full ${wide ? "max-w-[1360px]" : "max-w-[1180px]"} px-5 sm:px-8 lg:px-14 ${className}`}
     >
       {children}
     </div>
@@ -88,20 +92,28 @@ export function Section({
   children,
   className = "",
   dark = false,
+  tan = false,
   id,
   as: Tag = "section",
 }: {
   children: ReactNode;
   className?: string;
   dark?: boolean;
+  /** The deep-tan band used for every inner-page hero. */
+  tan?: boolean;
   id?: string;
   as?: "section" | "div" | "footer";
 }) {
+  const tone = dark
+    ? "on-dark bg-forest text-cream"
+    : tan
+      ? "on-tan bg-tan-deep text-forest-deep"
+      : "";
   return (
     <Tag
       id={id}
       data-nav={dark ? "dark" : undefined}
-      className={`grain relative isolate ${dark ? "on-dark bg-forest text-cream" : ""} ${className}`}
+      className={`grain relative isolate ${tone} ${className}`}
     >
       {children}
     </Tag>
@@ -109,9 +121,10 @@ export function Section({
 }
 
 /**
- * Page header shared by every inner route: a full-bleed band in the brand
- * green that runs straight on from the navbar, everything centred. Anything
- * passed as children sits inside the band under the intro.
+ * Page header shared by every inner route: a full-bleed band in deep tan under
+ * the green navbar, everything centred. Anything passed as children sits
+ * inside the band under the intro. The container is the wide one so intro
+ * copy can sit on one or two lines instead of wrapping tight.
  */
 export function PageHero({
   label,
@@ -135,10 +148,10 @@ export function PageHero({
   const compact = size === "compact";
   return (
     <Section
-      dark
+      tan
       className={compact ? "pt-28 pb-12 sm:pt-32 sm:pb-14" : "pt-32 pb-16 sm:pt-40 sm:pb-20"}
     >
-      <Container className="flex flex-col items-center text-center">
+      <Container wide className="flex flex-col items-center text-center">
         <Label>{label}</Label>
         <Lines
           as="h1"
@@ -150,7 +163,7 @@ export function PageHero({
             <Words
               key={i}
               delay={0.1 + i * 0.12}
-              className={`${i === 0 ? (compact ? "mt-5" : "mt-8") : "mt-1"} max-w-[54ch] text-[length:var(--text-step-0)] text-cream/75 ${introClassName}`}
+              className={`${i === 0 ? (compact ? "mt-5" : "mt-8") : "mt-1"} max-w-[54ch] text-[length:var(--text-step-0)] text-forest-deep ${introClassName}`}
               text={line}
             />
           ))}

@@ -20,44 +20,44 @@ export default function LiteracySeries() {
         label="Services · Literacy Series"
         lines={["The Literacy Series."]}
         intro={LITERACY.intro}
-        introClassName="max-w-[58ch]"
+        // ~46rem is what puts this paragraph on three even lines.
+        introClassName="!max-w-[46.5rem] [text-wrap:balance]"
         size="compact"
       />
 
-      {/* ── what it means, as a reveal list ── */}
+      {/* ── what it means: two centred paragraphs, then the eight points in
+          two columns of four (1–4 down the left, 5–8 down the right) ── */}
       <Container className="pt-16 pb-20 sm:pt-20 sm:pb-28">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-          <div className="lg:sticky lg:top-32 lg:self-start">
-            {LITERACY.paragraphs.map((p, i) => (
-              <Rise key={i} delay={i * 0.08}>
-                <p className="mt-6 max-w-[46ch] text-[length:var(--text-step-0)] leading-[1.7] text-ink-soft first:mt-0">
-                  {p}
-                </p>
-              </Rise>
-            ))}
-            <Rise delay={0.2} className="mt-10">
-              <p className="font-display text-[length:var(--text-step-2)] leading-[1.1] text-forest">
-                It means…
+        <div className="mx-auto max-w-[64ch] text-center">
+          {LITERACY.paragraphs.map((p, i) => (
+            <Rise key={i} delay={i * 0.08}>
+              <p className="mt-6 text-[length:var(--text-step-0)] leading-[1.7] text-ink-soft [text-wrap:pretty] first:mt-0">
+                {p}
               </p>
             </Rise>
-          </div>
-
-          <ol className="flex flex-col">
-            {LITERACY.skills.map((s, i) => (
-              <Rise key={i} delay={i * 0.07} y={16}>
-                <li className="flex items-baseline gap-6 border-t border-forest/12 py-6 sm:gap-9">
-                  <span className="font-statement text-[length:var(--text-step-1)] leading-none text-gold-deep/50 tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-display-sm text-[length:var(--text-step-1)] leading-snug text-forest">
-                    {s}
-                  </span>
-                </li>
-              </Rise>
-            ))}
-            <li className="border-t border-forest/12" aria-hidden="true" />
-          </ol>
+          ))}
+          <Rise delay={0.2} className="mt-10">
+            <p className="font-display text-[length:var(--text-step-2)] leading-[1.1] text-forest">
+              It means…
+            </p>
+          </Rise>
         </div>
+
+        <ol className="mt-12 grid sm:grid-flow-col sm:grid-rows-4 sm:gap-x-12 lg:gap-x-20">
+          {LITERACY.skills.map((s, i) => (
+            <Rise key={i} delay={(i % 4) * 0.07} y={16}>
+              <li className="flex h-full items-baseline gap-6 border-t border-forest/12 py-6 sm:gap-8">
+                <span className="font-statement text-[length:var(--text-step-1)] leading-none text-gold-deep/50 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display-sm text-[length:var(--text-step-1)] leading-snug text-forest">
+                  {s}
+                </span>
+              </li>
+            </Rise>
+          ))}
+        </ol>
+        <div className="border-t border-forest/12" aria-hidden="true" />
       </Container>
 
       {/* ── the goal ── */}

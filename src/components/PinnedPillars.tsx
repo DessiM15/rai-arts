@@ -11,6 +11,8 @@ import type { Pillar } from "@/lib/content";
  * Below the large breakpoint the sticky column is dropped entirely and the
  * pillars stack, because a pinned two-column layout on a phone is just a tall
  * column with a wasted half.
+ *
+ * Coloured for the light tan band it sits on (Kira's call, 2026-09-16).
  */
 export default function PinnedPillars({ pillars }: { pillars: Pillar[] }) {
   const [active, setActive] = useState(0);
@@ -41,13 +43,13 @@ export default function PinnedPillars({ pillars }: { pillars: Pillar[] }) {
       <div className="hidden lg:block">
         <div className="sticky top-32">
           <p className="label">The five pillars</p>
-          <p className="font-statement mt-6 text-[length:var(--text-step-6)] leading-none text-gold">
+          <p className="font-statement mt-6 text-[length:var(--text-step-6)] leading-none text-gold-deep/70">
             {String(active + 1).padStart(2, "0")}
           </p>
           <h3 className="font-statement mt-4 text-[length:var(--text-step-2)]">
             {pillars[active]?.title}
           </h3>
-          <p className="mt-4 max-w-[30ch] text-[0.98rem] italic text-cream/70">
+          <p className="mt-4 max-w-[30ch] text-[0.98rem] italic text-forest">
             {pillars[active]?.question}
           </p>
 
@@ -56,12 +58,12 @@ export default function PinnedPillars({ pillars }: { pillars: Pillar[] }) {
               <li
                 key={p.n}
                 className={`flex items-center gap-3 font-mono text-[0.62rem] tracking-[0.18em] uppercase transition-colors duration-500 ${
-                  i === active ? "text-gold" : "text-cream/35"
+                  i === active ? "text-forest-deep" : "text-forest/45"
                 }`}
               >
                 <span
                   className={`h-px transition-all duration-500 ${
-                    i === active ? "w-9 bg-gold" : "w-4 bg-cream/30"
+                    i === active ? "w-9 bg-gold-deep" : "w-4 bg-forest/30"
                   }`}
                 />
                 {p.title}
@@ -85,39 +87,39 @@ export default function PinnedPillars({ pillars }: { pillars: Pillar[] }) {
             }}
           >
             <div className="flex items-baseline gap-5 lg:hidden">
-              <span className="font-statement text-[length:var(--text-step-3)] leading-none text-gold">
+              <span className="font-statement text-[length:var(--text-step-3)] leading-none text-gold-deep/70">
                 {p.n}
               </span>
               <h3 className="font-statement text-[length:var(--text-step-2)]">
                 {p.title}
               </h3>
             </div>
-            <p className="mt-4 text-[0.98rem] italic text-cream/70 lg:hidden">
+            <p className="mt-4 text-[0.98rem] italic text-forest lg:hidden">
               {p.question}
             </p>
 
-            <p className="mt-6 max-w-[40ch] text-[length:var(--text-step-1)] leading-snug text-cream lg:mt-0">
+            <p className="mt-6 max-w-[40ch] text-[length:var(--text-step-1)] leading-snug text-forest-deep lg:mt-0">
               {p.lead}
             </p>
 
             {p.body.map((b, j) => (
-              <p key={j} className="mt-5 max-w-[56ch] leading-[1.7] text-cream/75">
+              <p key={j} className="mt-5 max-w-[56ch] leading-[1.7] text-ink">
                 {b}
               </p>
             ))}
 
-            <p className="mt-6 max-w-[48ch] border-l-2 border-gold pl-5 font-display-sm text-[1.08rem] leading-snug text-cream">
+            <p className="mt-6 max-w-[48ch] border-l-2 border-gold-deep pl-5 font-display-sm text-[1.08rem] leading-snug text-forest-deep">
               {p.close}
             </p>
 
-            <p className="mt-8 font-mono text-[0.6rem] tracking-[0.18em] text-gold uppercase">
+            <p className="mt-8 font-mono text-[0.6rem] tracking-[0.18em] text-forest uppercase">
               Key areas
             </p>
             <ul className="mt-3 flex flex-wrap gap-2">
               {p.areas.map((a) => (
                 <li
                   key={a}
-                  className="rounded-full border border-cream/25 px-3.5 py-1.5 text-[0.82rem] text-cream/85"
+                  className="rounded-full border border-forest/30 px-3.5 py-1.5 text-[0.82rem] text-forest-deep"
                 >
                   {a}
                 </li>

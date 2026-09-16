@@ -3,7 +3,7 @@
 Marketing site for **Rai Arts**, career readiness for dancers.
 _Your Art. Your Business._
 
-Next.js 16 (App Router) · React 19 · Tailwind v4 · Lenis · deployed on Netlify.
+Next.js 16 (App Router) · React 19 · Tailwind v4 · Lenis · deployed on Vercel.
 
 ```bash
 npm install
@@ -54,8 +54,8 @@ src/
     DancerStage.tsx     hero panel, she draws herself in place
     Reveal.tsx          Lines / Words / Rise / Label reveal primitives
     Nav.tsx             sticky nav, Workshops dropdown, mobile sheet
-    ContactForm.tsx     Netlify Forms
-    WaitlistForm.tsx    Netlify Forms
+    ContactForm.tsx     Web3Forms
+    WaitlistForm.tsx    Web3Forms
   lib/
     brand.ts            the vector paths (see below)
     content.ts          all site copy
@@ -89,13 +89,13 @@ state is gated behind a `.js` class set by an inline script in `<head>`. Without
 JavaScript the server HTML renders as plain, complete text. Don't add
 `opacity: 0` to a component without that gate.
 
-**The forms do not work on Vercel.** They were built for Netlify, which discovers
-forms by parsing static HTML at build time — so the shapes are declared in
-`public/__forms.html` and the live React forms POST back to that path. On Vercel
-that path will not accept a POST, so the contact form and the online waitlist
-both fail and show their error state. Known and deliberately deferred; fixing it
-means either a Next.js route handler or pointing the forms at a service such as
-Formspree. Keep `public/__forms.html` if you ever move back to Netlify.
+**Forms.** The contact form and the workshop waitlist post to Web3Forms
+(`src/lib/submitForm.ts`), which emails each submission to Kira; the access key
+in that file is public by design. The newsletter posts to the site's own
+`/api/newsletter` route, which adds the address to MailerLite using the secret
+`MAILERLITE_API_KEY` environment variable. That variable must be set on Vercel
+(Settings → Environment Variables) and in a local `.env.local`; without it the
+newsletter form shows its error state.
 
 **Lenis owns smooth scrolling**, so `scroll-behavior: smooth` is deliberately absent
 from CSS. Next 16 no longer neutralises it during navigation and the two would

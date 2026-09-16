@@ -36,8 +36,7 @@ export default function Services() {
         lines={["Two ways to work with Rai Arts."]}
         intro={[
           "Everything Rai Arts teaches is built from the Career Readiness Framework™.",
-          "Dancers can take it on directly through the Literacy Series.",
-          "Institutions can bring it to their community through Consulting.",
+          "Dancers can take it on directly through the Literacy Series. Institutions can bring it to their community through Consulting.",
         ]}
         introClassName="max-w-none"
       />

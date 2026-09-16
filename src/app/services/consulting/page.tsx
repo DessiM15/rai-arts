@@ -37,20 +37,15 @@ export default function Consulting() {
       />
 
       {/* ── hero ── */}
+      {/* The intro and the follow-on paragraph are run together as one, on
+          the wide column and a step down in size, so the whole thing sits on
+          two lines at laptop width and up. */}
       <PageHero
         label="Services · Consulting"
         lines={["Consulting."]}
-        intro={CONSULTING.intro}
-        introClassName="max-w-[58ch]"
-      >
-        {CONSULTING.paragraphs.map((p, i) => (
-          <Rise key={i} delay={0.2 + i * 0.08}>
-            <p className="mt-5 max-w-[64ch] text-[length:var(--text-step-0)] leading-[1.7] text-cream/75 [text-wrap:pretty]">
-              {p}
-            </p>
-          </Rise>
-        ))}
-      </PageHero>
+        intro={[CONSULTING.intro, ...CONSULTING.paragraphs].join(" ")}
+        introClassName="max-w-none !text-[1rem] leading-[1.7] [text-wrap:pretty]"
+      />
 
       {/* ── formats: the five ways, walked by the dancer as on the home page ── */}
       <Container className="py-20 sm:py-28">
@@ -64,10 +59,13 @@ export default function Consulting() {
       <Section className="bg-sand py-20 sm:py-28">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            {/* Left-aligned so the "02" sits on the same edge as the "05"
+                that closes the walk above it. */}
             <div>
               <SectionHead
                 index="02"
                 label="Workshop topics"
+                align="left"
                 lines={[CONSULTING.build.heading]}
                 body={CONSULTING.build.body}
               />

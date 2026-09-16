@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FRAMEWORK, PILLARS } from "@/lib/content";
 import { SITE } from "@/lib/site";
 import { Button, Container, PageHero, Section } from "@/components/ui";
-import { Label, Lines, Rise } from "@/components/Reveal";
+import { Label, Lines, Rise, Words } from "@/components/Reveal";
 import Image from "next/image";
 import PinnedPillars from "@/components/PinnedPillars";
 
@@ -36,33 +36,38 @@ export default function Framework() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(COURSE_JSONLD) }}
       />
 
-      {/* ── hero ── */}
+      {/* ── hero: the headline, then the five-pillar graphic in the band ──
+          The graphic is the artwork with its own title cropped off, since the
+          headline above already says it. */}
       <PageHero
         label="Framework"
         lines={["The Rai Arts Career Readiness Framework™"]}
         headingClassName="!text-[length:var(--text-step-2)]"
-        intro={FRAMEWORK.intro}
-        introClassName="max-w-[64ch]"
         size="compact"
-      />
-
-      {/* ── the graphic ── */}
-      <Container className="pt-16 pb-16 sm:pt-20 sm:pb-20">
-        <Rise delay={0.15} className="mx-auto max-w-[820px]">
+      >
+        <Rise delay={0.15} className="mx-auto mt-10 w-full max-w-[880px] sm:mt-12">
           <Image
-            src="/images/framework-diagram.png"
-            alt="The Rai Arts Career Readiness Framework™: five pillars, each with its guiding question. Career Foundations, Business Readiness, Financial Readiness, Professional Readiness, and Longevity Readiness."
+            src="/images/framework-pillars.png"
+            alt="The five pillars, each with its guiding question. Career Foundations, Business Readiness, Financial Readiness, Professional Readiness, and Longevity Readiness."
             width={1800}
-            height={590}
-            sizes="(min-width: 900px) 820px, 92vw"
+            height={430}
+            sizes="(min-width: 960px) 880px, 92vw"
             className="mx-auto h-auto w-full"
             priority
           />
         </Rise>
+      </PageHero>
+
+      {/* ── the intro, on the cream band where the graphic used to be ── */}
+      <Container className="py-14 sm:py-16">
+        <Words
+          className="mx-auto max-w-[62rem] text-center text-[length:var(--text-step-0)] leading-[1.7] text-ink-soft [text-wrap:pretty]"
+          text={FRAMEWORK.intro}
+        />
       </Container>
 
-      {/* ── the five in full, pinned ── */}
-      <Section dark className="py-20 sm:py-28 lg:py-36">
+      {/* ── the five in full, pinned, on light tan ── */}
+      <Section className="bg-tan py-20 sm:py-28 lg:py-36">
         <Container>
           <PinnedPillars pillars={PILLARS} />
         </Container>

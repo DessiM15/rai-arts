@@ -42,10 +42,16 @@ export default function Home() {
   return (
     <>
       {/* ── hero: the house curtain, with the lockup on it, parts onto the stage ──
-          The stage uses a landscape crop of the speaking photo: the source is
-          portrait, and object-cover on a full-bleed band would have cut both
-          heads off. */}
-      <CurtainHero stage={{ src: "/images/kira-speaking-wide.jpg", alt: "" }}>
+          The stage is Kira's pick: a studio window wall with barres and pink
+          curtains. The photo is portrait, so the band shows its middle, biased
+          a little low to keep the barre in frame. */}
+      <CurtainHero
+        stage={{
+          src: "/images/studio-barre.jpg",
+          alt: "",
+          position: "center 58%",
+        }}
+      >
         <p className="label">Career readiness for dancers</p>
         <h1 className="font-statement text-[length:var(--text-step-3)] text-cream">
           Helping dancers build sustainable careers
@@ -60,10 +66,12 @@ export default function Home() {
         </div>
       </CurtainHero>
 
-      {/* ── who we are, then the walk ── */}
+      {/* ── who we are, then the walk ──
+          The two paragraphs sit on the wide column so the first is one line
+          and the second two on a laptop or larger; below that they wrap. */}
       <Section className="py-20 sm:py-28 lg:py-32">
-        <Container>
-          <div className="mx-auto max-w-[62ch] text-center">
+        <Container wide>
+          <div className="mx-auto text-center">
             <Lines
               as="h2"
               className="font-statement text-[length:var(--text-step-3)]"
@@ -74,11 +82,12 @@ export default function Home() {
                 key={i}
                 text={p}
                 delay={0.15 + i * 0.1}
-                className="mt-6 text-[length:var(--text-step-0)] leading-[1.65] text-ink-soft first-of-type:mt-8"
+                className="mt-5 text-[length:var(--text-step-0)] leading-[1.65] text-ink-soft [text-wrap:pretty] first-of-type:mt-8"
               />
             ))}
           </div>
-
+        </Container>
+        <Container>
           <div className="mt-24 sm:mt-28 lg:mt-36">
             <LineWalk heading="What We Do" items={SERVICES} />
           </div>
