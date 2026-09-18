@@ -99,7 +99,7 @@ export function Section({
   children: ReactNode;
   className?: string;
   dark?: boolean;
-  /** The deep-tan band used for every inner-page hero. */
+  /** The sand band used for every inner-page hero (same ground as Get in Touch). */
   tan?: boolean;
   id?: string;
   as?: "section" | "div" | "footer";
@@ -107,7 +107,7 @@ export function Section({
   const tone = dark
     ? "on-dark bg-forest text-cream"
     : tan
-      ? "on-tan bg-tan-deep text-forest-deep"
+      ? "bg-sand text-forest-deep"
       : "";
   return (
     <Tag
@@ -121,7 +121,7 @@ export function Section({
 }
 
 /**
- * Page header shared by every inner route: a full-bleed band in deep tan under
+ * Page header shared by every inner route: a full-bleed band in sand under
  * the green navbar, everything centred. Anything passed as children sits
  * inside the band under the intro. The container is the wide one so intro
  * copy can sit on one or two lines instead of wrapping tight.
