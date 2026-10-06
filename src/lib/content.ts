@@ -317,7 +317,7 @@ export const CONSULTING = {
 export const LEARN = {
   ebook: {
     title: "More Than a Dancer",
-    body: "The ebook sits alongside the workshops: the frameworks, worksheets, and plain-language explanations dancers ask for most, in one place you can keep and work through at your own pace.",
+    body: "This ebook walks you through identifying who you are outside of dance, recognizing the transferable skills you’ve already built through years of training, and broaden your understanding of what a career in dance can look like. Part memoir, part practical roadmap, it’s for the dance major preparing for what comes after graduation, the working dancer looking to build income and stability alongside performing, or anyone ready to stop asking “is dance enough?” and start asking “what kind of life do I want to build?”",
     cta: "Get the ebook",
     href: "https://shop.beacons.ai/thisisraiarts/b1977b1b-f277-463d-b5a1-79d9ee47f407",
   },
